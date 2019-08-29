@@ -1,0 +1,14 @@
+.main-view-container {
+    display: flex;
+}
+
+.products-container {
+    height: 100%;
+    width: 80%;
+}
+
+.selector-wrapper {
+    padding-top: 50px;
+    height: 400px;
+    width: 20%;
+}

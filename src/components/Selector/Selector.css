@@ -1,0 +1,21 @@
+.page-numbers {
+    list-style: none;
+    display: flex;
+  }
+  
+  .page-numbers > li {
+    margin-right: 0.3em;
+    color: blue;
+    user-select: none;
+    cursor: pointer;
+  }
+
+  .selector-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .btn-floating {
+    margin: 10px;
+  }

@@ -1,0 +1,21 @@
+
+
+[
+    {"id":1,
+    "title":"Winter body", 
+    "desc": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima, ex.",
+     "price":115,
+     "img": "https://s3.viva.pl/newsy/kot-loki-kot-sfinks-458764-GALLERY_BIG.jpg"
+    },
+
+    {"id":2,"title":"Adidas", "desc": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima, ex.", "price":80,"img": "https://s3.viva.pl/newsy/kot-loki-kot-sfinks-458764-GALLERY_BIG.jpg"},
+    {"id":3,"title":"Vans", "desc": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima, ex.","price":120,"img": "https://s3.viva.pl/newsy/kot-loki-kot-sfinks-458764-GALLERY_BIG.jpg"},
+    {"id":4,"title":"White", "desc": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima, ex.", "price":260,"img": "https://s3.viva.pl/newsy/kot-loki-kot-sfinks-458764-GALLERY_BIG.jpg"},
+    {"id":5,"title":"Cropped-sho", "desc": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima, ex.", "price":1610,"img": "https://s3.viva.pl/newsy/kot-loki-kot-sfinks-458764-GALLERY_BIG.jpg"},
+    {"id":6,"title":"Blues", "desc": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima, ex.","price":910,"img": "https://s3.viva.pl/newsy/kot-loki-kot-sfinks-458764-GALLERY_BIG.jpg"},{"id":7,"title":"Winter body", "desc": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima, ex.", "price":110,"img": "https://s3.viva.pl/newsy/kot-loki-kot-sfinks-458764-GALLERY_BIG.jpg"},
+    {"id":8,"title":"Adidas", "desc": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima, ex.", "price":180,"img": "https://s3.viva.pl/newsy/kot-loki-kot-sfinks-458764-GALLERY_BIG.jpg"},
+    {"id":9,"title":"Vans", "desc": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima, ex.","price":1120,"img": "https://s3.viva.pl/newsy/kot-loki-kot-sfinks-458764-GALLERY_BIG.jpg"},
+    {"id":10,"title":"White", "desc": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima, ex.", "price":1260,"img": "https://s3.viva.pl/newsy/kot-loki-kot-sfinks-458764-GALLERY_BIG.jpg"},
+    {"id":11,"title":"Cropped-sho", "desc": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima, ex.", "price":1160,"img": "https://s3.viva.pl/newsy/kot-loki-kot-sfinks-458764-GALLERY_BIG.jpg"},
+    {"id":12,"title":"Blues", "desc": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima, ex.","price":190,"img": "https://s3.viva.pl/newsy/kot-loki-kot-sfinks-458764-GALLERY_BIG.jpg"}
+]

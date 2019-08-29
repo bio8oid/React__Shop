@@ -1,0 +1,10 @@
+a,
+a:visited {
+  color: black;
+}
+a.active {
+  color: green;
+}
+nav a {
+  margin: 5px;
+}

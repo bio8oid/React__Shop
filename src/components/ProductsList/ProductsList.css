@@ -1,0 +1,58 @@
+img {
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+}
+
+.card {
+    margin: 20px;;
+}
+
+.products-container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.button {
+    background: orange;
+    border: 2px solid rgb(179, 108, 108);
+    border-radius: 8px;
+    padding: 0 10px;
+}
+
+.striped {
+    //border: 1px solid #000;
+}
+
+ul li:last-child {
+    font-size: 20px;
+}
+
+.fas {
+    height: 20px;
+    width: 20px;
+    background: red;
+}
+
+.arrow-left, .arrow-right {
+    height: 20px;
+    width: 20px;
+    columns: green;
+}
+
+/*
+<Fragment>
+    <ul>
+        <li class="arrow-left" ><i class="fas fa-arrow-left"></i></li>
+        {pageNumbers.map((pageNumber, index)=>{
+            index === 0 ? pageOffset = offset : pageOffset += rows;
+            let payload = {offset: pageOffset, rows: rows, currentPage: pageNumber + 1};
+            return (
+                <li style={{display: "inline", padding: "5px"}} key={pageOffset}><button onClick={()=>{getPageData(payload)}} className={props.buttonCssClass}>{pageNumber + 1}</button></li>
+            )
+        })}
+        <li style={{display: "inline", padding: "5px"}}>Page: {currentPageNumber} of {Math.ceil(pages)}</li>
+        <li class="arrow-right" ><i class="fas fa-arrow-right"></i></li>
+    </ul>
+</Fragment>
+*/
