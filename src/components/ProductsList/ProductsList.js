@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import { addToCart, passID, sortedByPriceAsc, sortedByPriceDesc } from '../../actions/actions'
-import Selector from '../Selector/Selector'
+//import Selector from '../Selector/Selector'
 import { Link } from 'react-router-dom'
 import Data from "react-data-pagination";
 import './ProductsList.css'
@@ -31,8 +31,6 @@ class ProductsList extends Component {
 
     return (
 
-      <div className='main-view-container'>
-        <Selector />
         <div className="products-container">
           {dataset.map((item) => (
             <div className="card" key={item.id}>
@@ -52,7 +50,6 @@ class ProductsList extends Component {
             </div>
           ))}
         </div>
-      </div>
     );
   }
 

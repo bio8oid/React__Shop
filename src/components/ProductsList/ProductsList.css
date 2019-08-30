@@ -8,10 +8,6 @@ img {
     margin: 20px;;
 }
 
-.products-container {
-    display: flex;
-    flex-wrap: wrap;
-}
 
 .button {
     background: orange;
@@ -20,9 +16,6 @@ img {
     padding: 0 10px;
 }
 
-.striped {
-    //border: 1px solid #000;
-}
 
 ul li:last-child {
     font-size: 20px;

@@ -35,13 +35,13 @@ export class Selector extends React.Component {
 
     return (
       <div className="selector-wrapper">
-        <Link to="/"><span className="btn-floating " onClick={() => { this.sortedByPriceAsc() }}><i className="material-icons">Price Asc</i></span></Link>
+        <Link to="/home"><span className="btn-floating " onClick={() => { this.sortedByPriceAsc() }}><i className="material-icons">Price Asc</i></span></Link>
 
-        <Link to="/"><span className="btn-floating " onClick={() => { this.sortedByPriceDesc() }}><i className="material-icons">Price Desc</i></span></Link>
+        <Link to="/home"><span className="btn-floating " onClick={() => { this.sortedByPriceDesc() }}><i className="material-icons">Price Desc</i></span></Link>
 
-        <Link to="/"><span className="btn-floating " onClick={() => { this.sortedByNameAsc() }}><i className="material-icons">Name Asc</i></span></Link>
+        <Link to="/home"><span className="btn-floating " onClick={() => { this.sortedByNameAsc() }}><i className="material-icons">Name Asc</i></span></Link>
 
-        <Link to="/"><span className="btn-floating " onClick={() => { this.sortedByNameDesc() }}><i className="material-icons">Name Desc</i></span></Link>
+        <Link to="/home"><span className="btn-floating " onClick={() => { this.sortedByNameDesc() }}><i className="material-icons">Name Desc</i></span></Link>
       </div>
     );
   }
