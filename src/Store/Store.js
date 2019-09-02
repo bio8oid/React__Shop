@@ -1,5 +1,5 @@
-import '../style.css';
-import cartReducer from '../reducers/cartReducer';
+import '../style.scss';
+import cartReducer from '../reducers/reducers';
 import { createStore } from 'redux';
 
 const store = createStore(cartReducer);

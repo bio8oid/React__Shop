@@ -1,0 +1,35 @@
+#root {
+width: 100vw;
+height: 100vh;
+}
+
+.stripped {
+    width: 100%;
+}
+
+.main-view-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    border: 1px solid #000;
+}
+
+.products-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    height: 100%;
+    width: 100%;
+    border: 1px solid #000;
+}
+
+.selector-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 50px;
+    height: 100%;
+    width: 30%;
+    border: 1px solid #000;
+}

@@ -10,6 +10,13 @@
     cursor: pointer;
   }
 
-  .btn-floating {
+  .selector-btn{
+    height: 50px;
+    width: 150px;
     margin: 10px;
+  }
+
+  input {
+    height: 30px;
+    width: 30px;
   }

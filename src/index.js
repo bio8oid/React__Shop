@@ -1,10 +1,18 @@
 import React from "react";
 import { render } from "react-dom";
-import { BrowserRouter, Switch, Route } from "react-router-dom";
+import { Switch, Route } from "react-router-dom";
 
 import { Provider } from 'react-redux'
 import store from './Store/Store';
 //import {store} from "./components/Product/ProductBlue";
+
+//import PageTransition from 'react-router-page-transition';
+
+//import PageTransition from 'react-router-page-transition';
+import { HashRouter } from 'react-router-dom';
+
+
+//import './MainLayoutTransition.css'
 
 import "bootstrap/dist/css/bootstrap.css";
 import "animate.css/animate.min.css";
@@ -22,10 +30,10 @@ import  Error  from "./components/Error/Error";
 class App extends React.Component {
   render() {
     return (
-      <BrowserRouter>
+      <HashRouter >
       <Provider store={store}>
         <MainLayout>
-          <Switch>
+          <Switch location={this.props.location}>
             <Route exact path={"/"} component={Home} />
             <Route exact path={"/home"} component={Home} />
             <Route exact path={"/faq"} component={Faq} />
@@ -37,7 +45,7 @@ class App extends React.Component {
           </Switch>
         </MainLayout>
       </Provider>
-      </BrowserRouter>
+      </HashRouter>
     );
   }
 }

@@ -23,6 +23,7 @@ class Product extends Component{
   
         return(
             <div className="container">
+                
                 <div className="collection">
                     <li className="collection-item">
                             <label>

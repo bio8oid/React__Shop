@@ -1,20 +1,37 @@
-img {
-    height: 100px;
-    width: 100px;
-    border-radius: 50%;
+
+.card-image img {
+    height: 300px;
+    width: 300px;
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
+    background-size: cover;
+    background-position: center;
+    padding: 2px;
+   
 }
 
-.card {
-    margin: 20px;;
-}
 
-
-.button {
+.products-list-button {
     background: orange;
     border: 2px solid rgb(179, 108, 108);
     border-radius: 8px;
     padding: 0 10px;
+    position: absolute;
+    top: 60%;
+    right: 5%;
+    display: none;
 }
+
+.card {
+    margin: 20px;
+    box-shadow: 0px 0px 67px -25px #ccc;
+    border-radius: 25px;
+    background: rgb(238, 238, 238);
+    &:hover .products-list-button{
+        display: inline-block;
+    }
+}
+
 
 
 ul li:last-child {
@@ -31,6 +48,10 @@ ul li:last-child {
     height: 20px;
     width: 20px;
     columns: green;
+}
+
+.card-image {
+    text-align: center;
 }
 
 /*

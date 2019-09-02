@@ -1,10 +1,17 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import { addToCart, passID, sortedByPriceAsc, sortedByPriceDesc } from '../../actions/actions'
+//import { CSSTransition } from 'react-transition-group';
+//import "./ProductsListAnimations.css"
+
+import Pulse from 'react-reveal/Pulse';
+
 //import Selector from '../Selector/Selector'
 import { Link } from 'react-router-dom'
 import Data from "react-data-pagination";
-import './ProductsList.css'
+//import getPageData from "react-data-pagination";
+import './ProductsList.scss'
+
 
 
 class ProductsList extends Component {
@@ -23,42 +30,49 @@ class ProductsList extends Component {
     );
   };
 
+  stateHandle = () => {
+   // initiailState = props.dataset
+   // newState = { items: newstate }
+  } 
+
   DataList = props => {
-    let dataset = props.dataset
-    const photoStyle = {
-      height: '100px', width: '100px'
-    };
+    let dataset = props.dataset;
+
+    //console.log(props.dataset)
 
     return (
 
+      <Pulse cascade>
         <div className="products-container">
+
           {dataset.map((item) => (
-            <div className="card" key={item.id}>
+            <div  className="card" key={item.id}>
               <div className="card-image">
-                <i className="fas fa-arrow-right"></i>
-                <Link to="/product"><img src={item.img} alt={item.title} style={photoStyle} onClick={() => { this.handleId(item.id) }} /></Link>
 
-                <span className="card-title">{item.title}</span>
-                <span to="/" className="btn-floating  red" onClick={() => { this.handleClick(item.id) }}><i className="material-icons">add</i></span>
-              </div>
+              <button to="/" className="products-list-button" onClick={()=>{this.handleClick(item.id)}}>Add to Basket</button>
 
-              <div className="card-content">
-                <p>{item.desc}</p>
-                <p><b>Price: {item.price} £</b></p>
+                <Link to="/product"><img src={item.img} alt={item.title}  onClick={() => { this.handleId(item.id) }} /></Link>
+
+                <h6 className="card-title">{item.title}</h6>
+                <p className="card-price">Price: {item.price} £</p>
+              
               </div>
 
             </div>
           ))}
         </div>
+      </Pulse>
     );
   }
 
   render() {
 
+   let dataset =  this.props.items
+
     return (
       <div className="App" >
         <Data
-          dataset={this.props.items}
+          dataset={dataset}
           offset={0}
           rows={6}
           dataBody={this.DataContainer}
@@ -74,7 +88,7 @@ class ProductsList extends Component {
 
 const mapStateToProps = state => {
   return {
-    items: state.items
+    items: state.items,
   }
 }
 
@@ -88,4 +102,4 @@ const mapDispatchToProps = dispatch => {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps )(ProductsList)
+export default connect(mapStateToProps, mapDispatchToProps)(ProductsList)

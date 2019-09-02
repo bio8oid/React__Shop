@@ -5,6 +5,7 @@ import { addToCart, passID } from '../../actions/actions'
 import { removeItem, addQuantity, subtractQuantity } from '../../actions/actions'
 //import Checkout from '../Checkout/Checkout'
 
+import Zoom from 'react-reveal/Zoom';
 
 
 class Product extends Component {
@@ -16,7 +17,6 @@ class Product extends Component {
   handleId = (id) => {
     this.props.passID(id);
   }
-
 
   render() {
 
@@ -32,7 +32,8 @@ let itemList = this.props.clickedProduct.map(item=>{
   //console.log(this.handleClick(item.id))
  
     return(
-      <div className="card" key={item.id}>
+      
+      <div className="card transition-item" key={item.id}>
                   <div className="card-image">
                       <img src={item.img} alt={item.title} style={photoStyle} />
                       <span className="card-title">{item.title}</span>
@@ -48,17 +49,18 @@ let itemList = this.props.clickedProduct.map(item=>{
     })
 
   return(
+    <Zoom cascade>
       <div className="container">
           <h3 className="center">Our items</h3>
           <div className="box" >
               {itemList}
           </div>
       </div>
+          </Zoom>
   )
 
   }
 }
-
 
 const mapStateToProps = (state) => {
   //console.log(state.clickedProduct)
