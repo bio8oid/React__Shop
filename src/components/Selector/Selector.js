@@ -26,7 +26,7 @@ import "./Selector.scss";
 //import Fragment from '../../../node_modules/react-data-pagination/src/Data.js'
 //import  getPageData from "react-data-pagination";
 
-export class Selector extends React.Component {
+class Selector extends React.Component {
   
   sortedByPriceAsc = () => {
     this.props.sortedByPriceAsc();

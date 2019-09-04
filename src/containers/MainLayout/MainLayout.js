@@ -1,23 +1,14 @@
 import React from "react";
-
-import  Navbar  from "../../components/Navbar/Navbar";
+import  Header  from "../../containers/Header/Header";
 import  Footer  from "../../containers/Footer/Footer";
-import Indicator from '../../components/Indicator/Indicator'
-
-
-//import PageTransition from 'react-router-page-transition';
-
-//import './MainLayoutTransition.scss'
+import './MainLayout.scss';
 
 class MainLayout extends React.Component {
   render() {
     return (
-      <div className="main-component">
-        <Navbar />
-        <Indicator />
-        <div className='container'>
+      <div className="main-component container">
+        <Header />
         {this.props.children}
-        </div>
         <Footer />
       </div>
     );

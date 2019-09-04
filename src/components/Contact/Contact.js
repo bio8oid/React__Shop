@@ -14,7 +14,7 @@ class Contact extends React.Component {
           <h5>Somewhere on Planet Earth</h5>
           <h5>Some continent</h5>
           <h5>+00 1234 1234 1234</h5>
-          <h5>somwhere@nomatter.com</h5>
+          <h5>somewhere@nomatter.com</h5>
           </div>
           <form className='form-container' action="">
             <input className='name' type="text" placeholder='Name'/>
@@ -26,7 +26,6 @@ class Contact extends React.Component {
       </Bounce>
 
     )
-
   }
 }
 

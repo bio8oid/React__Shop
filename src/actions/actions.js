@@ -28,6 +28,7 @@ export const ARMGUARDS_REMOVED = 'ARMGUARDS_REMOVED';
 export const CHECKBOX_UP = 'CHECKBOX_UP';
 export const CHECKBOX_DOWN = 'CHECKBOX_DOWN';
 export const RESET_FILTERS = 'RESET_FILTERS';
+export const TOGGLE_MENU = 'TOGGLE_MENU';
 
 
 export const addToCart = id =>{
@@ -183,20 +184,14 @@ export const armguardsRemoved = () =>{
     }
 }
 
-export const checkboxUp = () =>{
-    return{
-        type: CHECKBOX_UP,
-    }
-}
-
-export const checkboxDown = () =>{
-    return{
-        type: CHECKBOX_DOWN,
-    }
-}
-
 export const resetFilters = () =>{
     return{
         type: RESET_FILTERS,
+    }
+}
+
+export const toggleMenu = () =>{
+    return{
+        type: TOGGLE_MENU,
     }
 }

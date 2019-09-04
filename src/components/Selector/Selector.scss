@@ -1,3 +1,14 @@
+.selector-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 50px;
+  height: 100%;
+  width: 30%;
+  border: 1px solid #000;
+}
+
 .page-numbers {
     list-style: none;
     display: flex;

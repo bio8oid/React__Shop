@@ -3,11 +3,13 @@ import { render } from "react-dom";
 import { Switch, Route } from "react-router-dom";
 import { HashRouter } from 'react-router-dom';
 
-import { Provider } from 'react-redux'
+import { Provider } from 'react-redux';
 import store from './Store/Store';
 
 import "bootstrap/dist/css/bootstrap.css";
 import "./Assets/styles/normalize.scss";
+import './Assets/fonts/Montserrat-Black.ttf';
+import './style.scss';
 
 import  MainLayout  from "./containers/MainLayout/MainLayout";
 import  Home from "./containers/Home/Home";
@@ -25,7 +27,7 @@ class App extends React.Component {
       <Provider store={store}>
         <MainLayout>
           <Switch location={this.props.location}>
-            <Route exact path={"/"}  />
+            <Route exact path={"/"} component={Home} />
             <Route exact path={"/home"} component={Home} />
             <Route exact path={"/faq"} component={Faq} />
             <Route exact path={"/terms"} component={Terms} />

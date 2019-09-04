@@ -25,7 +25,8 @@ import {
     STANDS_REMOVED,
     FILTER_TYPE_ARMGUARDS,
     ARMGUARDS_REMOVED,
-    RESET_FILTERS
+    RESET_FILTERS,
+    TOGGLE_MENU
     
 } from '../actions/actions'
 
@@ -39,6 +40,7 @@ const initState = {
     cartItems: 0,
     total: 0,
     clickedProduct: [],
+    isOpen: false
     //checkbox: 0,
     //filtered: []
 }
@@ -463,6 +465,20 @@ const cartReducer = (state = initState, action) => {
         }
     }
 
+    if (action.type === TOGGLE_MENU) {
+        let open = state.isOpen === false
+        if (open) {
+            return {
+           ...state,
+           isOpen: !initState.isOpen
+           } 
+        }
+            return {
+            ...state,
+            isOpen: initState.isOpen
+        }
+    }
+
     if (action.type === RESET_FILTERS) {
         return {
             ...state,
@@ -473,7 +489,6 @@ const cartReducer = (state = initState, action) => {
     else {
         return state
     }
-
 }
 
 export default cartReducer

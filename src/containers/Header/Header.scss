@@ -1,0 +1,13 @@
+.header-component {
+    display: flex;
+    position: relative;
+}
+
+.logo-image {
+    margin: 15px;
+    height: 70px;
+    width: 70px;
+    background-image: url('../../Assets/images/logo-1.png');
+    background-size: cover;
+    background-position: center;
+  }

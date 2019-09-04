@@ -12,8 +12,6 @@ import Data from "react-data-pagination";
 //import getPageData from "react-data-pagination";
 import './ProductsList.scss'
 
-
-
 class ProductsList extends Component {
 
   handleClick = id => {

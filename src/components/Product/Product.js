@@ -25,9 +25,6 @@ class Product extends Component {
       height: '100px', width: '100px'
     };
 
-
-
-
 let itemList = this.props.clickedProduct.map(item=>{
   //console.log(this.handleClick(item.id))
  
@@ -74,7 +71,6 @@ const mapDispatchToProps = (dispatch) => {
   return {
     addToCart: (id) => { dispatch(addToCart(id)) },
     passID: (id) => { dispatch(passID(id)) },
-
     removeItem: (id) => { dispatch(removeItem(id)) },
     addQuantity: (id) => { dispatch(addQuantity(id)) },
     subtractQuantity: (id) => { dispatch(subtractQuantity(id)) }
