@@ -1,0 +1,21 @@
+.cart-icon {
+    position: absolute;
+    top: 20px;
+    right: 20%;
+
+    .fa-shopping-bag {
+        color: #ccc;
+        font-size: 35px;
+    }
+
+    .cart-counter {
+        width: 25px;
+        height: 25px;
+        background:  #f87428;
+        border-radius: 50%;
+        line-height: 22px;
+        text-align: center;
+        transform: translate(15px, -10px);
+        text-decoration: none;
+    }
+}

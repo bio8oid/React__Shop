@@ -25,8 +25,6 @@ import {
     STANDS_REMOVED,
     FILTER_TYPE_ARMGUARDS,
     ARMGUARDS_REMOVED,
-    CHECKBOX_UP,
-    CHECKBOX_DOWN,
     RESET_FILTERS
     
 } from '../actions/actions'
@@ -38,13 +36,14 @@ const initState = {
     items: products,
     activeItemsList: products,
     addedItems: [],
+    cartItems: 0,
     total: 0,
     clickedProduct: [],
-    checkbox: 0,
+    //checkbox: 0,
     //filtered: []
 }
 
-console.log(initState.checkbox)
+//console.log(initState.checkbox)
 /*
 const componentDidMount = () => {
   fetch('mongodb+srv://8bollod8:8bollod8@clustershopapp-j4vjy.mongodb.net/test?retryWrites=true&w=majority')
@@ -68,7 +67,8 @@ const cartReducer = (state = initState, action) => {
             addedItem.quantity += 1
             return {
                 ...state,
-                total: state.total + addedItem.price
+                total: state.total + addedItem.price,
+                cartItems: state.cartItems + 1
             }
         }
         else {
@@ -78,7 +78,8 @@ const cartReducer = (state = initState, action) => {
             return {
                 ...state,
                 addedItems: [...state.addedItems, addedItem],
-                total: newTotal
+                total: newTotal,
+                cartItems: state.cartItems + 1
             }
 
         }
@@ -101,7 +102,8 @@ const cartReducer = (state = initState, action) => {
         return {
             ...state,
             addedItems: new_items,
-            total: newTotal
+            total: newTotal,
+            cartItems: state.cartItems - 1
         }
     }
 
@@ -111,7 +113,8 @@ const cartReducer = (state = initState, action) => {
         let newTotal = state.total + addedItem.price
         return {
             ...state,
-            total: newTotal
+            total: newTotal,
+            cartItems: state.cartItems + 1
         }
     }
 
@@ -124,7 +127,8 @@ const cartReducer = (state = initState, action) => {
             return {
                 ...state,
                 addedItems: new_items,
-                total: newTotal
+                total: newTotal,
+                cartItems: state.cartItems - 1
             }
         }
 
@@ -133,7 +137,8 @@ const cartReducer = (state = initState, action) => {
             let newTotal = state.total - addedItem.price
             return {
                 ...state,
-                total: newTotal
+                total: newTotal,
+                cartItems: state.cartItems - 1
             }
         }
     }
@@ -455,27 +460,6 @@ const cartReducer = (state = initState, action) => {
         return {
             ...state,
                 items: armguardsRemoved,
-        }
-    }
-
-    if (action.type === CHECKBOX_UP) {
-        console.log(state.checkbox)
-        return {
-            ...state,
-            checkbox: state.checkbox + 1
-        }
-    }
-
-    if (action.type === CHECKBOX_DOWN) {
-        console.log(state.checkbox)
-        return {
-            ...state,
-            checkbox: state.checkbox - 1
-        }
-    }else if(initState.checkbox !== 0) {
-        return {
-            ...state,
-                items: products
         }
     }
 

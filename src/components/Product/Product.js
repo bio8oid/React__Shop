@@ -37,7 +37,7 @@ let itemList = this.props.clickedProduct.map(item=>{
                   <div className="card-image">
                       <img src={item.img} alt={item.title} style={photoStyle} />
                       <span className="card-title">{item.title}</span>
-                      <span to="/" className="btn-floating halfway-fab waves-effect waves-light red" onClick={()=>{this.handleClick(item.id)}}><i className="material-icons">add</i></span>
+                      <button to="/" className="cart-button btn" onClick={()=>{this.handleClick(item.id)}}>Add to cart</button>
                   </div>
 
                   <div className="card-content">

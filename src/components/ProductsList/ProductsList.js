@@ -49,7 +49,7 @@ class ProductsList extends Component {
             <div  className="card" key={item.id}>
               <div className="card-image">
 
-              <button to="/" className="products-list-button" onClick={()=>{this.handleClick(item.id)}}>Add to Basket</button>
+              <button  className="products-list-button btn" onClick={()=>{this.handleClick(item.id)}}>Add to Basket</button>
 
                 <Link to="/product"><img src={item.img} alt={item.title}  onClick={() => { this.handleId(item.id) }} /></Link>
 
@@ -78,7 +78,7 @@ class ProductsList extends Component {
           dataBody={this.DataContainer}
           dataList={this.DataList}
           wrapper="div"
-          wrapperCssClass="striped"
+          wrapperCssClass=""
           buttonCssClass="button"
         />
       </div>

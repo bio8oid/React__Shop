@@ -48,80 +48,65 @@ export class Selector extends React.Component {
   filteredByTypeRisers = (e) => {
     if(e.target.checked) {
       this.props.filteredByTypeRisers();
-      this.props.checkboxUp();
     }else{
       this.props.risersRemoved();
-      this.props.checkboxDown();
     }
   }
   
         filteredByTypeLimbs = (e) => {
           if(e.target.checked) {
             this.props.filteredByTypeLimbs();
-            this.props.checkboxUp();
-          }else{
+                }else{
             this.props.limbsRemoved();
-            this.props.checkboxDown();
+    
           }
         }
 
         filteredByTypeTabs = (e) => {
           if(e.target.checked) {
       this.props.filteredByTypeTabs();
-      this.props.checkboxUp();
     }else{
       this.props.tabsRemoved();
-      this.props.checkboxDown();
     }
   }
   
   filteredByTypeStabilizers = (e) => {
     if(e.target.checked) {
       this.props.filteredByTypeStabilizers();
-      this.props.checkboxUp();
     }else{
       this.props.stabilizersRemoved();
-      this.props.checkboxDown();
     }
   }
   
   filteredByTypeArrows = (e) => {
     if(e.target.checked) {
       this.props.filteredByTypeArrows();
-      this.props.checkboxUp();
     }else{
       this.props.arrowsRemoved();
-      this.props.checkboxDown();
     }
   }
 
   filteredByTypeSights = (e) => {
     if(e.target.checked) {
       this.props.filteredByTypeSights();
-      this.props.checkboxUp();
     }else{
       this.props.sightsRemoved();
-      this.props.checkboxDown();
     }
   }
 
   filteredByTypeStands = (e) => {
     if(e.target.checked) {
       this.props.filteredByTypeStands();
-      this.props.checkboxUp();
     }else{
       this.props.standsRemoved();
-      this.props.checkboxDown();
     }
   }
 
   filteredByTypeArmguards = (e) => {
     if(e.target.checked) {
       this.props.filteredByTypeArmguards();
-      this.props.checkboxUp();
     }else{
       this.props.armguardsRemoved();
-      this.props.checkboxDown();
     }
   }
   
@@ -139,35 +124,19 @@ export class Selector extends React.Component {
     
     return (
       <div className="selector-wrapper">
-        <Link to="/home"><button className="selector-btn " onClick={() => { this.sortedByPriceAsc() }}>Price Asc</button></Link>
+        <Link to="/home" className="selector-btn btn" onClick={() => { this.sortedByPriceAsc() }}>price asc</Link>
 
-        <Link to="/home"><button className="selector-btn " onClick={() => { this.sortedByPriceDesc() }}>Price Desc</button></Link>
+        <Link to="/home"><button className="selector-btn btn" onClick={() => { this.sortedByPriceDesc() }}>Price Desc</button></Link>
 
-        <Link to="/home"><button className="selector-btn " onClick={() => { this.sortedByNameAsc() }}>Name Asc</button></Link>
+        <Link to="/home"><button className="selector-btn btn" onClick={() => { this.sortedByNameAsc() }}>Name Asc</button></Link>
 
-        <Link to="/home"><button className="selector-btn " onClick={() => { this.sortedByNameDesc() }}>Name Desc</button></Link>
+        <Link to="/home"><button className="selector-btn btn" onClick={() => { this.sortedByNameDesc() }}>Name Desc</button></Link>
 
-        <Link to="/home"><button className="selector-btn " onClick={() => { this.resetFilters() }}>Reset Filters</button></Link>
+        <Link to="/home"><button className="selector-btn btn" onClick={() => { this.resetFilters() }}>Reset Filters</button></Link>
 
         <form>
 
-        <div className="custom-control custom-radio custom-control-inline">
-  <input onChange={this.filteredByTypeRisers} type="radio" id="customRadioInline1" name="customRadioInline1" className="custom-control-input" />
-  <label className="custom-control-label" for="customRadioInline1">Risers</label>
-</div>
-<div className="custom-control custom-radio custom-control-inline">
-  <input onChange={this.filteredByTypeLimbs} type="radio" id="customRadioInline2" name="customRadioInline1" className="custom-control-input" />
-  <label className="custom-control-label" for="customRadioInline2">Limbs</label>
-</div>
-
-
-        <p><input type="checkbox" name="checkfield" id="g01-01"  />TEST</p>
-
-
-
-        <p><input className='input' type="checkbox"  onChange={this.filteredByTypeRisers} />Risers</p>
-
-
+        <p><input type="checkbox"  onChange={this.filteredByTypeRisers} />Risers</p>
         <p><input type="checkbox" onChange={this.filteredByTypeLimbs} />Limbs</p>
         <p><input type="checkbox" onChange={this.filteredByTypeTabs} />Finger Tabs</p>
         <p><input type="checkbox" onChange={this.filteredByTypeStabilizers} />Stabilizers</p>

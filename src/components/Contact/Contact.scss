@@ -1,0 +1,42 @@
+.address-container {
+    text-align: center;
+}
+
+.contact-container {
+    padding: 100px 0;
+}
+
+.form-container {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding: 50px;
+
+    & .name, .lastname, .email, .contact-area {
+        width: 100%;
+        height: 50px;
+        margin-bottom: 20px;
+        border-radius: 10px;
+        padding-left: 20px;
+        border: 1px solid #ccc;
+    }
+
+    & .contact-area {
+        height: 100%;
+    }
+
+    & .send-btn {
+       
+    }
+}
+
+
+
+/*
+<form className='form-container' action="">
+<input className='name' type="text" placeholder='Name'/>
+<input className='lastname' type="text" placeholder='Last name'/>
+<input className='email' type="email" placeholder='email' />
+<textarea name="contact-area" id="" cols="30" rows="10"></textarea>
+</form>
+*/

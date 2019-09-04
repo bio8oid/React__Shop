@@ -3,9 +3,11 @@ import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { removeItem, addQuantity, subtractQuantity } from '../../actions/actions'
 import Checkout from '../Checkout/Checkout'
+import { faPlusSquare, faMinusSquare, faTrashAlt } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-import Bounce from 'react-reveal/Bounce';
-
+import Bounce from 'react-reveal/Bounce'
+import './Cart.scss'
 
 class Cart extends Component {
 
@@ -33,26 +35,31 @@ class Cart extends Component {
                 this.props.items.map(item => {
                     return (
                         <Bounce left>
-                            <li className="collection-item avatar transition-item" key={item.id}>
+                            <li className="cart-item" key={item.id}>
 
-
-                                <div className="item-img">
-                                    <img src={item.img} alt={item.img} className="" />
-                                </div>
-
+                                <img src={item.img} alt={item.img} className="item-img" />
 
                                 <div className="item-desc">
-                                    <span className="title">{item.title}</span>
-                                    <p>{item.desc}</p>
-                                    <p><b>Price: {item.price} £</b></p>
-                                    <p>
-                                        <b>Quantity: {item.quantity}</b>
-                                    </p>
+                                    <h5 className="title">{item.title}</h5>
+                                    <h5>Price: {item.price} £</h5>
+
                                     <div className="add-remove">
-                                        <Link to="/cart"><i className="material-icons" onClick={() => { this.handleAddQuantity(item.id) }}>arrow_drop_up</i></Link>
-                                        <Link to="/cart"><i className="material-icons" onClick={() => { this.handleSubtractQuantity(item.id) }}>arrow_drop_down</i></Link>
+                                        <h5>Quantity: {item.quantity}</h5>
+
+                                        <Link to="/cart" className="cart-plus" onClick={() => { this.handleAddQuantity(item.id) }}>
+                                            <FontAwesomeIcon icon={faPlusSquare} />
+                                        </Link>
+
+                                        <Link to="/cart" className="cart-minus" onClick={() => { this.handleSubtractQuantity(item.id) }}>
+                                            <FontAwesomeIcon icon={faMinusSquare} />
+                                        </Link>
+
+                                        <Link to="/cart" className="remove-button" onClick={() => { this.handleRemove(item.id) }}>
+                                            <FontAwesomeIcon icon={faTrashAlt} />
+                                        </Link>
+
                                     </div>
-                                    <button className="waves-effect waves-light btn pink remove" onClick={() => { this.handleRemove(item.id) }}>Remove</button>
+
                                 </div>
 
                             </li>

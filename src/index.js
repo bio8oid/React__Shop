@@ -1,22 +1,13 @@
 import React from "react";
 import { render } from "react-dom";
 import { Switch, Route } from "react-router-dom";
+import { HashRouter } from 'react-router-dom';
 
 import { Provider } from 'react-redux'
 import store from './Store/Store';
-//import {store} from "./components/Product/ProductBlue";
-
-//import PageTransition from 'react-router-page-transition';
-
-//import PageTransition from 'react-router-page-transition';
-import { HashRouter } from 'react-router-dom';
-
-
-//import './MainLayoutTransition.css'
 
 import "bootstrap/dist/css/bootstrap.css";
-import "animate.css/animate.min.css";
-import "font-awesome/css/font-awesome.min.css";
+import "./Assets/styles/normalize.scss";
 
 import  MainLayout  from "./containers/MainLayout/MainLayout";
 import  Home from "./containers/Home/Home";
@@ -34,7 +25,7 @@ class App extends React.Component {
       <Provider store={store}>
         <MainLayout>
           <Switch location={this.props.location}>
-            <Route exact path={"/"} component={Home} />
+            
             <Route exact path={"/home"} component={Home} />
             <Route exact path={"/faq"} component={Faq} />
             <Route exact path={"/terms"} component={Terms} />
