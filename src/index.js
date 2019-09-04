@@ -25,7 +25,7 @@ class App extends React.Component {
       <Provider store={store}>
         <MainLayout>
           <Switch location={this.props.location}>
-            
+            <Route exact path={"/"}  />
             <Route exact path={"/home"} component={Home} />
             <Route exact path={"/faq"} component={Faq} />
             <Route exact path={"/terms"} component={Terms} />
