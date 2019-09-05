@@ -6,7 +6,6 @@ import { faShoppingBag } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import './Indicator.scss'
 
-
 export class Indicator extends Component {
 
     render() {

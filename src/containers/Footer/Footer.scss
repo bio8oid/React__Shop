@@ -1,9 +1,27 @@
 .footer-component {
     display: flex;
+    justify-content: space-between;
 }
 
 .copyrights {
-    width: 200px;
+    width: 300px;
     padding-top: 35px;
     font-weight: 900;
 }
+
+.footer-navbar {
+}
+
+
+@media(max-width: 996px) {
+    .footer-navbar {
+      display: none;
+      border: 1px solid #000;
+    }
+
+    .copyrights {
+    width: 100%;
+    display: block;
+    text-align: center;
+    }
+  }

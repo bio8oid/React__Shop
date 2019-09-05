@@ -1,7 +1,7 @@
 .cart-icon {
     position: absolute;
     top: 30px;
-    right: 0;
+    right: - 15px;
 
     .fa-shopping-bag {
         color: #ccc;
@@ -20,5 +20,11 @@
         font-size: 14px;
         color: #fff;
         font-weight: 800;
+    }
+}
+
+@media(max-width: 767px) {
+    .fa-shopping-bag {
+       margin-right: 10%;
     }
 }

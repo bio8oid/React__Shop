@@ -1,61 +1,30 @@
-//import React from "react";
-//import { NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import * as actions from '../../actions/actions'
+import { Collapse, Navbar, NavbarToggler, Nav } from 'reactstrap';
 import "./Navbar.scss";
-
-/*
-const Navbar = props => {
-  return (
-    <div className="navbar-component">
-      <nav className='menu'>
-        <NavLink href="/home" activeClassName="active">HOME</NavLink>
-        <NavLink exact to="/faq" activeClassName="active">FAQ</NavLink>
-        <NavLink exact to="/terms" activeClassName="active">TERMS & CONDITIONS</NavLink>
-        <NavLink exact to="/contact" activeClassName="active">CONTACT</NavLink>
-        <NavLink exact to="/cart" activeClassName="active">CART</NavLink>
-      </nav>
-    </div>
-  );
-};
-
-export default Navbar;
-*/
-
-import {
-  Collapse,
-  Navbar,
-  NavbarToggler,
-  NavbarBrand,
-  Nav,
-  NavItem,
-  NavLink
-} from 'reactstrap';
 
 class NavMenu extends Component {
 
   toggleMenu = () => {
-    this.props.toggleMenu()  
+    this.props.toggleMenu()
   }
-  
+
   render() {
     return (
-      <div>
-        <Navbar color="ligh" light expand="md">
-          <NavbarBrand href="/"></NavbarBrand>
-          <NavbarToggler onClick={this.props.toggleMenu} />
-          <Collapse isOpen={this.props.isOpen} navbar>
-            <nav className="ml-auto" navbar>
-            <NavLink  to="/home" activeClassName="active">HOME</NavLink>
-        <NavLink href="/faq" >FAQ</NavLink>
-        <NavLink href="/terms/" activeClassName="active">TERMS & CONDITIONS</NavLink>
-        <NavLink href="/contact/#" activeClassName="active">CONTACT</NavLink>
-        <NavLink href="/cart#/" activeClassName="active">CART</NavLink>
-            </nav>
+        <Navbar className = 'navbar-component' color="ligh" light expand="md">
+          <NavbarToggler style={{ marginTop: '20px', textAlign: 'center', justifyContent: 'center'}} onClick={this.props.toggleMenu} />
+          <Collapse style={{ textAlign: 'center', marginTop: '20px' }} isOpen={this.props.isOpen} navbar>
+            <Nav className="ml-auto menu" navbar>
+              <NavLink style={{ textDecoration: 'none' }} exact to="/home" activeClassName="active">HOME</NavLink>
+              <NavLink style={{ textDecoration: 'none' }} exact to="/faq" activeClassName="active">FAQ</NavLink>
+              <NavLink style={{ textDecoration: 'none' }} exact to="/terms" activeClassName="active">TERMS & CONDITIONS</NavLink>
+              <NavLink style={{ textDecoration: 'none' }} exact to="/contact" activeClassName="active">CONTACT</NavLink>
+              <NavLink style={{ textDecoration: 'none' }} exact to="/cart" activeClassName="active">CART</NavLink>
+            </Nav>
           </Collapse>
         </Navbar>
-      </div>
     );
   }
 }
@@ -63,11 +32,11 @@ class NavMenu extends Component {
 const mapStateToProps = state => {
   console.log(state.isOpen)
   return {
-    isOpen: state.isOpen  
+    isOpen: state.isOpen
   }
 }
 
-const mapDispatchToProps =  {
+const mapDispatchToProps = {
   ...actions
 }
 

@@ -7,7 +7,9 @@ class Footer extends React.Component {
     return (
       <div className="footer-component">
           <p className='copyrights'>bio8oid © 2019</p>
+          <div className='footer-navbar'>
         <Navbar />
+          </div>
       </div>
     );
   }
