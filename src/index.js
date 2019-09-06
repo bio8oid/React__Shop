@@ -1,7 +1,7 @@
 import React from "react";
 import { render } from "react-dom";
 import { Switch, Route } from "react-router-dom";
-import { HashRouter } from 'react-router-dom';
+import { BrowserRouter } from 'react-router-dom';
 
 import { Provider } from 'react-redux';
 import store from './Store/Store';
@@ -23,10 +23,10 @@ import  Error  from "./components/Error/Error";
 class App extends React.Component {
   render() {
     return (
-      <HashRouter >
+      <BrowserRouter >
       <Provider store={store}>
         <MainLayout>
-          <Switch location={this.props.location}>
+          <Switch >
             <Route exact path={"/"} component={Home} />
             <Route exact path={"/home"} component={Home} />
             <Route exact path={"/faq"} component={Faq} />
@@ -38,7 +38,7 @@ class App extends React.Component {
           </Switch>
         </MainLayout>
       </Provider>
-      </HashRouter>
+      </BrowserRouter>
     );
   }
 }

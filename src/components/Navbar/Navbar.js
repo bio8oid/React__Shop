@@ -30,7 +30,7 @@ class NavMenu extends Component {
 }
 
 const mapStateToProps = state => {
-  console.log(state.isOpen)
+  //console.log(state.isOpen)
   return {
     isOpen: state.isOpen
   }

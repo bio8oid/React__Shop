@@ -14,7 +14,7 @@ export class Indicator extends Component {
                 <div className="cart-icon">
                     <FontAwesomeIcon icon={faShoppingBag} />
                     <div className="cart-counter">
-                        {this.props.cartItems}
+                        {this.props.indicatorItems}
                     </div>
                 </div>
             </Link>
@@ -24,7 +24,7 @@ export class Indicator extends Component {
 
 const mapStateToProps = state => {
     return {
-        cartItems: state.cartItems
+        indicatorItems: state.indicatorItems
     }
 }
 

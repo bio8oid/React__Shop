@@ -37,7 +37,7 @@ const initState = {
     items: products,
     activeItemsList: products,
     addedItems: [],
-    cartItems: 0,
+    indicatorItems: 0,
     total: 0,
     clickedProduct: [],
     isOpen: false
@@ -70,7 +70,7 @@ const cartReducer = (state = initState, action) => {
             return {
                 ...state,
                 total: state.total + addedItem.price,
-                cartItems: state.cartItems + 1
+                indicatorItems: state.indicatorItems + 1
             }
         }
         else {
@@ -81,7 +81,7 @@ const cartReducer = (state = initState, action) => {
                 ...state,
                 addedItems: [...state.addedItems, addedItem],
                 total: newTotal,
-                cartItems: state.cartItems + 1
+                indicatorItems: state.indicatorItems + 1
             }
 
         }
@@ -105,7 +105,7 @@ const cartReducer = (state = initState, action) => {
             ...state,
             addedItems: new_items,
             total: newTotal,
-            cartItems: state.cartItems - 1
+            indicatorItems: state.indicatorItems - itemToRemove.quantity
         }
     }
 
@@ -116,7 +116,7 @@ const cartReducer = (state = initState, action) => {
         return {
             ...state,
             total: newTotal,
-            cartItems: state.cartItems + 1
+            indicatorItems: state.indicatorItems + 1
         }
     }
 
@@ -130,7 +130,7 @@ const cartReducer = (state = initState, action) => {
                 ...state,
                 addedItems: new_items,
                 total: newTotal,
-                cartItems: state.cartItems - 1
+                indicatorItems: state.indicatorItems - 1
             }
         }
 
@@ -140,7 +140,7 @@ const cartReducer = (state = initState, action) => {
             return {
                 ...state,
                 total: newTotal,
-                cartItems: state.cartItems - 1
+                indicatorItems: state.indicatorItems - 1
             }
         }
     }
