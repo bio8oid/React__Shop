@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
-import { addToCart, passID, sortedByPriceAsc, sortedByPriceDesc } from '../../actions/actions'
+//import { addToCart, passID, sortedByPriceAsc, sortedByPriceDesc } from '../../actions/actions'
+import * as actions from '../../actions/actions';
+
 //import { CSSTransition } from 'react-transition-group';
 //import "./ProductsListAnimations.css"
 
@@ -29,9 +31,9 @@ class ProductsList extends Component {
   };
 
   stateHandle = () => {
-   // initiailState = props.dataset
-   // newState = { items: newstate }
-  } 
+    // initiailState = props.dataset
+    // newState = { items: newstate }
+  }
 
   DataList = props => {
     let dataset = props.dataset;
@@ -44,17 +46,17 @@ class ProductsList extends Component {
         <div className="products-container">
 
           {dataset.map((item) => (
-            <div  className="card" key={item.id}>
+            <div className="card" key={item.id}>
               <div className="card-image">
 
-              <button  className="products-list-button btn" onClick={()=>{this.handleClick(item.id)}}>Add to Basket</button>
+                <button className="products-list-button" onClick={() => { this.handleClick(item.id) }}>Add to Cart</button>
 
-                <Link to="/product"><img src={item.img} alt={item.title}  onClick={() => { this.handleId(item.id) }} /></Link>
+                <Link to="/product"><img src={item.img} alt={item.title} onClick={() => { this.handleId(item.id) }} /></Link>
 
-                <h6 className="card-title">{item.title}</h6>
-                <p className="card-price">Price: {item.price} £</p>
-              
+
               </div>
+              <h6 className="card-title">{item.title}</h6>
+              <p className="card-price">Price: {item.price} £</p>
 
             </div>
           ))}
@@ -65,7 +67,7 @@ class ProductsList extends Component {
 
   render() {
 
-   let dataset =  this.props.items
+    let dataset = this.props.items
 
     return (
       <div className="App" >
@@ -90,14 +92,8 @@ const mapStateToProps = state => {
   }
 }
 
-const mapDispatchToProps = dispatch => {
-
-  return {
-    addToCart: id => { dispatch(addToCart(id)) },
-    passID: id => { dispatch(passID(id)) },
-    sortedByPriceAsc: () => { dispatch(sortedByPriceAsc()) },
-    sortedByPriceDesc: () => { dispatch(sortedByPriceDesc()) }
-  }
+const mapDispatchToProps = {
+  ...actions
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(ProductsList)

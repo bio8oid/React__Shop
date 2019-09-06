@@ -20,7 +20,7 @@ class Contact extends React.Component {
             <input className='name' type="text" placeholder='Name'/>
             <input className='email' type="email" placeholder='Email' />
             <textarea className="contact-area" name="contact-area" id="" cols="30" rows="10" placeholder='Your message'></textarea>
-            <button className='send-btn btn'>Send</button>
+            <button className='send-btn'>Send</button>
           </form>
         </div>
       </Bounce>

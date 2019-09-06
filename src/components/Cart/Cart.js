@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
-import { removeItem, addQuantity, subtractQuantity } from '../../actions/actions'
+//import { removeItem, addQuantity, subtractQuantity } from '../../actions/actions'
+import * as actions from '../../actions/actions';
+
 import Checkout from '../Checkout/Checkout'
 import { faPlusSquare, faMinusSquare, faTrashAlt } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -74,7 +76,7 @@ class Cart extends Component {
         return (
             <Bounce left>
 
-                <div className="container transition-item">
+                <div className="cart-component container">
                     <div className="cart">
                         <h5>You have ordered:</h5>
                         <ul className="collection">
@@ -97,11 +99,9 @@ const mapStateToProps = (state) => {
         //addedItems: state.addedItems
     }
 }
-const mapDispatchToProps = (dispatch) => {
-    return {
-        removeItem: (id) => { dispatch(removeItem(id)) },
-        addQuantity: (id) => { dispatch(addQuantity(id)) },
-        subtractQuantity: (id) => { dispatch(subtractQuantity(id)) }
-    }
-}
+
+const mapDispatchToProps = {
+    ...actions
+  }
+  
 export default connect(mapStateToProps, mapDispatchToProps)(Cart)

@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
-import { addToCart, passID } from '../../actions/actions'
+//import { addToCart, passID } from '../../actions/actions'
 //import { Link } from 'react-router-dom'
-import { removeItem, addQuantity, subtractQuantity } from '../../actions/actions'
+//import { removeItem, addQuantity, subtractQuantity } from '../../actions/actions'
 //import Checkout from '../Checkout/Checkout'
-
+import * as actions from '../../actions/actions';
 import Zoom from 'react-reveal/Zoom';
+import './Product.scss'
 
 
 class Product extends Component {
@@ -21,25 +22,22 @@ class Product extends Component {
   render() {
 
     //console.log(this.handleId(this.id)); state.clickedProduct
-    const photoStyle = {
-      height: '100px', width: '100px'
-    };
-
+   
 let itemList = this.props.clickedProduct.map(item=>{
   //console.log(this.handleClick(item.id))
  
     return(
       
-      <div className="card transition-item" key={item.id}>
+      <div className="card" key={item.id}>
                   <div className="card-image">
-                      <img src={item.img} alt={item.title} style={photoStyle} />
-                      <span className="card-title">{item.title}</span>
-                      <button to="/" className="cart-button btn" onClick={()=>{this.handleClick(item.id)}}>Add to cart</button>
+                      <img className='img-fluid' src={item.img} alt={item.title}  />
+                      <h5 className="card-title">{item.title}</h5>
+                      <button to="/" className="products-list-button" onClick={()=>{this.handleClick(item.id)}}>Add to cart</button>
                   </div>
 
                   <div className="card-content">
                       <p>{item.desc}</p>
-                      <p><b>Price: {item.price} £</b></p>
+                      <h3>Price: {item.price} £</h3>
                   </div>
            </div>
       )
@@ -47,9 +45,9 @@ let itemList = this.props.clickedProduct.map(item=>{
 
   return(
     <Zoom cascade>
-      <div className="container">
-          <h3 className="center">Our items</h3>
-          <div className="box" >
+      <div className="product-component container">
+          <h1 className="product-header">{this.props.clickedProduct.map(({ title }) => title.slice(0))}</h1>
+          <div className="product-wrapper" >
               {itemList}
           </div>
       </div>
@@ -60,21 +58,16 @@ let itemList = this.props.clickedProduct.map(item=>{
 }
 
 const mapStateToProps = (state) => {
-  //console.log(state.clickedProduct)
+  console.log(state.clickedProduct.map(({ title }) => title.slice(0))
+)
+
   return {
     clickedProduct: state.clickedProduct
   }
 }
 
-const mapDispatchToProps = (dispatch) => {
-
-  return {
-    addToCart: (id) => { dispatch(addToCart(id)) },
-    passID: (id) => { dispatch(passID(id)) },
-    removeItem: (id) => { dispatch(removeItem(id)) },
-    addQuantity: (id) => { dispatch(addQuantity(id)) },
-    subtractQuantity: (id) => { dispatch(subtractQuantity(id)) }
-  }
+const mapDispatchToProps = {
+  ...actions
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Product)

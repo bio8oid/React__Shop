@@ -1,13 +1,17 @@
 .cart-icon {
     position: absolute;
-    top: 30px;
+    top: 35px;
     right: - 15px;
+    height: 30px;
 
-    .fa-shopping-bag {
-        color: #ccc;
-        font-size: 35px;
+    &:hover .cart-counter{
+        background: #ccc;
     }
 
+    &:hover .fa-shopping-bag {
+        color:  #f87428;
+    }
+                  
     .cart-counter {
         width: 20px;
         height: 20px;
@@ -15,11 +19,17 @@
         border-radius: 50%;
         line-height: 20px;
         text-align: center;
-        transform: translate(15px, -10px);
+        transform: translate(15px, -15px);
         text-decoration: none;
         font-size: 14px;
         color: #fff;
         font-weight: 800;
+    }
+    
+    .fa-shopping-bag {
+        color: #ccc;
+        font-size: 35px;
+        display: block;
     }
 }
 

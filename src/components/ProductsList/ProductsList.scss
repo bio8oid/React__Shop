@@ -1,9 +1,10 @@
 .products-container {
     display: flex;
-    justify-content: center;
+    justify-content: flex-end;
     flex-wrap: wrap;
     height: 100%;
     width: 100%;
+    padding-top: 50px;
 
     .card {
         width: 300px;
@@ -11,7 +12,19 @@
         box-shadow: 0px 0px 67px -25px #ccc;
         border-radius: 25px;
         background: rgb(238, 238, 238);
+        color: #f87428;
         text-align: center;
+
+        & h6 {
+            color: #000;
+            font-weight: 900;
+            margin-top: 10px;
+        }
+
+        &:hover {
+        box-shadow:inset 0px 0px 0px 2px #f87428;
+        z-index: 6;
+        }
 
         &:hover .products-list-button{
             display: inline-block;
@@ -20,32 +33,32 @@
 
     .card-image img {
         height: 300px;
-        width: 300px;
+        width: 296px;
         border-top-left-radius: 25px;
         border-top-right-radius: 25px;
         background-size: cover;
         background-position: center;
         padding: 2px;
+        position: relative;
     }
-
-    .products-list-button {
-        box-sizing: border-box;
-        background: orange;
-        border-radius: 8px;
-        padding: 5px 10px;
-        position: absolute;
-        top: 60%;
-        right: 5%;
-        display: none;
-
-        &:hover {
-        box-shadow:inset 0px 0px 0px 2px  #f87428;
-        }
-    }
-    
 }
 
+.products-list-button {
+        background: orange;
+        border-radius: 8px;
+        padding: 10px;
+        position: absolute;
+        border: none;
+        z-index: 3;
+        bottom: 3%;
+        right: 27%;
+        display: none;
+        box-shadow:inset 0px 0px 0px 2px  #f87428;
 
+        &:hover {
+        color: #fff;
+        }
+    }
 
 
 

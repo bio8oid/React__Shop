@@ -1,5 +1,6 @@
 import React from "react";
 import Bounce from 'react-reveal/Bounce';
+import './Faq.scss'
 
 export class Faq extends React.Component {
   render() {
@@ -16,7 +17,7 @@ export class Faq extends React.Component {
                         <h1 class="align-left no-margin">FAQ</h1>
                           <div>
                             <h5>How to redeem samples?</h5>
-                            <p><img src="https://sssgprd.s3.amazonaws.com/wysiwyg/FAQ_1.png" alt=""/></p>
+                            <p><img class="img-fluid" src="https://sssgprd.s3.amazonaws.com/wysiwyg/FAQ_1.png" alt=""/></p>
 </div>
                             <div class="col-half-left">
                               <h5>How can I change my shipping address?</h5>

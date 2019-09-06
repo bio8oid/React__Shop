@@ -1,6 +1,10 @@
 .header-component {
     display: flex;
-    position: relative;
+    position: sticky;
+    top: 0;
+    background: #fff;
+    z-index: 3;
+    height: 100px;
 }
 
 .logo-image {

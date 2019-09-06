@@ -11,13 +11,14 @@ a.active {
 }
 
 nav a {
-  margin: 10px;
+  margin:0 10px;
 }
 
 .navbar-component {
   display: flex;
   width: 100%;
   justify-content: flex-end;
+  padding-top: 0;
 }
 
 .menu {

@@ -1,5 +1,6 @@
 import React from "react";
 import Bounce from 'react-reveal/Bounce';
+import './Terms.scss'
 
 export class Terms extends React.Component {
   render() {

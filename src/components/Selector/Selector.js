@@ -1,25 +1,7 @@
 import React from "react";
-import { connect } from 'react-redux'
-import * as actions from '../../actions/actions'
-/*
-import { sortedByPriceAsc, 
-  sortedByPriceDesc, 
-  sortedByNameAsc, 
-  sortedByNameDesc,
-  filteredByTypeRisers,
-  filteredByTypeLimbs,
-  filteredByTypeTabs,
-  filteredByTypeStabilizers,
-  filteredByTypeArrows,
-  filteredByTypeSights,
-  filteredByTypeStands,
-  filteredByTypeArmguards,
-  resetFilters,
-  filteredByTypeRisersRemove
- } 
- */
-
-import { Link } from 'react-router-dom'
+import { connect } from 'react-redux';
+import * as actions from '../../actions/actions';
+import { NavLink } from 'react-router-dom';
 import "./Selector.scss";
 
 //import { getPageData } from '../../../node_modules/react-data-pagination/src/Data.js'
@@ -27,11 +9,11 @@ import "./Selector.scss";
 //import  getPageData from "react-data-pagination";
 
 class Selector extends React.Component {
-  
+
   sortedByPriceAsc = () => {
     this.props.sortedByPriceAsc();
   }
-  
+
   sortedByPriceDesc = () => {
     this.props.sortedByPriceDesc();
   }
@@ -44,108 +26,131 @@ class Selector extends React.Component {
     this.props.sortedByNameDesc();
   }
 
-
   filteredByTypeRisers = (e) => {
-    if(e.target.checked) {
+    if (e.target.checked) {
       this.props.filteredByTypeRisers();
-    }else{
+    } else {
       this.props.risersRemoved();
     }
   }
-  
-        filteredByTypeLimbs = (e) => {
-          if(e.target.checked) {
-            this.props.filteredByTypeLimbs();
-                }else{
-            this.props.limbsRemoved();
-    
-          }
-        }
 
-        filteredByTypeTabs = (e) => {
-          if(e.target.checked) {
+  filteredByTypeLimbs = (e) => {
+    if (e.target.checked) {
+      this.props.filteredByTypeLimbs();
+    } else {
+      this.props.limbsRemoved();
+    }
+  }
+
+  filteredByTypeTabs = (e) => {
+    if (e.target.checked) {
       this.props.filteredByTypeTabs();
-    }else{
+    } else {
       this.props.tabsRemoved();
     }
   }
-  
+
   filteredByTypeStabilizers = (e) => {
-    if(e.target.checked) {
+    if (e.target.checked) {
       this.props.filteredByTypeStabilizers();
-    }else{
+    } else {
       this.props.stabilizersRemoved();
     }
   }
-  
+
   filteredByTypeArrows = (e) => {
-    if(e.target.checked) {
+    if (e.target.checked) {
       this.props.filteredByTypeArrows();
-    }else{
+    } else {
       this.props.arrowsRemoved();
     }
   }
 
   filteredByTypeSights = (e) => {
-    if(e.target.checked) {
+    if (e.target.checked) {
       this.props.filteredByTypeSights();
-    }else{
+    } else {
       this.props.sightsRemoved();
     }
   }
 
   filteredByTypeStands = (e) => {
-    if(e.target.checked) {
+    if (e.target.checked) {
       this.props.filteredByTypeStands();
-    }else{
+    } else {
       this.props.standsRemoved();
     }
   }
 
   filteredByTypeArmguards = (e) => {
-    if(e.target.checked) {
+    if (e.target.checked) {
       this.props.filteredByTypeArmguards();
-    }else{
+    } else {
       this.props.armguardsRemoved();
     }
   }
-  
-  
+
   resetFilters = () => {
     const inputs = document.getElementsByTagName("input");
-    for (var i = 0; i < inputs.length; ++i) { 
+    for (var i = 0; i < inputs.length; ++i) {
       inputs[i].checked = false;
     }
     this.props.resetFilters();
     console.log(inputs)
   }
-  
+
   render() {
-    
+
     return (
       <div className="selector-wrapper">
-        <Link to="/home" className="selector-btn btn" onClick={() => { this.sortedByPriceAsc() }}>price asc</Link>
+        <NavLink activeClassName="active" style={{ textDecoration: 'none' }} to="/" className="selector-btn menu" onClick={() => { this.sortedByPriceAsc() }}>price asc</NavLink>
 
-        <Link to="/home"><button className="selector-btn btn" onClick={() => { this.sortedByPriceDesc() }}>Price Desc</button></Link>
+        <NavLink activeClassName="active" style={{ textDecoration: 'none' }} to="/" className="selector-btn menu" onClick={() => { this.sortedByPriceDesc() }}>Price Desc</NavLink>
 
-        <Link to="/home"><button className="selector-btn btn" onClick={() => { this.sortedByNameAsc() }}>Name Asc</button></Link>
+        <NavLink activeClassName="active" style={{ textDecoration: 'none' }} to="/" className="selector-btn menu" onClick={() => { this.sortedByNameAsc() }}>Name Asc</NavLink>
 
-        <Link to="/home"><button className="selector-btn btn" onClick={() => { this.sortedByNameDesc() }}>Name Desc</button></Link>
+        <NavLink activeClassName="active" style={{ textDecoration: 'none' }} to="/" className="selector-btn menu" onClick={() => { this.sortedByNameDesc() }}>Name Desc</NavLink>
 
-        <Link to="/home"><button className="selector-btn btn" onClick={() => { this.resetFilters() }}>Reset Filters</button></Link>
+        <NavLink activeClassName="active" style={{ textDecoration: 'none' }} to="/" className="selector-btn menu" onClick={() => { this.resetFilters() }}>Reset Filters</NavLink>
 
-        <form>
+        <div className='line'></div>
 
-        <p><input type="checkbox"  onChange={this.filteredByTypeRisers} />Risers</p>
-        <p><input type="checkbox" onChange={this.filteredByTypeLimbs} />Limbs</p>
-        <p><input type="checkbox" onChange={this.filteredByTypeTabs} />Finger Tabs</p>
-        <p><input type="checkbox" onChange={this.filteredByTypeStabilizers} />Stabilizers</p>
-        <p><input type="checkbox" onChange={this.filteredByTypeArrows} />Arrows</p>
-        <p><input type="checkbox" onChange={this.filteredByTypeSights} />Sights</p>
-        <p><input type="checkbox" onChange={this.filteredByTypeStands} />Stands</p>
-        <p><input type="checkbox" onChange={this.filteredByTypeArmguards} />Armguards</p>
+        <form className="input-group menu">
 
-      </form>
+         <div className="input-item">
+           <input type="checkbox" onChange={this.filteredByTypeRisers} />
+           <label>Risers</label>
+         </div>
+         <div className="input-item">
+          <input type="checkbox" onChange={this.filteredByTypeLimbs} />
+          <label>Limbs</label>
+         </div>
+         <div className="input-item">
+          <input type="checkbox" onChange={this.filteredByTypeTabs} />
+          <label>Finger Tabs</label>           
+         </div>
+         <div className="input-item">
+          <input type="checkbox" onChange={this.filteredByTypeStabilizers} />
+          <label>Stabilizers</label>
+         </div>
+         <div className="input-item">
+          <input type="checkbox" onChange={this.filteredByTypeArrows} />
+          <label>Arrows</label>
+         </div>
+         <div className="input-item">
+          <input type="checkbox" onChange={this.filteredByTypeSights} />
+          <label>Sights</label>
+         </div>
+         <div className="input-item">
+          <input type="checkbox" onChange={this.filteredByTypeStands} />
+          <label>Stands</label>
+         </div>
+         <div className="input-item">
+          <input type="checkbox" onChange={this.filteredByTypeArmguards} />
+          <label>Armguards</label>
+         </div>
+
+        </form>
 
       </div>
     );
@@ -158,27 +163,8 @@ const mapStateToProps = state => {
   }
 }
 
-const mapDispatchToProps =  {
-
+const mapDispatchToProps = {
   ...actions
-/*
-  return {
-    sortedByPriceAsc: () => { dispatch(sortedByPriceAsc()) },
-    sortedByPriceDesc: () => { dispatch(sortedByPriceDesc()) },
-    sortedByNameAsc: () => { dispatch(sortedByNameAsc()) },
-    sortedByNameDesc: () => { dispatch(sortedByNameDesc()) },
-    filteredByTypeRisers: () => { dispatch(filteredByTypeRisers()) },
-    filteredByTypeRisersRemove: () => { dispatch(filteredByTypeRisersRemove()) },
-    filteredByTypeLimbs: () => { dispatch(filteredByTypeLimbs()) },
-    filteredByTypeTabs: () => { dispatch(filteredByTypeTabs()) },
-    filteredByTypeStabilizers: () => { dispatch(filteredByTypeStabilizers()) },
-    filteredByTypeArrows: () => { dispatch(filteredByTypeArrows()) },
-    filteredByTypeSights: () => { dispatch(filteredByTypeSights()) },
-    filteredByTypeStands: () => { dispatch(filteredByTypeStands()) },
-    filteredByTypeArmguards: () => { dispatch(filteredByTypeArmguards()) },
-    resetFilters: () => { dispatch(resetFilters()) },
-    //getPageData: (props) => { dispatch(getPageData()) }
-  }*/
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Selector)
