@@ -78,8 +78,8 @@ class ProductsList extends Component {
           dataBody={this.DataContainer}
           dataList={this.DataList}
           wrapper="div"
-          wrapperCssClass=""
-          buttonCssClass="button"
+          wrapperCssClass="pagination"
+          buttonCssClass="pag-btn"
         />
       </div>
     );

@@ -1,7 +1,7 @@
 import '../style.scss';
-import cartReducer from '../reducers/reducers';
+import Reducers from '../reducers/reducers';
 import { createStore } from 'redux';
 
-const store = createStore(cartReducer);
+const store = createStore(Reducers);
 
   export default store;

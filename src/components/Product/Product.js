@@ -1,13 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
-//import { addToCart, passID } from '../../actions/actions'
-//import { Link } from 'react-router-dom'
-//import { removeItem, addQuantity, subtractQuantity } from '../../actions/actions'
-//import Checkout from '../Checkout/Checkout'
 import * as actions from '../../actions/actions';
 import Zoom from 'react-reveal/Zoom';
 import './Product.scss'
-
 
 class Product extends Component {
 
@@ -20,46 +15,40 @@ class Product extends Component {
   }
 
   render() {
+    let itemList = this.props.clickedProduct.map(item => {
+      return (
+        <div className="card" key={item.id}>
+          <div className="card-image">
+            <img className='img-fluid' src={item.img} alt={item.title} />
+            <h5 className="card-title">{item.title}</h5>
+            <button to="/" className="products-list-button" onClick={() => { this.handleClick(item.id) }}>Add to cart</button>
+          </div>
 
-    //console.log(this.handleId(this.id)); state.clickedProduct
-   
-let itemList = this.props.clickedProduct.map(item=>{
-  //console.log(this.handleClick(item.id))
- 
-    return(
-      
-      <div className="card" key={item.id}>
-                  <div className="card-image">
-                      <img className='img-fluid' src={item.img} alt={item.title}  />
-                      <h5 className="card-title">{item.title}</h5>
-                      <button to="/" className="products-list-button" onClick={()=>{this.handleClick(item.id)}}>Add to cart</button>
-                  </div>
-
-                  <div className="card-content">
-                      <p>{item.desc}</p>
-                      <h3>Price: {item.price} £</h3>
-                  </div>
-           </div>
+          <div className="card-content">
+            <p>{item.desc}</p>
+            <h3>Price: {item.price} £</h3>
+          </div>
+        </div>
       )
     })
 
-  return(
-    <Zoom cascade>
-      <div className="product-component container">
+    return (
+      <Zoom cascade>
+        <div className="product-component container">
           <h1 className="product-header">{this.props.clickedProduct.map(({ title }) => title.slice(0))}</h1>
           <div className="product-wrapper" >
-              {itemList}
+            {itemList}
           </div>
-      </div>
-          </Zoom>
-  )
+        </div>
+      </Zoom>
+    )
 
   }
 }
 
 const mapStateToProps = (state) => {
   console.log(state.clickedProduct.map(({ title }) => title.slice(0))
-)
+  )
 
   return {
     clickedProduct: state.clickedProduct

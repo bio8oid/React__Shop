@@ -23,7 +23,7 @@
 
         &:hover {
         box-shadow:inset 0px 0px 0px 2px #f87428;
-        z-index: 6;
+        z-index: 3;
         }
 
         &:hover .products-list-button{
@@ -60,21 +60,14 @@
         }
     }
 
+     .App ul{
+        display: flex;
+        justify-content: center;
+        width: 100%;
+    }
 
-
-/*
-<Fragment>
-    <ul>
-        <li class="arrow-left" ><i class="fas fa-arrow-left"></i></li>
-        {pageNumbers.map((pageNumber, index)=>{
-            index === 0 ? pageOffset = offset : pageOffset += rows;
-            let payload = {offset: pageOffset, rows: rows, currentPage: pageNumber + 1};
-            return (
-                <li style={{display: "inline", padding: "5px"}} key={pageOffset}><button onClick={()=>{getPageData(payload)}} className={props.buttonCssClass}>{pageNumber + 1}</button></li>
-            )
-        })}
-        <li style={{display: "inline", padding: "5px"}}>Page: {currentPageNumber} of {Math.ceil(pages)}</li>
-        <li class="arrow-right" ><i class="fas fa-arrow-right"></i></li>
-    </ul>
-</Fragment>
-*/
+    @media(max-width: 576px) {
+      .products-container {
+        justify-content: center;
+    }
+    }

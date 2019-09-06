@@ -1,11 +1,11 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-//import { Link } from 'react-router-dom'
+import './Checkout.scss'
 
 
-class Product extends Component {
+class Checkout extends Component {
 
-    componentWillUnmount() {
+    componentWillUnmount = () => {
         if (this.refs.shipping.checked)
             this.props.substractShipping()
     }
@@ -19,26 +19,23 @@ class Product extends Component {
         }
     }
 
+    handleCode = () => {
+        alert('Invalid code !')
+    }
+
     render() {
 
         return (
-            <div className="container">
-
-                <div className="collection">
-                    <li className='code'>
-                        <input type="text" placeholder='discount code' />
-                    </li>
-                    <li className="collection-item">
-                        <label>
-                            <input type="checkbox" ref="shipping" onChange={this.handleChecked} />
-                            <span>Shipping(+3.99 £)</span>
-                        </label>
-                    </li>
-                    <li className="collection-item"><b>Total: {this.props.total}  £</b></li>
-                </div>
-                <div className="checkout">
-                    <button onClick={() => { alert('CHECK THIS OUT !!!') }} className="waves-effect waves-light btn">Checkout</button>
-                </div>
+            <div className="checkout-component container">
+                <li className='checkout-code'>
+                    <input type="text" placeholder='Enter code' onChange={this.handleCode} />
+                </li>
+                <li className="checkout-shipping">
+                    <input type="checkbox" ref="shipping" onChange={this.handleChecked} />
+                    <label>Shipping (+ 3.99 £)</label>
+                </li>
+                <li className="checkout-total">Total: {this.props.total}  £</li>
+                <button onClick={() => { alert('CHECK THIS OUT !!!') }} className="checkout-btn">Checkout</button>
             </div>
         )
     }
@@ -58,4 +55,4 @@ const mapDispatchToProps = (dispatch) => {
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Product)
+export default connect(mapStateToProps, mapDispatchToProps)(Checkout)

@@ -1,13 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
-//import { removeItem, addQuantity, subtractQuantity } from '../../actions/actions'
 import * as actions from '../../actions/actions';
-
 import Checkout from '../Checkout/Checkout'
 import { faPlusSquare, faMinusSquare, faTrashAlt } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-
 import Bounce from 'react-reveal/Bounce'
 import './Cart.scss'
 
@@ -25,11 +22,6 @@ class Cart extends Component {
         this.props.subtractQuantity(id);
     }
 
-    goBack = () => {
-        this.props.history.goBack();
-    }
-
-
     render() {
 
         let addedItems = this.props.items.length ?
@@ -43,10 +35,14 @@ class Cart extends Component {
 
                                 <div className="item-desc">
                                     <h5 className="title">{item.title}</h5>
-                                    <h5>Price: {item.price} £</h5>
+                                    <p>Price: {item.price} £</p>
 
                                     <div className="add-remove">
-                                        <h5>Quantity: {item.quantity}</h5>
+                                        <p>Quantity: </p>
+                                        <p className="quantity">
+                                            {item.quantity}
+                                        </p>
+
 
                                         <Link to="/cart" className="cart-plus" onClick={() => { this.handleAddQuantity(item.id) }}>
                                             <FontAwesomeIcon icon={faPlusSquare} />
@@ -71,14 +67,14 @@ class Cart extends Component {
             ) :
 
             (
-                <p>Nothing yet :).</p>
+                <p>Your cart is empty...</p>
             )
         return (
             <Bounce left>
 
                 <div className="cart-component container">
                     <div className="cart">
-                        <h5>You have ordered:</h5>
+                        <h3>In your cart:</h3>
                         <ul className="collection">
                             {addedItems}
                         </ul>
@@ -96,12 +92,11 @@ class Cart extends Component {
 const mapStateToProps = (state) => {
     return {
         items: state.addedItems,
-        //addedItems: state.addedItems
     }
 }
 
 const mapDispatchToProps = {
     ...actions
-  }
-  
+}
+
 export default connect(mapStateToProps, mapDispatchToProps)(Cart)

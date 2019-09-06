@@ -102,53 +102,56 @@ class Selector extends React.Component {
   render() {
 
     return (
-      <div className="selector-wrapper">
-        <NavLink activeClassName="active" style={{ textDecoration: 'none' }} to="/" className="selector-btn menu" onClick={() => { this.sortedByPriceAsc() }}>price asc</NavLink>
+      <div className="selector-component">
 
-        <NavLink activeClassName="active" style={{ textDecoration: 'none' }} to="/" className="selector-btn menu" onClick={() => { this.sortedByPriceDesc() }}>Price Desc</NavLink>
+        <div className="selector-wrapper">
+          <NavLink activeClassName="active" style={{ textDecoration: 'none' }} to="/" className="selector-btn menu" onClick={() => { this.sortedByPriceAsc() }}>price asc</NavLink>
 
-        <NavLink activeClassName="active" style={{ textDecoration: 'none' }} to="/" className="selector-btn menu" onClick={() => { this.sortedByNameAsc() }}>Name Asc</NavLink>
+          <NavLink activeClassName="active" style={{ textDecoration: 'none' }} to="/" className="selector-btn menu" onClick={() => { this.sortedByPriceDesc() }}>Price Desc</NavLink>
 
-        <NavLink activeClassName="active" style={{ textDecoration: 'none' }} to="/" className="selector-btn menu" onClick={() => { this.sortedByNameDesc() }}>Name Desc</NavLink>
+          <NavLink activeClassName="active" style={{ textDecoration: 'none' }} to="/" className="selector-btn menu" onClick={() => { this.sortedByNameAsc() }}>Name Asc</NavLink>
 
-        <NavLink activeClassName="active" style={{ textDecoration: 'none' }} to="/" className="selector-btn menu" onClick={() => { this.resetFilters() }}>Reset Filters</NavLink>
+          <NavLink activeClassName="active" style={{ textDecoration: 'none' }} to="/" className="selector-btn menu" onClick={() => { this.sortedByNameDesc() }}>Name Desc</NavLink>
+
+          <NavLink activeClassName="active" style={{ textDecoration: 'none' }} to="/" className="selector-btn menu" onClick={() => { this.resetFilters() }}>Reset Filters</NavLink>
+        </div>
 
         <div className='line'></div>
 
         <form className="input-group menu">
 
-         <div className="input-item">
-           <input type="checkbox" onChange={this.filteredByTypeRisers} />
-           <label>Risers</label>
-         </div>
-         <div className="input-item">
-          <input type="checkbox" onChange={this.filteredByTypeLimbs} />
-          <label>Limbs</label>
-         </div>
-         <div className="input-item">
-          <input type="checkbox" onChange={this.filteredByTypeTabs} />
-          <label>Finger Tabs</label>           
-         </div>
-         <div className="input-item">
-          <input type="checkbox" onChange={this.filteredByTypeStabilizers} />
-          <label>Stabilizers</label>
-         </div>
-         <div className="input-item">
-          <input type="checkbox" onChange={this.filteredByTypeArrows} />
-          <label>Arrows</label>
-         </div>
-         <div className="input-item">
-          <input type="checkbox" onChange={this.filteredByTypeSights} />
-          <label>Sights</label>
-         </div>
-         <div className="input-item">
-          <input type="checkbox" onChange={this.filteredByTypeStands} />
-          <label>Stands</label>
-         </div>
-         <div className="input-item">
-          <input type="checkbox" onChange={this.filteredByTypeArmguards} />
-          <label>Armguards</label>
-         </div>
+          <div className="input-item">
+            <input type="checkbox" onChange={this.filteredByTypeRisers} />
+            <label>Risers</label>
+          </div>
+          <div className="input-item">
+            <input type="checkbox" onChange={this.filteredByTypeLimbs} />
+            <label>Limbs</label>
+          </div>
+          <div className="input-item">
+            <input type="checkbox" onChange={this.filteredByTypeTabs} />
+            <label>Finger Tabs</label>
+          </div>
+          <div className="input-item">
+            <input type="checkbox" onChange={this.filteredByTypeStabilizers} />
+            <label>Stabilizers</label>
+          </div>
+          <div className="input-item">
+            <input type="checkbox" onChange={this.filteredByTypeArrows} />
+            <label>Arrows</label>
+          </div>
+          <div className="input-item">
+            <input type="checkbox" onChange={this.filteredByTypeSights} />
+            <label>Sights</label>
+          </div>
+          <div className="input-item">
+            <input type="checkbox" onChange={this.filteredByTypeStands} />
+            <label>Stands</label>
+          </div>
+          <div className="input-item">
+            <input type="checkbox" onChange={this.filteredByTypeArmguards} />
+            <label>Armguards</label>
+          </div>
 
         </form>
 

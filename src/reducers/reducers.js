@@ -59,7 +59,7 @@ const componentDidMount = () => {
 */
 
 
-const cartReducer = (state = initState, action) => {
+const Reducers = (state = initState, action) => {
 
     if (action.type === ADD_TO_CART) {
         let addedItem = state.items.find(item => item.id === action.id)
@@ -83,7 +83,6 @@ const cartReducer = (state = initState, action) => {
                 total: newTotal,
                 indicatorItems: state.indicatorItems + 1
             }
-
         }
     }
 
@@ -491,4 +490,4 @@ const cartReducer = (state = initState, action) => {
     }
 }
 
-export default cartReducer
+export default Reducers

@@ -1,8 +1,11 @@
-.selector-wrapper {
-  display: flex;
-  flex-direction: column;
+.selector-component {
   padding-top: 100px;
   width: 30%;
+
+  .selector-wrapper {
+    display: flex;
+    flex-direction: column;
+  }
 
   .menu {
     text-transform: uppercase;
@@ -12,12 +15,15 @@
   }
 
   .input-group {
+    display: flex;
+    flex-direction: column;
     margin-top: 50px;
   }
   
   .line {
     border-bottom: 1px solid #ccc;
     transform: translateY(10px);
+    width: 150px;
   }
 
   input {
@@ -35,5 +41,12 @@
     & p {
       line-height: 20px;
     }
+  }
+}
+
+@media(max-width: 576px) {
+
+  .selector-component {
+    margin: 0 auto;
   }
 }

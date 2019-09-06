@@ -14,8 +14,8 @@ class NavMenu extends Component {
   render() {
     return (
         <Navbar className = 'navbar-component' color="ligh" light expand="md">
-          <NavbarToggler style={{ marginTop: '20px', textAlign: 'center', justifyContent: 'center'}} onClick={this.props.toggleMenu} />
-          <Collapse style={{ textAlign: 'center', marginTop: '20px' }} isOpen={this.props.isOpen} navbar>
+          <NavbarToggler style={{ marginTop: '20px'}} onClick={this.props.toggleMenu} />
+          <Collapse isOpen={this.props.isOpen} navbar>
             <Nav className="ml-auto menu" navbar>
               <NavLink style={{ textDecoration: 'none' }} exact to="/home" activeClassName="active">HOME</NavLink>
               <NavLink style={{ textDecoration: 'none' }} exact to="/faq" activeClassName="active">FAQ</NavLink>
