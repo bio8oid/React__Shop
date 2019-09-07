@@ -43,10 +43,17 @@
 }
 
 .remove-button {
+    width: 50px;
     margin-left: 50px;
     color: red;
     font-size: 25px;
-    line-height: 25px;
+    border: 2px solid red;
+    border-radius: 50%;
+    transform: translate(10px, -50px)
+}
+
+.fa-trash-alt {
+    transform: translate(12px, 5px);
 }
 
 }

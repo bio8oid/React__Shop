@@ -37,9 +37,11 @@
       display: block;
       margin: 0 auto;
 
-      &:hover {
-        background: #ffd9c3;
-        color: rgb(90, 86, 86);
+      @media not all and (hover: none) {
+        &:hover {
+          background: #ffd9c3;
+          color: rgb(90, 86, 86);
+        }
       }
     }
   }

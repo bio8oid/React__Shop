@@ -9,6 +9,11 @@ import "./Selector.scss";
 //import  getPageData from "react-data-pagination";
 
 class Selector extends React.Component {
+  componentDidUpdate(prevProps, prevState) {
+    if (this.props.items !== prevProps.items) {
+      console.log(this.props.items);
+    }
+  }
 
   sortedByPriceAsc = () => {
     this.props.sortedByPriceAsc();
@@ -85,6 +90,7 @@ class Selector extends React.Component {
   filteredByTypeArmguards = (e) => {
     if (e.target.checked) {
       this.props.filteredByTypeArmguards();
+      console.log(e.target.checked)
     } else {
       this.props.armguardsRemoved();
     }
@@ -96,7 +102,7 @@ class Selector extends React.Component {
       inputs[i].checked = false;
     }
     this.props.resetFilters();
-    console.log(inputs)
+    //console.log(inputs)
   }
 
   render() {

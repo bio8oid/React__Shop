@@ -19,7 +19,7 @@
     flex-direction: column;
     margin-top: 50px;
   }
-  
+
   .line {
     border-bottom: 1px solid #ccc;
     transform: translateY(10px);
@@ -31,11 +31,11 @@
     width: 20px;
     margin-right: 10px;
 
-    &[type=checkbox]:checked + label {
+    &[type="checkbox"]:checked + label {
       color: #f87428;
     }
   }
-  
+
   .input-item {
     display: flex;
     & p {
@@ -44,8 +44,7 @@
   }
 }
 
-@media(max-width: 576px) {
-
+@media (max-width: 576px) {
   .selector-component {
     margin: 0 auto;
   }

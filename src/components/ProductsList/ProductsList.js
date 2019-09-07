@@ -1,14 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
-//import { addToCart, passID, sortedByPriceAsc, sortedByPriceDesc } from '../../actions/actions'
 import * as actions from '../../actions/actions';
-
-//import { CSSTransition } from 'react-transition-group';
-//import "./ProductsListAnimations.css"
-
 import Pulse from 'react-reveal/Pulse';
-
-//import Selector from '../Selector/Selector'
 import { Link } from 'react-router-dom'
 import Data from "react-data-pagination";
 //import getPageData from "react-data-pagination";
@@ -30,15 +23,10 @@ class ProductsList extends Component {
     );
   };
 
-  stateHandle = () => {
-    // initiailState = props.dataset
-    // newState = { items: newstate }
-  }
-
   DataList = props => {
     let dataset = props.dataset;
 
-    //console.log(props.dataset)
+    console.log(props.dataset)
 
     return (
 
@@ -48,12 +36,8 @@ class ProductsList extends Component {
           {dataset.map((item) => (
             <div className="card" key={item.id}>
               <div className="card-image">
-
                 <button className="products-list-button" onClick={() => { this.handleClick(item.id) }}>Add to Cart</button>
-
                 <Link to="/product"><img src={item.img} alt={item.title} onClick={() => { this.handleId(item.id) }} /></Link>
-
-
               </div>
               <h6 className="card-title">{item.title}</h6>
               <p className="card-price">Price: {item.price} £</p>
