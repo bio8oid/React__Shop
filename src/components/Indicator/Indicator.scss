@@ -5,13 +5,13 @@
   height: 30px;
 
   @media not all and (hover: none) {
-    &:hover {
+    &:hover .cart-counter {
       background: #ccc;
     }
   }
 
   @media not all and (hover: none) {
-    &:hover {
+    &:hover .fa-shopping-bag {
       color: #f87428;
     }
   }
