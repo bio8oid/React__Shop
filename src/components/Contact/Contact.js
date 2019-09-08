@@ -7,7 +7,7 @@ class Contact extends React.Component {
     return (
 
       <Bounce left>
-        <div className='contact-container'>
+        <div className='contact-container container'>
           <div className='address-container'>
           <h5>123 Any Street</h5>
           <h5>City</h5>

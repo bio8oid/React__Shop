@@ -5,7 +5,7 @@ import './Footer.scss'
 class Footer extends React.Component {
   render() {
     return (
-      <div className="footer-component">
+      <div className="footer-component container">
           <p className='copyrights'>bio8oid © 2019</p>
           <div className='footer-navbar'>
         <Navbar />

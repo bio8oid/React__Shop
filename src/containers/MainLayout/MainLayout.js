@@ -6,7 +6,7 @@ import './MainLayout.scss';
 class MainLayout extends React.Component {
   render() {
     return (
-      <div className="main-component container">
+      <div className="main-component">
         <Header />
         {this.props.children}
         <Footer />
