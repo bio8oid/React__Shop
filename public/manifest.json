@@ -3,7 +3,7 @@
   "short_name": "PWA",
   "icons": [{
     "src": "./logo-1.png",
-      "sizes": "155x155",
+      "sizes": "512x512",
       "type": "image/png"
     }
   ],

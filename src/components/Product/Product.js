@@ -19,7 +19,7 @@ class Product extends Component {
       return (
         <div className="card" key={item.id}>
           <div className="card-image">
-            <img className='img-fluid' src={item.img} alt={item.title} />
+            <img className='img-fluid product-image' src={item.img} alt={item.title} />
             <h5 className="card-title">{item.title}</h5>
             <button to="/" className="products-list-button" onClick={() => { this.handleClick(item.id) }}>Add to cart</button>
           </div>
