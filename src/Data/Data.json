@@ -1,28 +1,26 @@
-
-
 [
     {
         "id":1,
      "tag": "risers",   
     "title": "W&W Nano Max Riser", 
     "desc": "Developed using WIN&WIN's carbon technology that absorbs shock and minimizes movemnet to make shooting more accurate and stable.",
-     "price":115,
-     "img": "https://www.cbarchery.co.uk/WebRoot/StoreLGB/Shops/62059681/54F4/6190/6A88/BC9A/99E9/C0A8/2AB8/4593/WW_WIAWIS_RISER_wht_grn.jpg"
+     "price":595,
+     "img": "https://www.archeryworld.co.uk/image/cache/catalog/ProductImages/Bows/Bows_Only/Recurve/Risers/w-and-w-wiawis-white-green-0-1-1-700x700.jpg"
     },
     {
         "id":2,
      "tag": "risers",   
-    "title": "W&W INNO CXT", 
+    "title": "W&W INNO CXT 25\"", 
     "desc": "Weight control system: riser weight is adjustable so you can customize the weight to fit your desire. Convenient center-shot adjustment system: adjust the limb and riser alignment without unstringing the bow.",
-     "price":815,
-     "img": "https://www.richmondarchery.com/uploads/1/3/9/6/13964266/s915271030505359624_p146_i2_w650.jpeg"
+     "price":615,
+     "img": "https://www.lancasterarchery.com/media/catalog/product/cache/0f0282ddec6f407e3142cedcb490b752/4/7/4770098_riser.jpg"
     },
     {
         "id":3,
      "tag": "risers",   
-    "title": "W&W Nano Max Riser", 
+    "title": "W&W Nano Max Riser 27\"", 
     "desc": "Developed using WIN&WIN's carbon technology that absorbs shock and minimizes movemnet to make shooting more accurate and stable.",
-     "price":915,
+     "price":625,
      "img": "https://www.lancasterarchery.com/media/catalog/product/cache/0f0282ddec6f407e3142cedcb490b752/4/7/4770264_black-red_1.jpg"
     },
     {
@@ -215,7 +213,7 @@
     "title": "Shibuya Dual Click", 
     "desc": "Since we introduced our first target sight, SHIBUYA AR-10, in 1979, no other brand of recurve sight has created more champions and world records than SHIBUYA. Our latest Dual Click Sight line has been chosen by world's best recurve archers such as Korean national team members. If you are serious target archer, Dual Click Sight is also your best choice!",
      "price":215,
-     "img": "https://www.cbarchery.co.uk/WebRoot/StoreLGB/Shops/62059681/4D69/7D69/73A0/CAED/D6F5/C0A8/28BE/1124/Untitled-1_copy_ml.jpg"
+     "img": "https://www.abbeyarchery.com.au/mm5/graphics/Shibuya_Dual_Click_Carbon_Sight_9in_large.jpg"
     },
     {
         "id":28,

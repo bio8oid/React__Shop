@@ -24,7 +24,7 @@ class ProductsList extends Component {
   };
 
   DataList = props => {
-    let dataset = props.dataset;
+    let dataset = this.props.items;
 
     //console.log(props.dataset)
 

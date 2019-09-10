@@ -9,11 +9,6 @@ import "./Selector.scss";
 //import  getPageData from "react-data-pagination";
 
 class Selector extends React.Component {
-  componentDidUpdate(prevProps, prevState) {
-    if (this.props.items !== prevProps.items) {
-      console.log(this.props.items);
-    }
-  }
 
   sortedByPriceAsc = () => {
     this.props.sortedByPriceAsc();

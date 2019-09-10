@@ -43,19 +43,19 @@ const initState = {
     //checkbox: 0,
     //filtered: []
 }
-
-//console.log(initState.items)
 /*
+//console.log(initState.items)
+
 const componentDidMount = () => {
   fetch('mongodb+srv://8bollod8:8bollod8@clustershopapp-j4vjy.mongodb.net/test?retryWrites=true&w=majority')
   .then(res => res.json())
-  .then((data) => {
-    this.setState({ items: data })
-    console.log(data)
+  .then((products) => {
+    this.setState({ items: products, baseList: products })
   })
   .catch(console.log)
 }
 */
+//let products = this.products;
 
 
 const Reducers = (state = initState, action) => {
@@ -194,7 +194,7 @@ const Reducers = (state = initState, action) => {
     if (action.type === FILTER_TYPE_RISERS) {
         let filteredRisers = state.baseList.filter(x => x.tag === 'risers');
         console.log(filteredRisers)
-        let notEmpty = state.items.length !== products.length
+        let notEmpty = state.items.length !== state.products.length
         if (notEmpty) {
             return {
                 ...state,
@@ -214,7 +214,7 @@ const Reducers = (state = initState, action) => {
         if (Empty) {
             return {
                 ...state,
-            items: products
+            items: state.products
             }
         }
         return {
@@ -226,7 +226,7 @@ const Reducers = (state = initState, action) => {
     if (action.type === FILTER_TYPE_LIMBS) {
         let filteredLimbs = state.baseList.filter(x => x.tag === 'limbs');
         console.log(filteredLimbs)
-        let notEmpty = state.items.length !== products.length;
+        let notEmpty = state.items.length !== state.products.length;
         if (notEmpty) {
             return {
                 ...state,
@@ -246,7 +246,7 @@ const Reducers = (state = initState, action) => {
         if (Empty) {
             return {
                 ...state,
-            items: products
+            items: state.products
             }
         }
         return {
@@ -258,7 +258,7 @@ const Reducers = (state = initState, action) => {
     if (action.type === FILTER_TYPE_TABS) {
         let filteredTabs = state.baseList.filter(x => x.tag === 'tabs');
         console.log(filteredTabs)
-        let notEmpty = state.items.length !== products.length;
+        let notEmpty = state.items.length !== state.products.length;
         if (notEmpty) {
             return {
                 ...state,
@@ -278,7 +278,7 @@ const Reducers = (state = initState, action) => {
         if (Empty) {
             return {
                 ...state,
-            items: products
+            items: state.products
             }
         }
         return {
@@ -290,7 +290,7 @@ const Reducers = (state = initState, action) => {
     if (action.type === FILTER_TYPE_STABILIZERS) {
         let filteredStabilizers = state.baseList.filter(x => x.tag === 'stabilizers');
         console.log(filteredStabilizers)
-        let notEmpty = state.items.length !== products.length;
+        let notEmpty = state.items.length !== state.products.length;
         if (notEmpty) {
             return {
                 ...state,
@@ -310,7 +310,7 @@ const Reducers = (state = initState, action) => {
         if (Empty) {
             return {
                 ...state,
-            items: products
+            items: state.products
             }
         }
         return {
@@ -322,7 +322,7 @@ const Reducers = (state = initState, action) => {
     if (action.type === FILTER_TYPE_ARROWS) {
         let filteredArrows = state.baseList.filter(x => x.tag === 'arrows');
         console.log(filteredArrows)
-        let notEmpty = state.items.length !== products.length;
+        let notEmpty = state.items.length !== state.products.length;
         if (notEmpty) {
             return {
                 ...state,
@@ -342,7 +342,7 @@ const Reducers = (state = initState, action) => {
         if (Empty) {
             return {
                 ...state,
-            items: products
+            items: state.products
             }
         }
         return {
@@ -354,7 +354,7 @@ const Reducers = (state = initState, action) => {
     if (action.type === FILTER_TYPE_SIGHTS) {
         let filteredSights = state.baseList.filter(x => x.tag === 'sights');
         console.log(filteredSights)
-        let notEmpty = state.items.length !== products.length;
+        let notEmpty = state.items.length !== state.products.length;
         if (notEmpty) {
             return {
                 ...state,
@@ -374,7 +374,7 @@ const Reducers = (state = initState, action) => {
         if (Empty) {
             return {
                 ...state,
-            items: products
+            items: state.products
             }
         }
         return {
@@ -386,7 +386,7 @@ const Reducers = (state = initState, action) => {
     if (action.type === FILTER_TYPE_STANDS) {
         let filteredStands = state.baseList.filter(x => x.tag === 'stands');
         console.log(filteredStands)
-        let notEmpty = state.items.length !== products.length;
+        let notEmpty = state.items.length !== state.products.length;
         if (notEmpty) {
             return {
                 ...state,
@@ -406,7 +406,7 @@ const Reducers = (state = initState, action) => {
         if (Empty) {
             return {
                 ...state,
-            items: products
+            items: state.products
             }
         }
         return {
@@ -418,7 +418,7 @@ const Reducers = (state = initState, action) => {
     if (action.type === FILTER_TYPE_ARMGUARDS) {
         let filteredArmguards = state.baseList.filter(x => x.tag === 'armguards');
         console.log(filteredArmguards)
-        let notEmpty = state.items.length !== products.length;
+        let notEmpty = state.items.length !== state.products.length;
         if (notEmpty) {
             return {
                 ...state,
@@ -438,7 +438,7 @@ const Reducers = (state = initState, action) => {
         if (Empty) {
             return {
                 ...state,
-            items: products
+            items: state.products
             }
         }
         return {
@@ -464,7 +464,7 @@ const Reducers = (state = initState, action) => {
     if (action.type === RESET_FILTERS) {
         return {
             ...state,
-            items: products
+            items: state.products
         }
     }
 
