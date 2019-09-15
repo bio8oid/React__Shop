@@ -29,7 +29,13 @@ export const CHECKBOX_UP = 'CHECKBOX_UP';
 export const CHECKBOX_DOWN = 'CHECKBOX_DOWN';
 export const RESET_FILTERS = 'RESET_FILTERS';
 export const TOGGLE_MENU = 'TOGGLE_MENU';
-
+export const SET_PAGE1 = 'SET_PAGE1';
+export const SET_PAGE2 = 'SET_PAGE2';
+export const SET_PAGE3 = 'SET_PAGE3';
+export const SET_PAGE4 = 'SET_PAGE4';
+export const SET_PAGE5 = 'SET_PAGE5';
+export const SET_NEXT_PAGE = 'SET_NEXT_PAGE';
+export const SET_PREVIOUS_PAGE = 'SET_PREVIOUS_PAGE';
 
 export const addToCart = id =>{
     return{
@@ -101,6 +107,7 @@ export const filteredByTypeRisers = () =>{
         type: FILTER_TYPE_RISERS,
     }
 }
+
 export const risersRemoved = () =>{
     return{
         type: RISERS_REMOVED,
@@ -112,6 +119,7 @@ export const filteredByTypeLimbs = () =>{
         type: FILTER_TYPE_LIMBS,
     }
 }
+
 export const limbsRemoved = () =>{
     return{
         type: LIMBS_REMOVED,
@@ -123,6 +131,7 @@ export const filteredByTypeTabs = () =>{
         type: FILTER_TYPE_TABS,
     }
 }
+
 export const tabsRemoved = () =>{
     return{
         type: TABS_REMOVED,
@@ -134,6 +143,7 @@ export const filteredByTypeStabilizers = () =>{
         type: FILTER_TYPE_STABILIZERS,
     }
 }
+
 export const stabilizersRemoved = () =>{
     return{
         type: STABILIZERS_REMOVED,
@@ -167,6 +177,7 @@ export const filteredByTypeStands = () =>{
         type: FILTER_TYPE_STANDS,
     }
 }
+
 export const standsRemoved = () =>{
     return{
         type: STANDS_REMOVED,
@@ -178,6 +189,7 @@ export const filteredByTypeArmguards = () =>{
         type: FILTER_TYPE_ARMGUARDS,
     }
 }
+
 export const armguardsRemoved = () =>{
     return{
         type: ARMGUARDS_REMOVED,
@@ -187,6 +199,46 @@ export const armguardsRemoved = () =>{
 export const resetFilters = () =>{
     return{
         type: RESET_FILTERS,
+    }
+}
+
+export const setPage1 = () =>{
+    return{
+        type: SET_PAGE1,
+    }
+}
+
+export const setPage2 = () =>{
+    return{
+        type: SET_PAGE2,
+    }
+}
+
+export const setPage3 = () =>{
+    return{
+        type: SET_PAGE3,
+    }
+}
+
+export const setPage4 = () =>{
+    return{
+        type: SET_PAGE4,
+    }
+}
+
+export const setPage5 = () =>{
+    return{
+        type: SET_PAGE5,
+    }
+}
+export const setNextPage = () =>{
+    return{
+        type: SET_NEXT_PAGE,
+    }
+}
+export const setPreviousPage = () =>{
+    return{
+        type: SET_PREVIOUS_PAGE,
     }
 }
 

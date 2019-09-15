@@ -26,7 +26,14 @@ import {
     FILTER_TYPE_ARMGUARDS,
     ARMGUARDS_REMOVED,
     RESET_FILTERS,
-    TOGGLE_MENU
+    TOGGLE_MENU,
+    SET_PAGE1,
+    SET_PAGE2,
+    SET_PAGE3,
+    SET_PAGE4,
+    SET_PAGE5,
+    SET_NEXT_PAGE,
+    SET_PREVIOUS_PAGE
     
 } from '../actions/actions'
 
@@ -34,35 +41,19 @@ import products from '../Data/Data.json';
 
 const initState = {
     items: products,
-    baseList: products,
+    baseList: [],
     addedItems: [],
     indicatorItems: 0,
     total: 0,
     clickedProduct: [],
-    isOpen: false
-    //checkbox: 0,
-    //filtered: []
+    isOpen: false,
+    page: 1
 }
-/*
-//console.log(initState.items)
 
-const componentDidMount = () => {
-  fetch('mongodb+srv://8bollod8:8bollod8@clustershopapp-j4vjy.mongodb.net/test?retryWrites=true&w=majority')
-  .then(res => res.json())
-  .then((products) => {
-    this.setState({ items: products, baseList: products })
-  })
-  .catch(console.log)
-}
-*/
-//let products = this.products;
-
-
-const Reducers = (state = initState, action) => {
+   const Reducers = (state = initState, action) => {
 
     if (action.type === ADD_TO_CART) {
         let addedItem = state.items.find(item => item.id === action.id)
-        //check if the action id exists in the addedItems
         let existed_item = state.addedItems.find(item => action.id === item.id)
         if (existed_item) {
             addedItem.quantity += 1
@@ -87,7 +78,6 @@ const Reducers = (state = initState, action) => {
 
     if (action.type === PASS_ID) {
         let clickedProduct = state.items.find(item => item.id === action.id)
-        console.log(clickedProduct)
         return {
             ...state,
             clickedProduct: [clickedProduct]
@@ -120,7 +110,6 @@ const Reducers = (state = initState, action) => {
 
     if (action.type === SUB_QUANTITY) {
         let addedItem = state.items.find(item => item.id === action.id)
-        //if the qt == 0 then it should be removed
         if (addedItem.quantity === 1) {
             let new_items = state.addedItems.filter(item => item.id !== action.id)
             let newTotal = state.total - addedItem.price
@@ -175,7 +164,6 @@ const Reducers = (state = initState, action) => {
 
     if (action.type === SORT_NAME_ASC) {
         let sortedByNameAsc = state.items.sort((a, b) => a.title.localeCompare(b.title))
-        console.log(sortedByNameAsc)
         return {
             ...state,
             items: [...sortedByNameAsc]
@@ -184,7 +172,6 @@ const Reducers = (state = initState, action) => {
 
     if (action.type === SORT_NAME_DESC) {
         let sortedByNameDesc = state.items.sort((a, b) => b.title.localeCompare(a.title))
-        console.log(sortedByNameDesc)
         return {
             ...state,
             items: [...sortedByNameDesc]
@@ -192,9 +179,9 @@ const Reducers = (state = initState, action) => {
     }
 
     if (action.type === FILTER_TYPE_RISERS) {
-        let filteredRisers = state.baseList.filter(x => x.tag === 'risers');
-        console.log(filteredRisers)
-        let notEmpty = state.items.length !== state.products.length
+        let filteredRisers = initState.items.filter(x => x.tag === 'risers');
+        //console.log(filteredRisers)
+        let notEmpty = state.items.length !== products.length
         if (notEmpty) {
             return {
                 ...state,
@@ -209,12 +196,12 @@ const Reducers = (state = initState, action) => {
 
     if (action.type === RISERS_REMOVED) {
         let risersRemoved = state.items.filter(x => x.tag !== 'risers');
-        console.log(risersRemoved)
+        //console.log(risersRemoved)
         let Empty = state.items.length === state.items.filter(x => x.tag === 'risers').length;
         if (Empty) {
             return {
                 ...state,
-            items: state.products
+            items: initState.items
             }
         }
         return {
@@ -224,9 +211,9 @@ const Reducers = (state = initState, action) => {
     }
 
     if (action.type === FILTER_TYPE_LIMBS) {
-        let filteredLimbs = state.baseList.filter(x => x.tag === 'limbs');
-        console.log(filteredLimbs)
-        let notEmpty = state.items.length !== state.products.length;
+        let filteredLimbs = initState.items.filter(x => x.tag === 'limbs');
+        //console.log(filteredLimbs)
+        let notEmpty = state.items.length !== products.length;
         if (notEmpty) {
             return {
                 ...state,
@@ -241,12 +228,12 @@ const Reducers = (state = initState, action) => {
 
     if (action.type === LIMBS_REMOVED) {
         let limbsRemoved = state.items.filter(x => x.tag !== 'limbs');
-        console.log(limbsRemoved)
+        //console.log(limbsRemoved)
         let Empty = state.items.length === state.items.filter(x => x.tag === 'limbs').length;
         if (Empty) {
             return {
                 ...state,
-            items: state.products
+            items: initState.items
             }
         }
         return {
@@ -256,9 +243,9 @@ const Reducers = (state = initState, action) => {
     }
 
     if (action.type === FILTER_TYPE_TABS) {
-        let filteredTabs = state.baseList.filter(x => x.tag === 'tabs');
-        console.log(filteredTabs)
-        let notEmpty = state.items.length !== state.products.length;
+        let filteredTabs = initState.items.filter(x => x.tag === 'tabs');
+        //console.log(filteredTabs)
+        let notEmpty = state.items.length !== products.length;
         if (notEmpty) {
             return {
                 ...state,
@@ -273,12 +260,12 @@ const Reducers = (state = initState, action) => {
 
     if (action.type === TABS_REMOVED) {
         let tabsRemoved = state.items.filter(x => x.tag !== 'tabs');
-        console.log(tabsRemoved)
+        //console.log(tabsRemoved)
         let Empty =state.items.length === state.items.filter(x => x.tag === 'tabs').length;
         if (Empty) {
             return {
                 ...state,
-            items: state.products
+            items: initState.items
             }
         }
         return {
@@ -288,9 +275,9 @@ const Reducers = (state = initState, action) => {
     }
 
     if (action.type === FILTER_TYPE_STABILIZERS) {
-        let filteredStabilizers = state.baseList.filter(x => x.tag === 'stabilizers');
-        console.log(filteredStabilizers)
-        let notEmpty = state.items.length !== state.products.length;
+        let filteredStabilizers = initState.items.filter(x => x.tag === 'stabilizers');
+        //console.log(filteredStabilizers)
+        let notEmpty = state.items.length !== products.length;
         if (notEmpty) {
             return {
                 ...state,
@@ -305,12 +292,12 @@ const Reducers = (state = initState, action) => {
 
     if (action.type === STABILIZERS_REMOVED) {
         let stabilizersRemoved = state.items.filter(x => x.tag !== 'stabilizers');
-        console.log(stabilizersRemoved)
+        //console.log(stabilizersRemoved)
         let Empty = state.items.length === state.items.filter(x => x.tag === 'stabilizers').length;
         if (Empty) {
             return {
                 ...state,
-            items: state.products
+            items: initState.items
             }
         }
         return {
@@ -320,9 +307,9 @@ const Reducers = (state = initState, action) => {
     }
 
     if (action.type === FILTER_TYPE_ARROWS) {
-        let filteredArrows = state.baseList.filter(x => x.tag === 'arrows');
-        console.log(filteredArrows)
-        let notEmpty = state.items.length !== state.products.length;
+        let filteredArrows = initState.items.filter(x => x.tag === 'arrows');
+        //console.log(filteredArrows)
+        let notEmpty = state.items.length !== products.length;
         if (notEmpty) {
             return {
                 ...state,
@@ -337,12 +324,12 @@ const Reducers = (state = initState, action) => {
 
     if (action.type === ARROWS_REMOVED) {
         let arrowsRemoved = state.items.filter(x => x.tag !== 'arrows');
-        console.log(arrowsRemoved)
+        //console.log(arrowsRemoved)
         let Empty = state.items.length === state.items.filter(x => x.tag === 'arrows').length;
         if (Empty) {
             return {
                 ...state,
-            items: state.products
+            items: initState.items
             }
         }
         return {
@@ -352,9 +339,9 @@ const Reducers = (state = initState, action) => {
     }
 
     if (action.type === FILTER_TYPE_SIGHTS) {
-        let filteredSights = state.baseList.filter(x => x.tag === 'sights');
-        console.log(filteredSights)
-        let notEmpty = state.items.length !== state.products.length;
+        let filteredSights = initState.items.filter(x => x.tag === 'sights');
+        //console.log(filteredSights)
+        let notEmpty = state.items.length !== products.length;
         if (notEmpty) {
             return {
                 ...state,
@@ -369,12 +356,12 @@ const Reducers = (state = initState, action) => {
 
     if (action.type === SIGHTS_REMOVED) {
         let sightsRemoved = state.items.filter(x => x.tag !== 'sights');
-        console.log(sightsRemoved)
+        //console.log(sightsRemoved)
         let Empty = state.items.length === state.items.filter(x => x.tag === 'sights').length;
         if (Empty) {
             return {
                 ...state,
-            items: state.products
+            items: initState.items
             }
         }
         return {
@@ -384,9 +371,9 @@ const Reducers = (state = initState, action) => {
     }
 
     if (action.type === FILTER_TYPE_STANDS) {
-        let filteredStands = state.baseList.filter(x => x.tag === 'stands');
-        console.log(filteredStands)
-        let notEmpty = state.items.length !== state.products.length;
+        let filteredStands = initState.items.filter(x => x.tag === 'stands');
+        //console.log(filteredStands)
+        let notEmpty = state.items.length !== products.length;
         if (notEmpty) {
             return {
                 ...state,
@@ -401,12 +388,12 @@ const Reducers = (state = initState, action) => {
 
     if (action.type === STANDS_REMOVED) {
         let standsRemoved = state.items.filter(x => x.tag !== 'stands');
-        console.log(standsRemoved)
+        //console.log(standsRemoved)
         let Empty = state.items.length === state.items.filter(x => x.tag === 'stands').length;
         if (Empty) {
             return {
                 ...state,
-            items: state.products
+            items: initState.items
             }
         }
         return {
@@ -416,9 +403,9 @@ const Reducers = (state = initState, action) => {
     }
 
     if (action.type === FILTER_TYPE_ARMGUARDS) {
-        let filteredArmguards = state.baseList.filter(x => x.tag === 'armguards');
-        console.log(filteredArmguards)
-        let notEmpty = state.items.length !== state.products.length;
+        let filteredArmguards = initState.items.filter(x => x.tag === 'armguards');
+        //console.log(filteredArmguards)
+        let notEmpty = state.items.length !== products.length;
         if (notEmpty) {
             return {
                 ...state,
@@ -433,12 +420,12 @@ const Reducers = (state = initState, action) => {
 
     if (action.type === ARMGUARDS_REMOVED) {
         let armguardsRemoved = state.items.filter(x => x.tag !== 'armguards');
-        console.log(armguardsRemoved)
+        //console.log(armguardsRemoved)
         let Empty = state.items.length === state.items.filter(x => x.tag === 'armguards').length;
         if (Empty) {
             return {
                 ...state,
-            items: state.products
+            items: initState.items
             }
         }
         return {
@@ -460,11 +447,73 @@ const Reducers = (state = initState, action) => {
             isOpen: initState.isOpen
         }
     }
-
-    if (action.type === RESET_FILTERS) {
+   
+    if (action.type === SET_PAGE1) {
         return {
             ...state,
-            items: state.products
+            page: initState.page
+        }
+    }
+
+    if (action.type === SET_PAGE2) {
+        return {
+            ...state,
+            page: 2
+        }
+    }
+
+    if (action.type === SET_PAGE3) {
+        return {
+            ...state,
+            page: 3
+        }
+    }
+
+    if (action.type === SET_PAGE4) {
+        return {
+            ...state,
+            page: 4
+        }
+    }
+
+    if (action.type === SET_PAGE5) {
+        return {
+            ...state,
+            page: 5
+        }
+    }
+
+    if (action.type === SET_NEXT_PAGE) {
+        if (state.page === 5) {
+            return {
+                ...state,
+                page: 5
+            }
+        }
+        return {
+            ...state,
+            page: state.page + 1
+        }
+    }
+
+    if (action.type === SET_PREVIOUS_PAGE) {
+        if (state.page === 1) {
+            return {
+                ...state,
+                page: 1
+            }
+        }
+        return {
+            ...state,
+            page: state.page - 1
+        }
+    }
+
+    if (action.type === RESET_FILTERS) {
+        var sortedById = initState.items.sort((a, b) => (a.id - b.id))
+        return {
+            ...state,
+            items: sortedById
         }
     }
 

@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import Error from './Error';
+import Indicator from './Indicator';
 
 it('renders without crashing', () => {
-  shallow(<Error />);
+  shallow(<Indicator />);
 });

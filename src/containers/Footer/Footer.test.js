@@ -1,7 +1,7 @@
-import React from "react";
+import React from 'react';
+import { shallow } from 'enzyme';
+import Footer from './Footer';
 
-export class Home extends React.Component {
-  render() {
-    return <div>Home</div>;
-  }
-}
+it('renders without crashing', () => {
+  shallow(<Footer />);
+});

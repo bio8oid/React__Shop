@@ -70,6 +70,7 @@ class Cart extends Component {
                 <p>Your cart is empty...</p>
             )
         return (
+            
             <Bounce left>
 
                 <div className="cart-component container">
@@ -81,8 +82,8 @@ class Cart extends Component {
                     </div>
                     <Checkout />
                 </div>
-            </Bounce>
 
+            </Bounce>
         )
     }
 }

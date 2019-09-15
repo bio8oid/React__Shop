@@ -4,156 +4,81 @@ import * as actions from '../../actions/actions';
 import { NavLink } from 'react-router-dom';
 import "./Selector.scss";
 
-//import { getPageData } from '../../../node_modules/react-data-pagination/src/Data.js'
-//import Fragment from '../../../node_modules/react-data-pagination/src/Data.js'
-//import  getPageData from "react-data-pagination";
-
 class Selector extends React.Component {
 
-  sortedByPriceAsc = () => {
-    this.props.sortedByPriceAsc();
+  handleSort = (e) => {
+    const id = e.target.id
+
+    return (
+      (id === 'PriceAsc') ? this.props.sortedByPriceAsc() :
+        (id === 'PriceDesc') ? this.props.sortedByPriceDesc() :
+          (id === 'NameAsc') ? this.props.sortedByNameAsc() :
+            (id === 'NameDesc') ? this.props.sortedByNameDesc() :
+              (id === 'resetFilters') ? this.reset() : false
+    )
   }
 
-  sortedByPriceDesc = () => {
-    this.props.sortedByPriceDesc();
+  handleFilter = (e) => {
+    const id = e.target.id
+    const checked = e.target.checked
+
+    if (id === "risers") { (checked) ? this.props.filteredByTypeRisers() : this.props.risersRemoved(); };
+    if (id === "limbs") { (checked) ? this.props.filteredByTypeLimbs() : this.props.limbsRemoved(); };
+    if (id === "finger tabs") { (checked) ? this.props.filteredByTypeTabs() : this.props.tabsRemoved(); }
+    if (id === "stabilizers") { (checked) ? this.props.filteredByTypeStabilizers() : this.props.stabilizersRemoved(); }
+    if (id === "arrows") { (checked) ? this.props.filteredByTypeArrows() : this.props.arrowsRemoved(); }
+    if (id === "sights") { (checked) ? this.props.filteredByTypeSights() : this.props.sightsRemoved(); }
+    if (id === "stands") { (checked) ? this.props.filteredByTypeStands() : this.props.standsRemoved(); }
+    if (id === "armguards") { (checked) ? this.props.filteredByTypeArmguards() : this.props.armguardsRemoved(); }
+
+    this.props.setPage1();
   }
 
-  sortedByNameAsc = () => {
-    this.props.sortedByNameAsc();
-  }
-
-  sortedByNameDesc = () => {
-    this.props.sortedByNameDesc();
-  }
-
-  filteredByTypeRisers = (e) => {
-    if (e.target.checked) {
-      this.props.filteredByTypeRisers();
-    } else {
-      this.props.risersRemoved();
-    }
-  }
-
-  filteredByTypeLimbs = (e) => {
-    if (e.target.checked) {
-      this.props.filteredByTypeLimbs();
-    } else {
-      this.props.limbsRemoved();
-    }
-  }
-
-  filteredByTypeTabs = (e) => {
-    if (e.target.checked) {
-      this.props.filteredByTypeTabs();
-    } else {
-      this.props.tabsRemoved();
-    }
-  }
-
-  filteredByTypeStabilizers = (e) => {
-    if (e.target.checked) {
-      this.props.filteredByTypeStabilizers();
-    } else {
-      this.props.stabilizersRemoved();
-    }
-  }
-
-  filteredByTypeArrows = (e) => {
-    if (e.target.checked) {
-      this.props.filteredByTypeArrows();
-    } else {
-      this.props.arrowsRemoved();
-    }
-  }
-
-  filteredByTypeSights = (e) => {
-    if (e.target.checked) {
-      this.props.filteredByTypeSights();
-    } else {
-      this.props.sightsRemoved();
-    }
-  }
-
-  filteredByTypeStands = (e) => {
-    if (e.target.checked) {
-      this.props.filteredByTypeStands();
-    } else {
-      this.props.standsRemoved();
-    }
-  }
-
-  filteredByTypeArmguards = (e) => {
-    if (e.target.checked) {
-      this.props.filteredByTypeArmguards();
-      console.log(e.target.checked)
-    } else {
-      this.props.armguardsRemoved();
-    }
-  }
-
-  resetFilters = () => {
+  reset = () => {
     const inputs = document.getElementsByTagName("input");
     for (var i = 0; i < inputs.length; ++i) {
       inputs[i].checked = false;
     }
     this.props.resetFilters();
-    //console.log(inputs)
   }
 
   render() {
 
+    const selectData = [
+      { id: "PriceAsc", name: "price asc" },
+      { id: "PriceDesc", name: "price desc" },
+      { id: "NameAsc", name: "name asc" },
+      { id: "NameDesc", name: "name desc" },
+      { id: "resetFilters", name: "reset filters" }
+    ]
+
+    const filterData = [
+      { id: "risers" },
+      { id: "limbs" },
+      { id: "finger tabs" },
+      { id: "stabilizers" },
+      { id: "arrows" },
+      { id: "sights" },
+      { id: "stands" },
+      { id: "armguards" }
+    ]
+
     return (
       <div className="selector-component">
 
-        <div className="selector-wrapper">
-          <NavLink activeClassName="active" style={{ textDecoration: 'none' }} to="/" className="selector-btn menu" onClick={() => { this.sortedByPriceAsc() }}>price asc</NavLink>
-
-          <NavLink activeClassName="active" style={{ textDecoration: 'none' }} to="/" className="selector-btn menu" onClick={() => { this.sortedByPriceDesc() }}>Price Desc</NavLink>
-
-          <NavLink activeClassName="active" style={{ textDecoration: 'none' }} to="/" className="selector-btn menu" onClick={() => { this.sortedByNameAsc() }}>Name Asc</NavLink>
-
-          <NavLink activeClassName="active" style={{ textDecoration: 'none' }} to="/" className="selector-btn menu" onClick={() => { this.sortedByNameDesc() }}>Name Desc</NavLink>
-
-          <NavLink activeClassName="active" style={{ textDecoration: 'none' }} to="/" className="selector-btn menu" onClick={() => { this.resetFilters() }}>Reset Filters</NavLink>
-        </div>
+        {selectData.map(item => (
+          <div key={item.id} className="selector-wrapper">
+            <NavLink  id={item.id} activeClassName="active" style={{ textDecoration: 'none' }} to="/" className="selector-btn menu" onClick={(id) => { this.handleSort(id) }}>{item.name}</NavLink>
+          </div>))}
 
         <div className='line'></div>
 
         <form className="input-group menu">
-
-          <div className="input-item">
-            <input type="checkbox" onChange={this.filteredByTypeRisers} />
-            <label>Risers</label>
-          </div>
-          <div className="input-item">
-            <input type="checkbox" onChange={this.filteredByTypeLimbs} />
-            <label>Limbs</label>
-          </div>
-          <div className="input-item">
-            <input type="checkbox" onChange={this.filteredByTypeTabs} />
-            <label>Finger Tabs</label>
-          </div>
-          <div className="input-item">
-            <input type="checkbox" onChange={this.filteredByTypeStabilizers} />
-            <label>Stabilizers</label>
-          </div>
-          <div className="input-item">
-            <input type="checkbox" onChange={this.filteredByTypeArrows} />
-            <label>Arrows</label>
-          </div>
-          <div className="input-item">
-            <input type="checkbox" onChange={this.filteredByTypeSights} />
-            <label>Sights</label>
-          </div>
-          <div className="input-item">
-            <input type="checkbox" onChange={this.filteredByTypeStands} />
-            <label>Stands</label>
-          </div>
-          <div className="input-item">
-            <input type="checkbox" onChange={this.filteredByTypeArmguards} />
-            <label>Armguards</label>
-          </div>
-
+          {filterData.map(item => (
+            <div key={item.id} className="input-item">
+              <input  id={item.id} type="checkbox" onChange={this.handleFilter} />
+              <label>{item.id}</label>
+            </div>))}
         </form>
 
       </div>

@@ -21,7 +21,7 @@ class Product extends Component {
           <div className="card-image">
             <img className='img-fluid product-image' src={item.img} alt={item.title} />
             <h5 className="card-title">{item.title}</h5>
-            <button to="/" className="products-list-button" onClick={() => { this.handleClick(item.id) }}>Add to cart</button>
+            <button to="/" className="add-to-cart-button" onClick={() => { this.handleClick(item.id) }}>Add to cart</button>
           </div>
 
           <div className="card-content">
@@ -42,14 +42,10 @@ class Product extends Component {
         </div>
       </Zoom>
     )
-
   }
 }
 
 const mapStateToProps = (state) => {
-  console.log(state.clickedProduct.map(({ title }) => title.slice(0))
-  )
-
   return {
     clickedProduct: state.clickedProduct
   }

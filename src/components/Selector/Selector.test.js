@@ -1,7 +1,7 @@
-import React from "react";
+import React from 'react';
+import { shallow } from 'enzyme';
+import Selector from './Selector';
 
-export class Paginate extends React.Component {
-  render() {
-    return <div>Paginate</div>;
-  }
-}
+it('renders without crashing', () => {
+  shallow(<Selector />);
+});
