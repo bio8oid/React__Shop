@@ -18,10 +18,13 @@
     border: none;
     font-weight: 900;
 
-  &:focus, &:target, &:active, &:active:focus {
-    border-radius: 50%;
-    background: #fff;
-    color: #f87428;
+    &:focus,
+    &:target,
+    &:active,
+    &:active:focus {
+      border-radius: 50%;
+      background: #fff;
+      color: #f87428;
     }
   }
 
@@ -35,10 +38,10 @@
       height: 35px;
       width: 35px;
       padding: 5px;
-      margin:0 15px;
+      margin: 0 15px;
       color: #cac7c7;
       opacity: 0;
-    
+
       &:hover {
         border: 5px solid #ccc;
         border-radius: 50%;
@@ -91,12 +94,13 @@
 .add-to-cart-button {
   background: orange;
   border-radius: 8px;
-  padding: 10px;
+  padding: 5px 10px;
   position: absolute;
   border: none;
   z-index: 3;
-  bottom: 3%;
-  right: 27%;
+  bottom: 15px;
+  right: 50%;
+  transform: translateX(50%);
   display: none;
   box-shadow: inset 0px 0px 0px 2px #f87428;
 
@@ -116,5 +120,9 @@
 @media (max-width: 576px) {
   .products-container {
     justify-content: center;
+
+    & .paginator {
+      justify-content: center;
+    }
   }
 }

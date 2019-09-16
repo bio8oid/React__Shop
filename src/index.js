@@ -6,7 +6,6 @@ import { Provider } from 'react-redux';
 import store from './Store/Store';
 
 import "bootstrap/dist/css/bootstrap.css";
-import "./Assets/styles/normalize.scss";
 import './Assets/fonts/Montserrat-Black.ttf';
 import './style.scss';
 
