@@ -13,7 +13,7 @@
     "firebase": "^6.6.0",
     "intl-messageformat": "^6.1.10",
     "mongodb": "^3.3.2",
-    "mongoose": "^5.7.0",
+    "mongoose": "^5.7.1",
     "node-sass": "^4.12.0",
     "react": "^16.9.0",
     "react-data-pagination": "^1.0.5",
