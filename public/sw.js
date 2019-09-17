@@ -1,6 +1,6 @@
 var cacheName = 'app-name';
 var filesToCache = [
-  '/', '/home'
+  './index.html'
 ];
 self.addEventListener('install', function(e) {
   console.log('[ServiceWorker] Install');

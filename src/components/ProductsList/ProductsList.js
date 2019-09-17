@@ -45,27 +45,15 @@ class ProductsList extends Component {
     }
 
     const handlePage = value => e => {
-      if (value === 1) {
-        this.props.setPage1();
-      }
-      if (value === 2) {
-        this.props.setPage2();
-      }
-      if (value === 3) {
-        this.props.setPage3();
-      }
-      if (value === 4) {
-        this.props.setPage4();
-      }
-      if (value === 5) {
-        this.props.setPage5();
-      }
-      if (e.target.id === "left") {
-        this.props.setPreviousPage();
-      }
-      if (e.target.id === "right") {
-        this.props.setNextPage();
-      }
+      return (
+        (value === 1) ? this.props.setPage1() :
+          (value === 2) ? this.props.setPage2() :
+            (value === 3) ? this.props.setPage3() :
+              (value === 4) ? this.props.setPage4() :
+                (value === 5) ? this.props.setPage5() :
+                  (e.target.id === "left") ? this.props.setPreviousPage() :
+                    (e.target.id === "right") ? this.props.setNextPage() : false
+      )
     }
 
     return (
@@ -88,7 +76,7 @@ class ProductsList extends Component {
             <FontAwesomeIcon className="arrow" id="left" onClick={handlePage(this.id)} icon={faArrowLeft} />
             {pageNumbers.map(id => {
               return (
-                <ButtonGroup>
+                <ButtonGroup key={id}>
                   <Button className="but" id={id} key={id} onClick={handlePage(id)}>{id}</Button>
                 </ButtonGroup>
               );

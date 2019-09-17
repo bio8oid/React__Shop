@@ -1,22 +1,32 @@
 .header-component {
-    position: sticky;
-    top: 0;
-    background: #fff;
-    height: 100px;
-    z-index: 5;
+  position: sticky;
+  top: 0;
+  background: #fff;
+  height: 100px;
+  z-index: 5;
 
-.header-wrap {
+  .header-wrap {
+    width: 100%;
     display: flex;
+    justify-content: center;
     position: relative;
-}
+  }
 
-.logo-image {
+  .logo-image {
     margin: 15px;
     height: 70px;
     width: 70px;
-    background-image: url('../../Assets/images/logo-1.png');
+    background-image: url("../../Assets/images/logo-1.png");
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
+  }
+}
+
+@media (max-width: 767px) {
+  .header-component {
+    & .logo-image {
+      margin: 15px 0;
+    }
   }
 }

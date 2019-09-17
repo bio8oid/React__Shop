@@ -1,7 +1,6 @@
-import '../style.scss';
 import Reducers from '../reducers/reducers';
 import { createStore } from 'redux';
 
 const store = createStore(Reducers);
 
-  export default store;
+export default store;

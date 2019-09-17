@@ -37,213 +37,215 @@ export const SET_PAGE5 = 'SET_PAGE5';
 export const SET_NEXT_PAGE = 'SET_NEXT_PAGE';
 export const SET_PREVIOUS_PAGE = 'SET_PREVIOUS_PAGE';
 
-export const addToCart = id =>{
-    return{
+export const addToCart = id => {
+    return {
         type: ADD_TO_CART,
         id
     }
 }
 
-export const passID = id =>{
-    return{
+export const passID = id => {
+    return {
         type: PASS_ID,
         id
     }
 }
 
-export const removeItem = id =>{
-    return{
+export const removeItem = id => {
+    return {
         type: REMOVE_ITEM,
         id
     }
 }
 
-export const subtractQuantity = id =>{
-    return{
+export const subtractQuantity = id => {
+    return {
         type: SUB_QUANTITY,
         id
     }
 }
 
-export const addQuantity = id =>{
-    return{
+export const addQuantity = id => {
+    return {
         type: ADD_QUANTITY,
         id
     }
 }
 
-export const updateList = () =>{
-    return{
+export const updateList = () => {
+    return {
         type: UPDATE_LIST,
     }
 }
 
-export const sortedByPriceAsc = () =>{
-    return{
+export const sortedByPriceAsc = () => {
+    return {
         type: SORT_PRICE_ASC,
     }
 }
 
-export const sortedByPriceDesc = () =>{
-    return{
+export const sortedByPriceDesc = () => {
+    return {
         type: SORT_PRICE_DESC,
     }
 }
 
-export const sortedByNameAsc = () =>{
-    return{
+export const sortedByNameAsc = () => {
+    return {
         type: SORT_NAME_ASC,
     }
 }
 
-export const sortedByNameDesc = () =>{
-    return{
+export const sortedByNameDesc = () => {
+    return {
         type: SORT_NAME_DESC,
     }
 }
 
-export const filteredByTypeRisers = () =>{
-    return{
+export const filteredByTypeRisers = () => {
+    return {
         type: FILTER_TYPE_RISERS,
     }
 }
 
-export const risersRemoved = () =>{
-    return{
+export const risersRemoved = () => {
+    return {
         type: RISERS_REMOVED,
     }
 }
 
-export const filteredByTypeLimbs = () =>{
-    return{
+export const filteredByTypeLimbs = () => {
+    return {
         type: FILTER_TYPE_LIMBS,
     }
 }
 
-export const limbsRemoved = () =>{
-    return{
+export const limbsRemoved = () => {
+    return {
         type: LIMBS_REMOVED,
     }
 }
 
-export const filteredByTypeTabs = () =>{
-    return{
+export const filteredByTypeTabs = () => {
+    return {
         type: FILTER_TYPE_TABS,
     }
 }
 
-export const tabsRemoved = () =>{
-    return{
+export const tabsRemoved = () => {
+    return {
         type: TABS_REMOVED,
     }
 }
 
-export const filteredByTypeStabilizers = () =>{
-    return{
+export const filteredByTypeStabilizers = () => {
+    return {
         type: FILTER_TYPE_STABILIZERS,
     }
 }
 
-export const stabilizersRemoved = () =>{
-    return{
+export const stabilizersRemoved = () => {
+    return {
         type: STABILIZERS_REMOVED,
     }
 }
 
-export const filteredByTypeArrows = () =>{
-    return{
+export const filteredByTypeArrows = () => {
+    return {
         type: FILTER_TYPE_ARROWS,
     }
 }
-export const arrowsRemoved = () =>{
-    return{
+export const arrowsRemoved = () => {
+    return {
         type: ARROWS_REMOVED,
     }
 }
 
-export const filteredByTypeSights = () =>{
-    return{
+export const filteredByTypeSights = () => {
+    return {
         type: FILTER_TYPE_SIGHTS,
     }
 }
-export const sightsRemoved = () =>{
-    return{
+export const sightsRemoved = () => {
+    return {
         type: SIGHTS_REMOVED,
     }
 }
 
-export const filteredByTypeStands = () =>{
-    return{
+export const filteredByTypeStands = () => {
+    return {
         type: FILTER_TYPE_STANDS,
     }
 }
 
-export const standsRemoved = () =>{
-    return{
+export const standsRemoved = () => {
+    return {
         type: STANDS_REMOVED,
     }
 }
 
-export const filteredByTypeArmguards = () =>{
-    return{
+export const filteredByTypeArmguards = () => {
+    return {
         type: FILTER_TYPE_ARMGUARDS,
     }
 }
 
-export const armguardsRemoved = () =>{
-    return{
+export const armguardsRemoved = () => {
+    return {
         type: ARMGUARDS_REMOVED,
     }
 }
 
-export const resetFilters = () =>{
-    return{
+export const resetFilters = () => {
+    return {
         type: RESET_FILTERS,
     }
 }
 
-export const setPage1 = () =>{
-    return{
+export const setPage1 = () => {
+    return {
         type: SET_PAGE1,
     }
 }
 
-export const setPage2 = () =>{
-    return{
+export const setPage2 = () => {
+    return {
         type: SET_PAGE2,
     }
 }
 
-export const setPage3 = () =>{
-    return{
+export const setPage3 = () => {
+    return {
         type: SET_PAGE3,
     }
 }
 
-export const setPage4 = () =>{
-    return{
+export const setPage4 = () => {
+    return {
         type: SET_PAGE4,
     }
 }
 
-export const setPage5 = () =>{
-    return{
+export const setPage5 = () => {
+    return {
         type: SET_PAGE5,
     }
 }
-export const setNextPage = () =>{
-    return{
+
+export const setNextPage = () => {
+    return {
         type: SET_NEXT_PAGE,
     }
 }
-export const setPreviousPage = () =>{
-    return{
+
+export const setPreviousPage = () => {
+    return {
         type: SET_PREVIOUS_PAGE,
     }
 }
 
-export const toggleMenu = () =>{
-    return{
+export const toggleMenu = () => {
+    return {
         type: TOGGLE_MENU,
     }
 }

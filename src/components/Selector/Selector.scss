@@ -1,9 +1,13 @@
 .selector-component {
   padding-top: 100px;
   width: 30%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 
   .selector-wrapper {
     display: flex;
+    justify-content: center;
     flex-direction: column;
   }
 

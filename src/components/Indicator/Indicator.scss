@@ -37,9 +37,12 @@
   }
 }
 
-
 @media (max-width: 767px) {
-  .fa-shopping-bag {
-    margin-right: 10%;
+  .cart-icon {
+    right: 5%;
+
+    & .fa-shopping-bag {
+      margin-right: 10%;
+    }
   }
 }

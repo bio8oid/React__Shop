@@ -33,6 +33,7 @@ nav a {
 @media (max-width: 767px) {
   .navbar-component {
     justify-content: center;
+    width: 50%;
 
     & .menu {
       text-align: center;

@@ -8987,11 +8987,6 @@ react-app-polyfill@^1.0.2:
     regenerator-runtime "0.13.3"
     whatwg-fetch "3.0.0"
 
-react-data-pagination@^1.0.5:
-  version "1.0.5"
-  resolved "https://registry.yarnpkg.com/react-data-pagination/-/react-data-pagination-1.0.5.tgz#ade1ba9ab290359903778e7a675b7cab5728e2bb"
-  integrity sha512-co8/OtWpnMAZ53lQufTMiD31ItPyzliRC2MrfZzZgkB16GliHgwcTOj0oBIw1S7VLJLKn/yoehovurqjwpjPlw==
-
 react-dev-utils@^9.0.3:
   version "9.0.3"
   resolved "https://registry.yarnpkg.com/react-dev-utils/-/react-dev-utils-9.0.3.tgz#7607455587abb84599451460eb37cef0b684131a"

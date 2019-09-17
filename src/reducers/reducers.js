@@ -34,7 +34,7 @@ import {
     SET_PAGE5,
     SET_NEXT_PAGE,
     SET_PREVIOUS_PAGE
-    
+
 } from '../actions/actions'
 
 import products from '../Data/Data.json';
@@ -50,7 +50,7 @@ const initState = {
     page: 1
 }
 
-   const Reducers = (state = initState, action) => {
+const Reducers = (state = initState, action) => {
 
     if (action.type === ADD_TO_CART) {
         let addedItem = state.items.find(item => item.id === action.id)
@@ -158,7 +158,7 @@ const initState = {
         let sortedByPriceDesc = state.items.sort((a, b) => (b.price - a.price))
         return {
             ...state,
-            items:[...sortedByPriceDesc]
+            items: [...sortedByPriceDesc]
         }
     }
 
@@ -201,12 +201,12 @@ const initState = {
         if (Empty) {
             return {
                 ...state,
-            items: initState.items
+                items: initState.items
             }
         }
         return {
             ...state,
-                items: risersRemoved
+            items: risersRemoved
         }
     }
 
@@ -233,12 +233,12 @@ const initState = {
         if (Empty) {
             return {
                 ...state,
-            items: initState.items
+                items: initState.items
             }
         }
         return {
             ...state,
-                items: limbsRemoved
+            items: limbsRemoved
         }
     }
 
@@ -261,16 +261,16 @@ const initState = {
     if (action.type === TABS_REMOVED) {
         let tabsRemoved = state.items.filter(x => x.tag !== 'tabs');
         //console.log(tabsRemoved)
-        let Empty =state.items.length === state.items.filter(x => x.tag === 'tabs').length;
+        let Empty = state.items.length === state.items.filter(x => x.tag === 'tabs').length;
         if (Empty) {
             return {
                 ...state,
-            items: initState.items
+                items: initState.items
             }
         }
         return {
             ...state,
-                items: tabsRemoved
+            items: tabsRemoved
         }
     }
 
@@ -297,12 +297,12 @@ const initState = {
         if (Empty) {
             return {
                 ...state,
-            items: initState.items
+                items: initState.items
             }
         }
         return {
             ...state,
-                items: stabilizersRemoved
+            items: stabilizersRemoved
         }
     }
 
@@ -329,12 +329,12 @@ const initState = {
         if (Empty) {
             return {
                 ...state,
-            items: initState.items
+                items: initState.items
             }
         }
         return {
             ...state,
-                items: arrowsRemoved
+            items: arrowsRemoved
         }
     }
 
@@ -361,12 +361,12 @@ const initState = {
         if (Empty) {
             return {
                 ...state,
-            items: initState.items
+                items: initState.items
             }
         }
         return {
             ...state,
-                items: sightsRemoved
+            items: sightsRemoved
         }
     }
 
@@ -393,12 +393,12 @@ const initState = {
         if (Empty) {
             return {
                 ...state,
-            items: initState.items
+                items: initState.items
             }
         }
         return {
             ...state,
-                items: standsRemoved
+            items: standsRemoved
         }
     }
 
@@ -425,12 +425,12 @@ const initState = {
         if (Empty) {
             return {
                 ...state,
-            items: initState.items
+                items: initState.items
             }
         }
         return {
             ...state,
-                items: armguardsRemoved
+            items: armguardsRemoved
         }
     }
 
@@ -438,16 +438,16 @@ const initState = {
         let open = state.isOpen === false
         if (open) {
             return {
-           ...state,
-           isOpen: !initState.isOpen
-           } 
+                ...state,
+                isOpen: !initState.isOpen
+            }
         }
-            return {
+        return {
             ...state,
             isOpen: initState.isOpen
         }
     }
-   
+
     if (action.type === SET_PAGE1) {
         return {
             ...state,

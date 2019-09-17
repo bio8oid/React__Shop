@@ -81,7 +81,7 @@
 
   .card-image img {
     height: 300px;
-    width: 296px;
+    width: 100%;
     border-top-left-radius: 25px;
     border-top-right-radius: 25px;
     background-size: cover;
@@ -124,5 +124,9 @@
     & .paginator {
       justify-content: center;
     }
+  }
+
+  .add-to-cart-button {
+    font-size: 17px;
   }
 }
