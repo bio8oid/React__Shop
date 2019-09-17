@@ -42,7 +42,7 @@
 
   .input-item {
     display: flex;
-    & p {
+    p {
       line-height: 20px;
     }
   }
@@ -51,5 +51,6 @@
 @media (max-width: 576px) {
   .selector-component {
     margin: 0 auto;
+    text-align: center;
   }
 }

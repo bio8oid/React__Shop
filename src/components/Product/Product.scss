@@ -11,7 +11,7 @@
     border: none;
     margin-bottom: 100px;
 
-    & h3 {
+    h3 {
       text-align: right;
     }
   }
@@ -30,7 +30,21 @@
 
   .add-to-cart-button {
     bottom: 0;
-    right: 0;
+    right: 5%;
     display: block;
+  }
+}
+
+@media (max-width: 767px) {
+  .product-component {
+    text-align: center;
+
+    .card h3 {
+      text-align: center;
+    }
+
+    .add-to-cart-button {
+      right: 50%;
+    }
   }
 }

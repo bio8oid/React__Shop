@@ -1,7 +1,5 @@
 .cart-icon {
-  position: absolute;
-  top: 35px;
-  right: -35px;
+  margin: 35px 35px 0 0;
   height: 30px;
 
   @media not all and (hover: none) {
@@ -34,15 +32,5 @@
     color: #ccc;
     font-size: 35px;
     display: block;
-  }
-}
-
-@media (max-width: 767px) {
-  .cart-icon {
-    right: 5%;
-
-    & .fa-shopping-bag {
-      margin-right: 10%;
-    }
   }
 }

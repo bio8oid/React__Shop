@@ -5,7 +5,7 @@
   list-style: none;
 
   .checkout-code {
-    & input {
+    input {
       text-align: center;
       border-radius: 10px;
       border: 2px solid green;
@@ -19,13 +19,13 @@
   .checkout-shipping {
     display: flex;
 
-    & input {
+    input {
       width: 20px;
       height: 20px;
       margin-right: 10px;
     }
 
-    & label {
+    label {
       line-height: 22px;
       font-size: 22px;
     }
@@ -49,5 +49,11 @@
         color: #fff;
       }
     }
+  }
+}
+
+@media (max-width: 767px) {
+  .checkout-component {
+    align-items: center;
   }
 }

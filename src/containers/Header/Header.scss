@@ -8,25 +8,16 @@
   .header-wrap {
     width: 100%;
     display: flex;
-    justify-content: center;
-    position: relative;
+    justify-content: space-between;
   }
 
   .logo-image {
-    margin: 15px;
+    margin: 15px 0;
     height: 70px;
     width: 70px;
     background-image: url("../../Assets/images/logo-1.png");
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
-  }
-}
-
-@media (max-width: 767px) {
-  .header-component {
-    & .logo-image {
-      margin: 15px 0;
-    }
   }
 }

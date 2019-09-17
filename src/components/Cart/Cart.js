@@ -37,24 +37,30 @@ class Cart extends Component {
                                     <h5 className="title">{item.title}</h5>
                                     <p>Price: {item.price} £</p>
 
+
                                     <div className="add-remove">
-                                        <p>Quantity: </p>
-                                        <p className="quantity">
-                                            {item.quantity}
-                                        </p>
+
+                                        <div className="quantity">
+                                            <p>Quantity: </p>
+                                            <p>{item.quantity}</p>
+                                        </div>
 
 
-                                        <Link to="/cart" className="cart-plus" onClick={() => { this.handleAddQuantity(item.id) }}>
-                                            <FontAwesomeIcon icon={faPlusSquare} />
-                                        </Link>
+                                        <div className="cart-item-buttons">
+                                            <div className="plus-minus-wrap">
+                                                <Link to="/cart" className="cart-plus" onClick={() => { this.handleAddQuantity(item.id) }}>
+                                                    <FontAwesomeIcon icon={faPlusSquare} />
+                                                </Link>
 
-                                        <Link to="/cart" className="cart-minus" onClick={() => { this.handleSubtractQuantity(item.id) }}>
-                                            <FontAwesomeIcon icon={faMinusSquare} />
-                                        </Link>
+                                                <Link to="/cart" className="cart-minus" onClick={() => { this.handleSubtractQuantity(item.id) }}>
+                                                    <FontAwesomeIcon icon={faMinusSquare} />
+                                                </Link>
+                                            </div>
 
-                                        <Link to="/cart" className="remove-button" onClick={() => { this.handleRemove(item.id) }}>
-                                            <FontAwesomeIcon icon={faTrashAlt} />
-                                        </Link>
+                                            <Link to="/cart" className="remove-button" onClick={() => { this.handleRemove(item.id) }}>
+                                                <FontAwesomeIcon icon={faTrashAlt} />
+                                            </Link>
+                                        </div>
 
                                     </div>
 
@@ -70,16 +76,14 @@ class Cart extends Component {
                 <p>Your cart is empty...</p>
             )
         return (
-            
+
             <Bounce left>
 
                 <div className="cart-component container">
-                    <div className="cart">
                         <h3>In your cart:</h3>
                         <ul className="collection">
                             {addedItems}
                         </ul>
-                    </div>
                     <Checkout />
                 </div>
 

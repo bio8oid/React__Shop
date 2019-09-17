@@ -10,7 +10,7 @@
     flex-direction: column;
     padding: 50px;
 
-    & .name,
+    .name,
     .lastname,
     .email,
     .contact-area {
@@ -22,12 +22,12 @@
       border: 1px solid #f87428;
     }
 
-    & .contact-area {
+    .contact-area {
       padding-top: 15px;
       height: 100%;
     }
 
-    & .send-btn {
+    .send-btn {
       border: 1px solid #f87428;
       background: #fff;
       height: 50px;

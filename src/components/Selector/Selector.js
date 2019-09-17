@@ -77,7 +77,7 @@ class Selector extends React.Component {
           {filterData.map(item => (
             <div key={item.id} className="input-item">
               <input  id={item.id} type="checkbox" onChange={this.handleFilter} />
-              <label>{item.id}</label>
+              <label htmlFor={item.id}>{item.id}</label>
             </div>))}
         </form>
 
