@@ -2,7 +2,7 @@ import React from "react";
 import { render } from "react-dom";
 import { Switch, Route, BrowserRouter } from "react-router-dom";
 import { Provider } from 'react-redux';
-import store from './store/store';
+import store from './store/store.js';
 
 import "bootstrap/dist/css/bootstrap.css";
 import './assets/fonts/Montserrat-Black.ttf';
