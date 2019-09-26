@@ -28,8 +28,8 @@ class Cart extends Component {
             (
                 this.props.items.map(item => {
                     return (
-                        <Bounce left>
-                            <li className="cart-item" key={item.id}>
+                        <Bounce left  key={item.id}>
+                            <div className="cart-item" key={item.id}>
 
                                 <img src={item.img} alt={item.img} className="item-img" />
 
@@ -48,11 +48,11 @@ class Cart extends Component {
 
                                         <div className="cart-item-buttons">
                                             <div className="plus-minus-wrap">
-                                                <Link to="/cart" className="cart-plus" onClick={() => { this.handleAddQuantity(item.id) }}>
+                                                <Link to="/cart" onClick={() => { this.handleAddQuantity(item.id) }}>
                                                     <FontAwesomeIcon icon={faPlusSquare} />
                                                 </Link>
 
-                                                <Link to="/cart" className="cart-minus" onClick={() => { this.handleSubtractQuantity(item.id) }}>
+                                                <Link to="/cart" onClick={() => { this.handleSubtractQuantity(item.id) }}>
                                                     <FontAwesomeIcon icon={faMinusSquare} />
                                                 </Link>
                                             </div>
@@ -66,7 +66,7 @@ class Cart extends Component {
 
                                 </div>
 
-                            </li>
+                            </div>
                         </Bounce>
                     )
                 })

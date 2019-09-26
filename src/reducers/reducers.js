@@ -37,7 +37,7 @@ import {
 
 } from '../actions/actions'
 
-import products from '../Data/Data.json';
+import products from '../data/data.json';
 
 const initState = {
     items: products,
@@ -140,6 +140,12 @@ const Reducers = (state = initState, action) => {
     }
 
     if (action.type === 'SUB_SHIPPING') {
+        if (state.addedItems === []) {
+            return{
+                ...state,
+                total: 0.00
+            }
+        }
         return {
             ...state,
             total: state.total - 3.99

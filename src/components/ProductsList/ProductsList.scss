@@ -34,7 +34,7 @@
     justify-content: flex-end;
     margin: 50px 0;
 
-    & .arrow {
+    .arrow {
       height: 35px;
       width: 35px;
       padding: 5px;
@@ -42,10 +42,12 @@
       color: #cac7c7;
       opacity: 0;
 
-      &:hover {
-        border: 5px solid #ccc;
-        border-radius: 50%;
-        color: #f87428;
+      @media not all and (hover: none) {
+        &:hover {
+          border: 5px solid #ccc;
+          border-radius: 50%;
+          color: #f87428;
+        }
       }
     }
   }
@@ -59,7 +61,7 @@
     color: #f87428;
     text-align: center;
 
-    & h6 {
+    h6 {
       color: #000;
       font-weight: 900;
       margin-top: 10px;
@@ -94,7 +96,7 @@
 .add-to-cart-button {
   background: orange;
   border-radius: 8px;
-  padding: 5px 10px;
+  padding: 9px;
   position: absolute;
   border: none;
   z-index: 3;
@@ -121,7 +123,7 @@
   .products-container {
     justify-content: center;
 
-    & .paginator {
+    .paginator {
       justify-content: center;
     }
   }

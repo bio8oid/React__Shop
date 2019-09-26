@@ -54,12 +54,14 @@
   .plus-minus-wrap {
     display: flex;
 
-    .cart-plus {
+    .fa-plus-square {
       color: green;
       margin: 0 30px;
+      font-size: 30px;
     }
-
-    .cart-minus {
+    
+    .fa-minus-square {
+      font-size: 30px;
       color: blue;
     }
   }
@@ -94,7 +96,7 @@
   .plus-minus-wrap {
     align-items: center;
 
-    .cart-plus, .cart-minus {
+    .fa-plus-square, .fa-minus-square {
       margin: 50px 30px;
     }
   }
