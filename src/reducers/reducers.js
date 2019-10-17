@@ -38,7 +38,6 @@ import {
 } from '../actions/actions'
 
 import products from '../data/data.json';
-// import  products  from '../server';
 
 const initState = {
     items: products,

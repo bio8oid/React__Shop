@@ -16,5 +16,9 @@ MongoClient.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true }, fu
         console.log(error);
     }
     productsData.forEach(readProducts, errorFunc);
-    client.close();
+    // client.close();
 });
+
+app.listen(3000, function(){
+    console.log('Server is running on port:', 3000);
+  });
