@@ -1,6 +1,6 @@
 ### React__Redux__Shop__App
 
-[SHOP - heroku deploy](https://szop.herokuapp.com/home)
+[SHOP - heroku deploy](https://archery-react.herokuapp.com/)
 
 [SHOP - firebase deploy](https://archery-shop-dabe8.firebaseapp.com)
 
