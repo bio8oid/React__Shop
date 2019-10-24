@@ -12,13 +12,12 @@ import products from '../data/data.json';
 
 const initState = {
     items: products,
-    baseList: [],
     addedItems: [],
     total: 0,
     clickedProduct: [],
 }
 
-const Reducers = (state = initState, action) => {
+const CartReducer = (state = initState, action) => {
 
     if (action.type === ADD_TO_CART) {
         let addedItem = state.items.find(item => item.id === action.id)
@@ -122,4 +121,4 @@ const Reducers = (state = initState, action) => {
         return state
 }
 
-export default Reducers
+export default CartReducer
