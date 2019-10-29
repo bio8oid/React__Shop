@@ -528,18 +528,3 @@ const Reducers = (state = initState, action) => {
 }
 
 export default Reducers
-
-// import CartReducer from './cart-reducer';
-// import SortReducer from './sort-reducer';
-// import FilterReducer from './filter-reducer';
-// import PaginationReducer from './pagination-reducer';
-// import { combineReducers } from 'redux'
-
-// const Reducers = combineReducers({
-//     CartReducer,
-//     SortReducer,
-//     FilterReducer,
-//     PaginationReducer
-// })
-
-// export default Reducers 
