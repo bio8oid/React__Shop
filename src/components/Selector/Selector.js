@@ -8,22 +8,25 @@ class Selector extends React.Component {
   handleSort = e => {
     const id = e.target.id;
 
-    if (id === "PriceAsc") {
-      this.props.sortedByPriceAsc();
+    switch (id) {
+      case "PriceAsc":
+        this.props.sortedByPriceAsc();
+        break;
+      case "PriceDesc":
+        this.props.sortedByPriceDesc();
+        break;
+      case "NameAsc":
+        this.props.sortedByNameAsc();
+        break;
+      case "NameDesc":
+        this.props.sortedByNameDesc();
+        break;
+      case "resetFilters":
+        this.reset();
+        break;
+      default:
+        return false;
     }
-    if (id === "PriceDesc") {
-      this.props.sortedByPriceDesc();
-    }
-    if (id === "NameAsc") {
-      this.props.sortedByNameAsc();
-    }
-    if (id === "NameDesc") {
-      this.props.sortedByNameDesc();
-    }
-    if (id === "resetFilters") {
-      this.reset();
-    }
-    return false;
   };
 
   handleFilter = e => {
@@ -158,4 +161,4 @@ const mapDispatchToProps = {
   ...actions
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Selector);
+export default connect( mapStateToProps, mapDispatchToProps )(Selector);
