@@ -5,6 +5,7 @@ import {
     SUB_QUANTITY,
     ADD_QUANTITY,
     ADD_SHIPPING,
+    SUB_SHIPPING,
     SORT_PRICE_ASC,
     SORT_PRICE_DESC,
     SORT_NAME_ASC,
@@ -33,7 +34,9 @@ import {
     SET_PAGE4,
     SET_PAGE5,
     SET_NEXT_PAGE,
-    SET_PREVIOUS_PAGE
+    SET_PREVIOUS_PAGE,
+    DISCOUNT_HANDLE,
+    INPUT_HANDLE
 
 } from '../actions/actions'
 
@@ -46,7 +49,8 @@ const initState = {
     total: 0,
     clickedProduct: [],
     isOpen: false,
-    page: 1
+    page: 1,
+    text: ""
 }
 
 const Reducers = (state = initState, action) => {
@@ -86,8 +90,18 @@ const Reducers = (state = initState, action) => {
     if (action.type === REMOVE_ITEM) {
         let itemToRemove = state.addedItems.find(item => action.id === item.id)
         let new_items = state.addedItems.filter(item => action.id !== item.id)
-
         let newTotal = state.total - (itemToRemove.price * itemToRemove.quantity)
+
+        if (new_items.length === 0) {
+            document.getElementById('shipping-checkbox').checked = false;
+            document.getElementById("discount-message").classList.add("hide");
+            return {
+                ...state,
+                addedItems: new_items,
+                total: 0,
+                indicatorItems: state.indicatorItems - itemToRemove.quantity
+            }
+        }
         return {
             ...state,
             addedItems: new_items,
@@ -112,6 +126,18 @@ const Reducers = (state = initState, action) => {
         if (addedItem.quantity === 1) {
             let new_items = state.addedItems.filter(item => item.id !== action.id)
             let newTotal = state.total - addedItem.price
+
+            if (new_items.length === 0) {
+                document.getElementById('shipping-checkbox').checked = false;
+                document.getElementById("discount-message").classList.add("hide");
+
+                return {
+                    ...state,
+                    addedItems: new_items,
+                    total: 0,
+                    indicatorItems: state.indicatorItems - 1
+                }
+            }
             return {
                 ...state,
                 addedItems: new_items,
@@ -138,7 +164,7 @@ const Reducers = (state = initState, action) => {
         }
     }
 
-    if (action.type === 'SUB_SHIPPING') {
+    if (action.type === SUB_SHIPPING) {
         if (state.addedItems === []) {
             return{
                 ...state,
@@ -519,6 +545,21 @@ const Reducers = (state = initState, action) => {
         return {
             ...state,
             items: sortedById
+        }
+    }
+
+    if (action.type === DISCOUNT_HANDLE) {
+        var discountedValue = state.total - (state.total * 10/100).toFixed(2)
+        return {
+            ...state,
+            total: discountedValue
+        }
+    }
+
+    if (action.type === INPUT_HANDLE) {
+        return {
+            ...state,
+            text: initState.text
         }
     }
 

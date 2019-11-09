@@ -57,11 +57,11 @@
     .fa-plus-square {
       color: green;
       margin: 0 30px;
-      font-size: 30px;
+      font-size: 35px;
     }
     
     .fa-minus-square {
-      font-size: 30px;
+      font-size: 35px;
       color: blue;
     }
   }
@@ -93,11 +93,16 @@
     align-items: center;
   }
 
+  .discount, .title {
+    text-align: center;
+  }
+
   .plus-minus-wrap {
     align-items: center;
+    margin: 50px 0;
 
     .fa-plus-square, .fa-minus-square {
-      margin: 50px 30px;
+      margin: 0 30px;
     }
   }
 

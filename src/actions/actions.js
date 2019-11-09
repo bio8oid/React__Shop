@@ -4,6 +4,7 @@ export const REMOVE_ITEM = 'REMOVE_ITEM';
 export const SUB_QUANTITY = 'SUB_QUANTITY';
 export const ADD_QUANTITY = 'ADD_QUANTITY';
 export const ADD_SHIPPING = 'ADD_SHIPPING';
+export const SUB_SHIPPING = 'SUB_SHIPPING';
 export const SORT_PRICE_ASC = 'SORT_PRICE_ASC';
 export const SORT_PRICE_DESC = 'SORT_PRICE_DESC';
 export const SORT_NAME_ASC = 'SORT_NAME_ASC';
@@ -36,6 +37,8 @@ export const SET_PAGE4 = 'SET_PAGE4';
 export const SET_PAGE5 = 'SET_PAGE5';
 export const SET_NEXT_PAGE = 'SET_NEXT_PAGE';
 export const SET_PREVIOUS_PAGE = 'SET_PREVIOUS_PAGE';
+export const DISCOUNT_HANDLE = 'DISCOUNT_HANDLE';
+export const INPUT_HANDLE = 'INPUT_HANDLE';
 
 export const addToCart = id => {
     return {
@@ -69,6 +72,18 @@ export const addQuantity = id => {
     return {
         type: ADD_QUANTITY,
         id
+    }
+}
+
+export const addShipping = () => {
+    return {
+        type: ADD_SHIPPING
+    }
+}
+
+export const substractShipping = () => {
+    return {
+        type: SUB_SHIPPING
     }
 }
 
@@ -247,5 +262,17 @@ export const setPreviousPage = () => {
 export const toggleMenu = () => {
     return {
         type: TOGGLE_MENU,
+    }
+}
+
+export const discountHandle = () => {
+    return {
+        type: DISCOUNT_HANDLE,
+    }
+}
+
+export const inputValueHandle = () => {
+    return {
+        type: INPUT_HANDLE,
     }
 }
