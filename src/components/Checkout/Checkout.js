@@ -2,9 +2,6 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import * as actions from '../../actions/actions';
 import './Checkout.scss'
-import { createHashHistory } from 'browserHistory'
-const browserHistory = createHashHistory()
-
 
 class Checkout extends Component {
 
@@ -21,6 +18,9 @@ class Checkout extends Component {
     handleChecked = e => {
         if (e.target.checked) {
             this.props.addShipping();
+            if ((window.location.href.indexOf('cart') > -1) && this.props.addedItems.length > 0) {
+                alert("Try our discount code: CODE10 to buy CHEAPER!")
+            }
         }
         else {
             this.props.substractShipping();
@@ -46,21 +46,7 @@ class Checkout extends Component {
     }
 
     render() {
-
-        // browserHistory.listen(function(ev) {
-        //     console.log(ev);
-        //     console.log('listen', ev.pathname);
-        //   });
-          
-
-//         document.onload = (e) => { 
-// if ((window.location.href.indexOf('cart') > -1) && this.props.addedItems.length > 0) {
-//     // window.setTimeout(window.alert, 1500, 'Try our discount code: CODE10')
-//     // setTimeout(alert('works'), 1000)
-//     setTimeout(() => { alert("Hello") }, 1500);
-// }
-//         }
-
+      
         return (
             <div className="checkout-component container">
                 <form onSubmit={this.handleCode} className='checkout-code'>
