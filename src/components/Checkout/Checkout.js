@@ -11,15 +11,16 @@ class Checkout extends Component {
       }
 
     componentWillUnmount = () => {
-        if (this.refs.shipping.checked)
+        if (this.refs.shipping.checked) {
             this.props.substractShipping()
+        }
     }
 
     handleChecked = e => {
         if (e.target.checked) {
             this.props.addShipping();
             if ((window.location.href.indexOf('cart') > -1) && this.props.addedItems.length > 0) {
-                alert("Try our discount code: CODE10 to buy CHEAPER!")
+                alert("Try our discount code: CODE10")
             }
         }
         else {
@@ -52,7 +53,7 @@ class Checkout extends Component {
                 <form onSubmit={this.handleCode} className='checkout-code'>
                     <input id="code-input" type="text" placeholder='Enter code' onChange={this.handleChange} />
                 </form>
-                <li className="hide discount" id="discount-message">YOU HAVE GOT 10% DISCOUNT</li>
+                <li className="hide discount" id="discount-message">YOUR 10% DISCOUNT APPLIED</li>
                 <li className="checkout-shipping">
                     <input id="shipping-checkbox" type="checkbox" ref="shipping" onChange={this.handleChecked} />
                     <label>Shipping (+ 3.99 £)</label>
