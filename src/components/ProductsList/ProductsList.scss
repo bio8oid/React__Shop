@@ -1,134 +1,135 @@
 .products-container {
-  display: flex;
-  justify-content: flex-end;
-  flex-wrap: wrap;
-  height: 100%;
-  width: 100%;
-  padding-top: 50px;
+	display: flex;
+	justify-content: flex-end;
+	flex-wrap: wrap;
+	height: 100%;
+	width: 100%;
+	padding-top: 50px;
+	font-family: "Montserrat", sans-serif;
 
-  .but {
-    margin: 10px;
-    height: 30px;
-    width: 30px;
-    padding: 5px;
-    line-height: 20px;
-    border-radius: 50%;
-    background: #fff;
-    color: #9c9b9b;
-    border: none;
-    font-weight: 900;
+	.but {
+		margin: 10px;
+		height: 30px;
+		width: 30px;
+		padding: 5px;
+		line-height: 20px;
+		border-radius: 50%;
+		background: #fff;
+		color: #9c9b9b;
+		border: none;
+		font-weight: 900;
 
-    &:focus,
-    &:target,
-    &:active,
-    &:active:focus {
-      border-radius: 50%;
-      background: #fff;
-      color: #f87428;
-    }
-  }
+		&:focus,
+		&:target,
+		&:active,
+		&:active:focus {
+			border-radius: 50%;
+			background: #fff;
+			color: #f87428;
+		}
+	}
 
-  .paginator {
-    width: 100%;
-    display: flex;
-    justify-content: flex-end;
-    margin: 50px 0;
+	.paginator {
+		width: 100%;
+		display: flex;
+		justify-content: flex-end;
+		margin: 50px 0;
 
-    .arrow {
-      height: 35px;
-      width: 35px;
-      padding: 5px;
-      margin: 0 15px;
-      color: #cac7c7;
-      opacity: 0;
+		.arrow {
+			height: 35px;
+			width: 35px;
+			padding: 5px;
+			margin: 0 15px;
+			color: #cac7c7;
+			opacity: 0;
 
-      @media not all and (hover: none) {
-        &:hover {
-          border: 5px solid #ccc;
-          border-radius: 50%;
-          color: #f87428;
-        }
-      }
-    }
-  }
+			@media not all and (hover: none) {
+				&:hover {
+					border: 5px solid #ccc;
+					border-radius: 50%;
+					color: #f87428;
+				}
+			}
+		}
+	}
 
-  .card {
-    width: 300px;
-    margin: 20px;
-    box-shadow: 0px 0px 67px -25px #ccc;
-    border-radius: 25px;
-    background: rgb(238, 238, 238);
-    color: #f87428;
-    text-align: center;
+	.card {
+		width: 300px;
+		margin: 20px;
+		box-shadow: 0px 0px 67px -25px #ccc;
+		border-radius: 25px;
+		background: rgb(238, 238, 238);
+		color: #f87428;
+		text-align: center;
 
-    h6 {
-      color: #000;
-      font-weight: 900;
-      margin-top: 10px;
-    }
+		h6 {
+			color: #000;
+			font-weight: 900;
+			margin-top: 10px;
+		}
 
-    @media not all and (hover: none) {
-      &:hover {
-        box-shadow: inset 0px 0px 0px 2px #f87428;
-        z-index: 3;
-      }
-    }
+		@media not all and (hover: none) {
+			&:hover {
+				box-shadow: inset 0px 0px 0px 2px #f87428;
+				z-index: 3;
+			}
+		}
 
-    @media not all and (hover: none) {
-      &:hover .add-to-cart-button {
-        display: inline-block;
-      }
-    }
-  }
+		@media not all and (hover: none) {
+			&:hover .add-to-cart-button {
+				display: inline-block;
+			}
+		}
+	}
 
-  .card-image img {
-    height: 300px;
-    width: 100%;
-    border-top-left-radius: 25px;
-    border-top-right-radius: 25px;
-    background-size: cover;
-    background-position: center;
-    padding: 2px;
-    position: relative;
-  }
+	.card-image img {
+		height: 300px;
+		width: 100%;
+		border-top-left-radius: 25px;
+		border-top-right-radius: 25px;
+		background-size: cover;
+		background-position: center;
+		padding: 2px;
+		position: relative;
+	}
 }
 
 .add-to-cart-button {
-  background: orange;
-  border-radius: 8px;
-  padding: 9px;
-  position: absolute;
-  border: none;
-  z-index: 3;
-  bottom: 15px;
-  right: 50%;
-  transform: translateX(50%);
-  display: none;
-  box-shadow: inset 0px 0px 0px 2px #f87428;
+	background: orange;
+	border-radius: 8px;
+	padding: 9px;
+	position: absolute;
+	border: none;
+	z-index: 3;
+	bottom: 15px;
+	right: 50%;
+	transform: translateX(50%);
+	display: none;
+	box-shadow: inset 0px 0px 0px 2px #f87428;
 
-  @media not all and (hover: none) {
-    &:hover {
-      color: #fff;
-    }
-  }
+	@media not all and (hover: none) {
+		&:hover {
+			color: #fff;
+		}
+	}
 }
 
 .App ul {
-  display: flex;
-  justify-content: center;
-  width: 100%;
+	display: flex;
+	justify-content: center;
+	width: 100%;
 }
 
 @media (max-width: 576px) {
-  .products-container {
-    justify-content: center;
+	.products-container {
+		justify-content: center;
 
-    .paginator {
-      justify-content: center;
-    }
-  }
+		.paginator {
+			justify-content: center;
+		}
+	}
 
-  .add-to-cart-button {
-    font-size: 17px;
-  }
+	.add-to-cart-button {
+		font-size: 17px;
+	}
 }
