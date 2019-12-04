@@ -40,7 +40,7 @@ import {
 
 } from '../actions/actions'
 
-import products from '../data/data.json';
+import products from '../data/dataCopy.json';
 
 const initState = {
     items: products,

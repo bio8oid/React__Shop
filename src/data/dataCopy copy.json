@@ -5,7 +5,7 @@
     "title": "W&W Nano Max Riser", 
     "desc": "Developed using WIN&WIN's carbon technology that absorbs shock and minimizes movemnet to make shooting more accurate and stable.",
      "price":595,
-     "img": "https://www.archeryworld.co.uk/image/cache/catalog/ProductImages/Bows/Bows_Only/Recurve/Risers/w-and-w-wiawis-white-green-0-1-1-700x700.jpg"
+     "img": "http://www.cbarchery.co.uk/WebRoot/StoreLGB/Shops/62059681/54F4/6190/6A88/BC9A/99E9/C0A8/2AB8/4593/WW_WIAWIS_RISER_wht_grn.jpg"
     },
     {
         "id":2,
@@ -34,10 +34,10 @@
     {
         "id":5,
      "tag": "risers",   
-    "title": "Hoyt Formula X ", 
+    "title": "Hoyt Formula X", 
     "desc": "Introducing the all-new Formula X, the most dynamic, responsive feeling riser with no residual vibration we’ve ever engineered.",
      "price":885,
-     "img": "https://thearcheryshop.co.uk/25891-large_default/hoyt-2019-formula-x-recurve-riser.jpg"
+     "img": "https://www.lancasterarchery.com/media/catalog/product/cache/0f0282ddec6f407e3142cedcb490b752/2/5/2561029_riser-side_1.jpg"
     },
     {
         "id":6,
@@ -45,7 +45,7 @@
     "title": "Hoyt Satori", 
     "desc": "CRS foam core that is developed by W&W engineers maximizes the durability of the limbs and stability in shooting. It ensures the highest speed.",
      "price":915,
-     "img": "https://thearcheryshop.co.uk/21377-large_default/hoyt-satori-traditional-recurve-riser.jpg"
+     "img": "https://bowshop.pl/wp-content/uploads/2019/09/hoyt_satori_majdan2.jpg"
     },
     {
         "id":7,
@@ -74,10 +74,10 @@
     {
         "id":10,
      "tag": "limbs",   
-    "title": "Hoyt Satori X-Tour ", 
+    "title": "Hoyt Satori X-Tour", 
     "desc": "Nothing gives a trad bow more of a lethal edge than being paired with limb technology and performance sourced straight from the recurve target archery world. We proudly present the culmination of nearly 9 decades of knowledge and experience to the traditional bowhunting world: the Carbon X-Tour, our fastest recurve limb ever, featuring our all-new, exclusive laminated bamboo and high-performance carbon layers. This new combination maximizes dynamic limb straightness, torsional stability, speed and precision string tracking for the ultimate trad recurve limb.",
      "price":699,
-     "img": "https://cdn10.bigcommerce.com/s-a2n1f4goi/products/1101/images/2281/hoyt-trad-x-tour-limbs__78403.1486711505.500.659.jpg?c=2"
+     "img": "https://www.eluneta.pl/images/stories/virtuemart/product/wurfarme-hoyt-satori-traditional-carbon-x-tour.jpg"
     },
     {
         "id":11,
@@ -133,7 +133,7 @@
     "title": "AAE | KSL Gold Tab", 
     "desc": "The cutting-edge design pioneered by coach KiSik Lee represents a breakthrough in comfort, ergonomics, and feedback. ",
      "price":185,
-     "img": "https://thearcheryshop.co.uk/24631-large_default/aae-ksl-gold-tab-in-super-leather-and-brass.jpg"
+     "img": "https://cdn10.bigcommerce.com/s-odt5o88/products/503/images/894/kls_tab_1__54351.1442771529.1280.1280.jpg?c=2"
     },
     {
         "id":18,
@@ -189,7 +189,7 @@
     "title": "Win&Win V-Bar Cx2", 
     "desc": "Win&Win V-Bar Cx2 Carbon 45 Degrees.",
      "price":115,
-     "img": "https://www.excellaarchery.com.my/image/cache/catalog/V-bar/CX2-800x800.jpg"
+     "img": "http://falco.ee/files/products/2019/06/cx_2_v-bar.jpg"
     },
     {
         "id":25,
