@@ -36,12 +36,12 @@
 		margin: 50px 0;
 
 		.arrow {
-			height: 35px;
-			width: 35px;
+			height: 30px;
+			width: 30px;
 			padding: 5px;
-			margin: 0 15px;
+			margin: 10px;
 			color: #6d6d6d;
-			opacity: 0;
+			opacity: 1;
 
 			@media not all and (hover: none) {
 				&:hover {
@@ -50,6 +50,9 @@
 					color: #f87428;
 				}
 			}
+		}
+		.hide {
+			opacity: 0;
 		}
 	}
 

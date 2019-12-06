@@ -33,18 +33,57 @@ class ProductsList extends Component {
       data: paginatedItems
     };
   }
-
+  
   render() {
     const dataset = this.props.items;
     const pageSet = this.props.page;
     const paginatorData = this.paginator(dataset);
-
+    
     const pageNumbers = [];
     for (let i = 1; i <= Math.ceil(dataset.length / paginatorData.per_page); i++) {
       pageNumbers.push(i);
     }
+    
+    console.log('pageSet '+pageSet)
+    console.log('paginatorData.page  '+paginatorData.page)
+    console.log(dataset)
+    console.log(pageNumbers)
+    console.log(pageNumbers.length)
+
+    const addLeftArrow = () => document.getElementById('left').classList.remove('hide');
+    const removeLeftArrow = () => document.getElementById('left').classList.add('hide');
+    const addRightArrow = () => document.getElementById('right').classList.remove('hide');
+    const removeRightArrow = () => document.getElementById('right').classList.add('hide');
+
+    // if (pageNumbers.length === 1) {
+    //   leftArrow();
+    //   rightArrow();
+    // }
+    // if (paginatorData === 1) {
+    //   leftArrow();
+    // }
+
+    // const arrowHandler = () => {
+    //   if (pageNumbers.length === 1) {
+    //     leftArrow();
+    //     rightArrow();
+    //   }
+    // }
 
     const handlePage = value => e => {
+
+      if (pageNumbers.length === 1) {
+        removeLeftArrow();
+        removeRightArrow();
+      }
+      if (pageSet === 1) {
+        removeLeftArrow();
+      }
+      if (pageSet !== 1) {
+        addLeftArrow();
+      }
+      
+
       return (
         (value === 1) ? this.props.setPage1() :
           (value === 2) ? this.props.setPage2() :
@@ -65,7 +104,9 @@ class ProductsList extends Component {
             <div className="card" key={item.id}>
               <div className="card-image">
                 <button className="add-to-cart-button" onClick={() => { this.handleClick(item.id) }}>Add to Cart</button>
-                <Link to="/product"><img src={item.img} alt={item.title} onClick={() => { this.handleId(item.id) }} /></Link>
+                <Link to="/product">
+                  <img src={item.img} alt={item.title} onClick={() => { this.handleId(item.id) }} />
+                </Link>
               </div>
               <h6 className="card-title">{item.title}</h6>
               <p className="card-price">Price: {item.price} £</p>
