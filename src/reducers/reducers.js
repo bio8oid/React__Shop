@@ -28,11 +28,12 @@ import {
     ARMGUARDS_REMOVED,
     RESET_FILTERS,
     TOGGLE_MENU,
-    SET_PAGE1,
-    SET_PAGE2,
-    SET_PAGE3,
-    SET_PAGE4,
-    SET_PAGE5,
+    SET_PAGE,
+    // SET_PAGE1,
+    // SET_PAGE2,
+    // SET_PAGE3,
+    // SET_PAGE4,
+    // SET_PAGE5,
     SET_NEXT_PAGE,
     SET_PREVIOUS_PAGE,
     DISCOUNT_HANDLE,
@@ -479,40 +480,60 @@ const Reducers = (state = initState, action) => {
         }
     }
 
-    if (action.type === SET_PAGE1) {
+    if (action.type === SET_PAGE) {
+        if (action.id === "right") {
+            return {
+                ...state,
+                page: state.page + 1
+            }
+        }
+        if (action.id === "left") {
+            return {
+                ...state,
+                page: state.page - 1
+            }
+        }
         return {
             ...state,
-            page: initState.page
+            page: action.id
         }
     }
 
-    if (action.type === SET_PAGE2) {
-        return {
-            ...state,
-            page: 2
-        }
-    }
 
-    if (action.type === SET_PAGE3) {
-        return {
-            ...state,
-            page: 3
-        }
-    }
+    // if (action.type === SET_PAGE1) {
+    //     return {
+    //         ...state,
+    //         page: initState.page
+    //     }
+    // }
 
-    if (action.type === SET_PAGE4) {
-        return {
-            ...state,
-            page: 4
-        }
-    }
+    // if (action.type === SET_PAGE2) {
+    //     return {
+    //         ...state,
+    //         page: 2
+    //     }
+    // }
 
-    if (action.type === SET_PAGE5) {
-        return {
-            ...state,
-            page: 5
-        }
-    }
+    // if (action.type === SET_PAGE3) {
+    //     return {
+    //         ...state,
+    //         page: 3
+    //     }
+    // }
+
+    // if (action.type === SET_PAGE4) {
+    //     return {
+    //         ...state,
+    //         page: 4
+    //     }
+    // }
+
+    // if (action.type === SET_PAGE5) {
+    //     return {
+    //         ...state,
+    //         page: 5
+    //     }
+    // }
 
     if (action.type === SET_NEXT_PAGE) {
         if (state.page === 5) {

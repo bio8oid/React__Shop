@@ -44,21 +44,20 @@ class ProductsList extends Component {
       pageNumbers.push(i);
     }
     
-    console.log('pageSet '+pageSet)
-    console.log('paginatorData.page  '+paginatorData.page)
-    console.log(dataset)
-    console.log(pageNumbers)
-    console.log(pageNumbers.length)
+    console.log('pageSet 1 '+pageSet)
+    // console.log(pageNumbers)
+    // console.log(pageNumbers.length)
+    // console.log(pageNumbers[pageNumbers.length - 1])
+
 
     const addLeftArrow = () => document.getElementById('left').classList.remove('hide');
     const removeLeftArrow = () => document.getElementById('left').classList.add('hide');
     const addRightArrow = () => document.getElementById('right').classList.remove('hide');
     const removeRightArrow = () => document.getElementById('right').classList.add('hide');
 
-    // if (pageNumbers.length === 1) {
-    //   leftArrow();
-    //   rightArrow();
-    // }
+   
+// const startList = (pageSet === 1);
+  
     // if (paginatorData === 1) {
     //   leftArrow();
     // }
@@ -71,29 +70,72 @@ class ProductsList extends Component {
     // }
 
     const handlePage = value => e => {
+      const id = e.target.id;
+    console.log(pageNumbers[pageNumbers.length - 1])
+      console.log('pageSet 2 ' + pageSet)
+      console.log("ajdi "+id)
+      console.log("value before "+value)
 
-      if (pageNumbers.length === 1) {
-        removeLeftArrow();
+      if (value >= 1 && value <= pageNumbers[pageNumbers.length - 1]) {
+        console.log("targiet ajdi " + e.target.id)
+        console.log("value "+value)
+        this.props.setPage(id);
+      }
+
+
+      // console.log(e.target)
+
+// const add =()=> {
+
+//   if (pageNumbers[pageNumbers.length - 1]) {
+//    removeRightArrow();
+//  }
+// if (pageSet !== pageNumbers[pageNumbers.length - 1]) {
+//      addRightArrow();
+//    }
+  
+// }
+   
+      // if (pageSet === 1) {
+      //   removeLeftArrow();
+      // }
+      // if (pageSet !== 1) {
+      //   addLeftArrow();
+      // }
+    //   const removeBoth = () => {
+    //  removeLeftArrow();
+    //     removeRightArrow();
+    //   }
+ if (value === pageNumbers[pageNumbers.length - 1]) {
         removeRightArrow();
       }
-      if (pageSet === 1) {
+      if (value === 1) {
         removeLeftArrow();
       }
-      if (pageSet !== 1) {
-        addLeftArrow();
-      }
-      
-
-      return (
-        (value === 1) ? this.props.setPage1() :
-          (value === 2) ? this.props.setPage2() :
-            (value === 3) ? this.props.setPage3() :
-              (value === 4) ? this.props.setPage4() :
-                (value === 5) ? this.props.setPage5() :
-                  (e.target.id === "left") ? this.props.setPreviousPage() :
-                    (e.target.id === "right") ? this.props.setNextPage() : false
-      )
+     
+ if (pageNumbers.length !== 1){
+      addLeftArrow();
+      addRightArrow();
     }
+      // return (
+        
+      //   (value === 1) ? this.props.setPage1() :
+      //     (value === 2) ? this.props.setPage2() :
+      //       (value === 3) ? this.props.setPage3() :
+      //         (value === 4) ? this.props.setPage4() :
+      //           (value === 5) ? this.props.setPage5() :
+      //             (e.target.id === "left") ? this.props.setPreviousPage() :
+      //               (e.target.id === "right") ? this.props.setNextPage() : false
+      // )
+
+    }
+    
+    if (pageNumbers.length === 1) {
+      removeLeftArrow();
+      removeRightArrow();
+    }
+  
+   
 
     return (
 

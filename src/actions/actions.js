@@ -30,11 +30,12 @@ export const CHECKBOX_UP = 'CHECKBOX_UP';
 export const CHECKBOX_DOWN = 'CHECKBOX_DOWN';
 export const RESET_FILTERS = 'RESET_FILTERS';
 export const TOGGLE_MENU = 'TOGGLE_MENU';
+export const SET_PAGE = 'SET_PAGE';
 export const SET_PAGE1 = 'SET_PAGE1';
-export const SET_PAGE2 = 'SET_PAGE2';
-export const SET_PAGE3 = 'SET_PAGE3';
-export const SET_PAGE4 = 'SET_PAGE4';
-export const SET_PAGE5 = 'SET_PAGE5';
+// export const SET_PAGE2 = 'SET_PAGE2';
+// export const SET_PAGE3 = 'SET_PAGE3';
+// export const SET_PAGE4 = 'SET_PAGE4';
+// export const SET_PAGE5 = 'SET_PAGE5';
 export const SET_NEXT_PAGE = 'SET_NEXT_PAGE';
 export const SET_PREVIOUS_PAGE = 'SET_PREVIOUS_PAGE';
 export const DISCOUNT_HANDLE = 'DISCOUNT_HANDLE';
@@ -217,35 +218,35 @@ export const resetFilters = () => {
     }
 }
 
-export const setPage1 = () => {
-    return {
-        type: SET_PAGE1,
-    }
-}
+// export const setPage1 = () => {
+//     return {
+//         type: SET_PAGE1,
+//     }
+// }
 
-export const setPage2 = () => {
-    return {
-        type: SET_PAGE2,
-    }
-}
+// export const setPage2 = () => {
+//     return {
+//         type: SET_PAGE2,
+//     }
+// }
 
-export const setPage3 = () => {
-    return {
-        type: SET_PAGE3,
-    }
-}
+// export const setPage3 = () => {
+//     return {
+//         type: SET_PAGE3,
+//     }
+// }
 
-export const setPage4 = () => {
-    return {
-        type: SET_PAGE4,
-    }
-}
+// export const setPage4 = () => {
+//     return {
+//         type: SET_PAGE4,
+//     }
+// }
 
-export const setPage5 = () => {
-    return {
-        type: SET_PAGE5,
-    }
-}
+// export const setPage5 = () => {
+//     return {
+//         type: SET_PAGE5,
+//     }
+// }
 
 export const setNextPage = () => {
     return {
@@ -258,6 +259,17 @@ export const setPreviousPage = () => {
         type: SET_PREVIOUS_PAGE,
     }
 }
+
+// Testing
+
+export const setPage = id => {
+    return {
+        id,
+        type: SET_PAGE,
+    }
+}
+
+
 
 export const toggleMenu = () => {
     return {
