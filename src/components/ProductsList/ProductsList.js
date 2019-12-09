@@ -72,11 +72,14 @@ class ProductsList extends Component {
     const handlePage = value => e => {
       const id = e.target.id;
     console.log(pageNumbers[pageNumbers.length - 1])
-      console.log('pageSet 2 ' + pageSet)
-      console.log("ajdi "+id)
-      console.log("value before "+value)
+    //   console.log('pageSet 2 ' + pageSet)
+    //   console.log("ajdi "+id)
+    //   console.log("value before "+value)
+        console.log(pageNumbers)
+        console.log(pageNumbers.length)
 
-      if (value >= 1 && value <= pageNumbers[pageNumbers.length - 1]) {
+
+      if (id !== pageNumbers[1] || id !== pageNumbers[pageNumbers.length - 1]) {
         console.log("targiet ajdi " + e.target.id)
         console.log("value "+value)
         this.props.setPage(id);
