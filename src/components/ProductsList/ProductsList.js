@@ -50,10 +50,10 @@ class ProductsList extends Component {
     // console.log(pageNumbers[pageNumbers.length - 1])
 
 
-    const addLeftArrow = () => document.getElementById('left').classList.remove('hide');
-    const removeLeftArrow = () => document.getElementById('left').classList.add('hide');
-    const addRightArrow = () => document.getElementById('right').classList.remove('hide');
-    const removeRightArrow = () => document.getElementById('right').classList.add('hide');
+    // const addLeftArrow = () => document.getElementById('left').classList.remove('hide');
+    // const removeLeftArrow = () => document.getElementById('left').classList.add('hide');
+    // const addRightArrow = () => document.getElementById('right').classList.remove('hide');
+    // const removeRightArrow = () => document.getElementById('right').classList.add('hide');
 
    
 // const startList = (pageSet === 1);
@@ -78,13 +78,11 @@ class ProductsList extends Component {
         console.log(pageNumbers)
         console.log(pageNumbers.length)
 
-
-      if (id !== pageNumbers[1] || id !== pageNumbers[pageNumbers.length - 1]) {
+      // if (pageSet !== pageNumbers[pageNumbers.length - 1]) {
         console.log("targiet ajdi " + e.target.id)
         console.log("value "+value)
         this.props.setPage(id);
-      }
-
+      // }
 
       // console.log(e.target)
 
@@ -109,17 +107,27 @@ class ProductsList extends Component {
     //  removeLeftArrow();
     //     removeRightArrow();
     //   }
- if (value === pageNumbers[pageNumbers.length - 1]) {
-        removeRightArrow();
-      }
-      if (value === 1) {
-        removeLeftArrow();
-      }
+
+
+
+
+
+//  if (value === pageNumbers[pageNumbers.length - 1]) {
+//         removeRightArrow();
+//       }
+//       if (value === 1) {
+//         removeLeftArrow();
+//       }
      
- if (pageNumbers.length !== 1){
-      addLeftArrow();
-      addRightArrow();
-    }
+//  if (pageNumbers.length !== 1){
+//       addLeftArrow();
+//       addRightArrow();
+//     }
+
+
+
+
+
       // return (
         
       //   (value === 1) ? this.props.setPage1() :
@@ -133,10 +141,13 @@ class ProductsList extends Component {
 
     }
     
-    if (pageNumbers.length === 1) {
-      removeLeftArrow();
-      removeRightArrow();
-    }
+
+
+
+    // if (pageNumbers.length === 1) {
+    //   removeLeftArrow();
+    //   removeRightArrow();
+    // }
   
    
 
@@ -159,7 +170,7 @@ class ProductsList extends Component {
           ))}
 
           <div className="paginator">
-            <FontAwesomeIcon className="arrow" id="left" onClick={handlePage(this.id)} icon={faArrowLeft} />
+            <FontAwesomeIcon className="arrow" id={pageSet-1} onClick={handlePage(this.id)} icon={faArrowLeft} />
             {pageNumbers.map(id => {
               return (
                 <ButtonGroup key={id}>
@@ -167,7 +178,7 @@ class ProductsList extends Component {
                 </ButtonGroup>
               );
             })}
-            <FontAwesomeIcon className="arrow" id="right" onClick={handlePage(this.id)} icon={faArrowRight} />
+            <FontAwesomeIcon className="arrow" id={pageSet+1} onClick={handlePage(this.id)} icon={faArrowRight} />
           </div>
 
         </div>

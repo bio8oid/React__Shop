@@ -481,21 +481,33 @@ const Reducers = (state = initState, action) => {
     }
 
     if (action.type === SET_PAGE) {
-        if (action.id === "right") {
-            return {
-                ...state,
-                page: state.page + 1
-            }
-        }
-        if (action.id === "left") {
-            return {
-                ...state,
-                page: state.page - 1
-            }
-        }
+        // if (action.id === +1 ) {
+        //     return {
+        //         ...state,
+        //         page: state.page + 1
+        //     }
+        // }
+        // if (action.id === -1) {
+        //     return {
+        //         ...state,
+        //         page: state.page - 1
+        //     }
+        // }
+        // if (action.id === "right" ) {
+        //     return {
+        //         ...state,
+        //         page: state.page + 1
+        //     }
+        // }
+        // if (action.id === "left") {
+        //     return {
+        //         ...state,
+        //         page: state.page - 1
+        //     }
+        // }
         return {
             ...state,
-            page: action.id
+            page: parseInt(action.id) 
         }
     }
 
