@@ -29,6 +29,7 @@ import {
     RESET_FILTERS,
     TOGGLE_MENU,
     SET_PAGE,
+    PAGINATOR,
     // SET_PAGE1,
     // SET_PAGE2,
     // SET_PAGE3,
@@ -37,6 +38,7 @@ import {
     SET_NEXT_PAGE,
     SET_PREVIOUS_PAGE,
     DISCOUNT_HANDLE,
+    // SET_PAGE_WITH_ARROW,
     INPUT_HANDLE
 
 } from '../actions/actions'
@@ -51,6 +53,9 @@ const initState = {
     clickedProduct: [],
     isOpen: false,
     page: 1,
+    perPage : 6,
+    // totalPages: 0,
+    pagesData: [],
     text: ""
 }
 
@@ -481,12 +486,14 @@ const Reducers = (state = initState, action) => {
     }
 
     if (action.type === SET_PAGE) {
-        // if (action.id === +1 ) {
-        //     return {
-        //         ...state,
-        //         page: state.page + 1
-        //     }
-        // }
+        console.log("Reducer " + state.page)
+        console.log("Reducer "+action.id)
+        if (action.id ==="") {
+            return {
+                ...state,
+                page: state.page
+            }
+        }
         // if (action.id === -1) {
         //     return {
         //         ...state,
@@ -507,10 +514,31 @@ const Reducers = (state = initState, action) => {
         // }
         return {
             ...state,
-            page: parseInt(action.id) 
+            page: Number(action.id)
         }
     }
 
+    if (action.type === PAGINATOR) {
+        // let pageSet = state.page
+        // let perPage = state.perPage
+        // let dataset = state.items
+        let offset = (state.page - 1) * state.perPage
+        let paginatedItems = state.items.slice(offset).slice(0, state.perPage)
+
+        return {
+            ...state,
+            page: state.page,
+            perPage: state.perPage,
+            // totalPages: state.items.length,
+            pagesData: paginatedItems
+        };
+    }
+    // if (action.type === SET_PAGE_WITH_ARROW) {
+    //     return {
+    //         ...state,
+    //         page: initState.page
+    //     }
+    // }
 
     // if (action.type === SET_PAGE1) {
     //     return {
@@ -572,6 +600,17 @@ const Reducers = (state = initState, action) => {
             page: state.page - 1
         }
     }
+
+
+
+
+
+
+
+
+
+
+
 
     if (action.type === RESET_FILTERS) {
         var sortedById = initState.items.sort((a, b) => (a.id - b.id))
