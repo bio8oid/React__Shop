@@ -18,19 +18,18 @@ class ProductsList extends Component {
     this.props.passID(id);
   }
 
-
+  
+  
   render() {
+    
+
+      this.props.paginator();
+
 
     const dataset = this.props.items;
-    const pages = Math.ceil(dataset.length / 6);
-    const pageNumbers = Array.from({ length: pages }, (v, k) => ++k);
-
-    
     let pageSet = this.props.page;
     let offset = (pageSet - 1) * 6
     let paginatedItems = dataset.slice(offset).slice(0, 6)
-
-
 
     const handlePage = value => e => {
       let id = e.target.id;
@@ -69,7 +68,7 @@ class ProductsList extends Component {
 
           <div className="paginator">
             <FontAwesomeIcon className="arrow" id="left" onClick={handlePage(this.id)} icon={faArrowLeft} />
-            {pageNumbers.map(id => {
+            {this.props.pageNumbers.map(id => {
               return (
                 <ButtonGroup key={id}>
                   <Button className="but" id={id} key={id} onClick={handlePage(id)}>{id}</Button>
@@ -88,7 +87,8 @@ class ProductsList extends Component {
 const mapStateToProps = state => {
   return {
     items: state.items,
-    page: state.page
+    page: state.page,
+    pageNumbers: state.pageNumbers
   }
 }
 
