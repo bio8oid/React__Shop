@@ -29,9 +29,6 @@ import {
     RESET_FILTERS,
     TOGGLE_MENU,
     SET_PAGE,
-    PAGINATOR,
-    SET_NEXT_PAGE,
-    SET_PREVIOUS_PAGE,
     DISCOUNT_HANDLE,
     INPUT_HANDLE
 
@@ -47,7 +44,6 @@ const initState = {
     clickedProduct: [],
     isOpen: false,
     page: 1,
-    pageNumbers: [],
     text: ""
 }
 
@@ -164,7 +160,7 @@ const Reducers = (state = initState, action) => {
 
     if (action.type === SUB_SHIPPING) {
         if (state.addedItems === []) {
-            return{
+            return {
                 ...state,
                 total: 0.00
             }
@@ -209,23 +205,23 @@ const Reducers = (state = initState, action) => {
 
     if (action.type === FILTER_TYPE_RISERS) {
         let filteredRisers = initState.items.filter(x => x.tag === 'risers');
-        //console.log(filteredRisers)
         let notEmpty = state.items.length !== products.length
         if (notEmpty) {
             return {
                 ...state,
-                items: [...state.items, ...filteredRisers]
+                page: 1,
+                items: [...state.items, ...filteredRisers],
             }
         }
         return {
             ...state,
+            page: 1,
             items: [...filteredRisers]
         }
     }
 
     if (action.type === RISERS_REMOVED) {
         let risersRemoved = state.items.filter(x => x.tag !== 'risers');
-        //console.log(risersRemoved)
         let Empty = state.items.length === state.items.filter(x => x.tag === 'risers').length;
         if (Empty) {
             return {
@@ -241,23 +237,23 @@ const Reducers = (state = initState, action) => {
 
     if (action.type === FILTER_TYPE_LIMBS) {
         let filteredLimbs = initState.items.filter(x => x.tag === 'limbs');
-        //console.log(filteredLimbs)
         let notEmpty = state.items.length !== products.length;
         if (notEmpty) {
             return {
                 ...state,
-                items: [...state.items, ...filteredLimbs]
+                page: 1,
+                items: [...state.items, ...filteredLimbs],
             }
         }
         return {
             ...state,
+            page: 1,
             items: filteredLimbs
         }
     }
 
     if (action.type === LIMBS_REMOVED) {
         let limbsRemoved = state.items.filter(x => x.tag !== 'limbs');
-        //console.log(limbsRemoved)
         let Empty = state.items.length === state.items.filter(x => x.tag === 'limbs').length;
         if (Empty) {
             return {
@@ -273,23 +269,23 @@ const Reducers = (state = initState, action) => {
 
     if (action.type === FILTER_TYPE_TABS) {
         let filteredTabs = initState.items.filter(x => x.tag === 'tabs');
-        //console.log(filteredTabs)
         let notEmpty = state.items.length !== products.length;
         if (notEmpty) {
             return {
                 ...state,
-                items: [...state.items, ...filteredTabs]
+                page: 1,
+                items: [...state.items, ...filteredTabs],
             }
         }
         return {
             ...state,
+            page: 1,
             items: filteredTabs
         }
     }
 
     if (action.type === TABS_REMOVED) {
         let tabsRemoved = state.items.filter(x => x.tag !== 'tabs');
-        //console.log(tabsRemoved)
         let Empty = state.items.length === state.items.filter(x => x.tag === 'tabs').length;
         if (Empty) {
             return {
@@ -305,23 +301,23 @@ const Reducers = (state = initState, action) => {
 
     if (action.type === FILTER_TYPE_STABILIZERS) {
         let filteredStabilizers = initState.items.filter(x => x.tag === 'stabilizers');
-        //console.log(filteredStabilizers)
         let notEmpty = state.items.length !== products.length;
         if (notEmpty) {
             return {
                 ...state,
-                items: [...state.items, ...filteredStabilizers]
+                page: 1,
+                items: [...state.items, ...filteredStabilizers],
             }
         }
         return {
             ...state,
+            page: 1,
             items: filteredStabilizers
         }
     }
 
     if (action.type === STABILIZERS_REMOVED) {
         let stabilizersRemoved = state.items.filter(x => x.tag !== 'stabilizers');
-        //console.log(stabilizersRemoved)
         let Empty = state.items.length === state.items.filter(x => x.tag === 'stabilizers').length;
         if (Empty) {
             return {
@@ -337,23 +333,23 @@ const Reducers = (state = initState, action) => {
 
     if (action.type === FILTER_TYPE_ARROWS) {
         let filteredArrows = initState.items.filter(x => x.tag === 'arrows');
-        //console.log(filteredArrows)
         let notEmpty = state.items.length !== products.length;
         if (notEmpty) {
             return {
                 ...state,
-                items: [...state.items, ...filteredArrows]
+                page: 1,
+                items: [...state.items, ...filteredArrows],
             }
         }
         return {
             ...state,
+            page: 1,
             items: filteredArrows
         }
     }
 
     if (action.type === ARROWS_REMOVED) {
         let arrowsRemoved = state.items.filter(x => x.tag !== 'arrows');
-        //console.log(arrowsRemoved)
         let Empty = state.items.length === state.items.filter(x => x.tag === 'arrows').length;
         if (Empty) {
             return {
@@ -369,23 +365,23 @@ const Reducers = (state = initState, action) => {
 
     if (action.type === FILTER_TYPE_SIGHTS) {
         let filteredSights = initState.items.filter(x => x.tag === 'sights');
-        //console.log(filteredSights)
         let notEmpty = state.items.length !== products.length;
         if (notEmpty) {
             return {
                 ...state,
-                items: [...state.items, ...filteredSights]
+                page: 1,
+                items: [...state.items, ...filteredSights],
             }
         }
         return {
             ...state,
+            page: 1,
             items: filteredSights
         }
     }
 
     if (action.type === SIGHTS_REMOVED) {
         let sightsRemoved = state.items.filter(x => x.tag !== 'sights');
-        //console.log(sightsRemoved)
         let Empty = state.items.length === state.items.filter(x => x.tag === 'sights').length;
         if (Empty) {
             return {
@@ -401,23 +397,23 @@ const Reducers = (state = initState, action) => {
 
     if (action.type === FILTER_TYPE_STANDS) {
         let filteredStands = initState.items.filter(x => x.tag === 'stands');
-        //console.log(filteredStands)
         let notEmpty = state.items.length !== products.length;
         if (notEmpty) {
             return {
                 ...state,
-                items: [...state.items, ...filteredStands]
+                page: 1,
+                items: [...state.items, ...filteredStands],
             }
         }
         return {
             ...state,
+            page: 1,
             items: filteredStands
         }
     }
 
     if (action.type === STANDS_REMOVED) {
         let standsRemoved = state.items.filter(x => x.tag !== 'stands');
-        //console.log(standsRemoved)
         let Empty = state.items.length === state.items.filter(x => x.tag === 'stands').length;
         if (Empty) {
             return {
@@ -433,23 +429,23 @@ const Reducers = (state = initState, action) => {
 
     if (action.type === FILTER_TYPE_ARMGUARDS) {
         let filteredArmguards = initState.items.filter(x => x.tag === 'armguards');
-        //console.log(filteredArmguards)
         let notEmpty = state.items.length !== products.length;
         if (notEmpty) {
             return {
                 ...state,
-                items: [...state.items, ...filteredArmguards]
+                page: 1,
+                items: [...state.items, ...filteredArmguards],
             }
         }
         return {
             ...state,
+            page: 1,
             items: filteredArmguards
         }
     }
 
     if (action.type === ARMGUARDS_REMOVED) {
         let armguardsRemoved = state.items.filter(x => x.tag !== 'armguards');
-        //console.log(armguardsRemoved)
         let Empty = state.items.length === state.items.filter(x => x.tag === 'armguards').length;
         if (Empty) {
             return {
@@ -478,9 +474,19 @@ const Reducers = (state = initState, action) => {
     }
 
     if (action.type === SET_PAGE) {
-        console.log("Reducer " + state.page)
-        console.log("Reducer "+action.id)
-        if (action.id ==="") {
+        if (action.id === "right") {
+            return {
+                ...state,
+                page: state.page + 1
+            }
+        }
+        if (action.id === "left") {
+            return {
+                ...state,
+                page: state.page - 1
+            }
+        }
+        if (action.id === "") {
             return {
                 ...state,
                 page: state.page
@@ -489,44 +495,6 @@ const Reducers = (state = initState, action) => {
         return {
             ...state,
             page: Number(action.id)
-        }
-    }
-
-    if (action.type === PAGINATOR) {
-        const pages = Math.ceil(state.items.length / 6);
-        const numbersArray = Array.from({ length: pages }, (x, page) => ++page);
-        return {
-            ...state,
-            pageNumbers: numbersArray
-        }
-    }
-
-    if (action.type === SET_NEXT_PAGE) {
-        const lastPage = state.pageNumbers[state.pageNumbers.length - 1]
-        console.log(lastPage)
-
-        if (state.page === lastPage) {
-            return {
-                ...state,
-                page: lastPage
-            }
-        }
-        return {
-            ...state,
-            page: state.page + 1
-        }
-    }
-
-    if (action.type === SET_PREVIOUS_PAGE) {
-        if (state.page === 1) {
-            return {
-                ...state,
-                page: 1
-            }
-        }
-        return {
-            ...state,
-            page: state.page - 1
         }
     }
 
@@ -539,7 +507,7 @@ const Reducers = (state = initState, action) => {
     }
 
     if (action.type === DISCOUNT_HANDLE) {
-        var discountedValue = state.total - (state.total * 10/100).toFixed(2)
+        var discountedValue = state.total - (state.total * 10 / 100).toFixed(2)
         return {
             ...state,
             total: discountedValue

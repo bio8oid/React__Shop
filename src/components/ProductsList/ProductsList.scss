@@ -41,7 +41,7 @@
 			padding: 5px;
 			margin: 10px;
 			color: #6d6d6d;
-			opacity: 1;
+			visibility: hidden;
 
 			@media not all and (hover: none) {
 				&:hover {
@@ -51,8 +51,9 @@
 				}
 			}
 		}
-		.hide {
-			opacity: 0;
+		
+		.showy {
+			visibility: visible;
 		}
 	}
 

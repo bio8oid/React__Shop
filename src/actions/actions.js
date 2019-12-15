@@ -31,9 +31,6 @@ export const CHECKBOX_DOWN = 'CHECKBOX_DOWN';
 export const RESET_FILTERS = 'RESET_FILTERS';
 export const TOGGLE_MENU = 'TOGGLE_MENU';
 export const SET_PAGE = 'SET_PAGE';
-export const PAGINATOR = 'PAGINATOR';
-export const SET_NEXT_PAGE = 'SET_NEXT_PAGE';
-export const SET_PREVIOUS_PAGE = 'SET_PREVIOUS_PAGE';
 export const DISCOUNT_HANDLE = 'DISCOUNT_HANDLE';
 export const INPUT_HANDLE = 'INPUT_HANDLE';
 
@@ -214,28 +211,10 @@ export const resetFilters = () => {
     }
 }
 
-export const setNextPage = () => {
-    return {
-        type: SET_NEXT_PAGE,
-    }
-}
-
-export const setPreviousPage = () => {
-    return {
-        type: SET_PREVIOUS_PAGE,
-    }
-}
-
 export const setPage = id => {
     return {
         id,
         type: SET_PAGE,
-    }
-}
-
-export const paginator = () => {
-    return {
-        type: PAGINATOR,
     }
 }
 

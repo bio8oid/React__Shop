@@ -18,33 +18,31 @@ class ProductsList extends Component {
     this.props.passID(id);
   }
 
-  
-  
+  handlePage = value => e => {
+    let id = e.target.id;
+    this.props.setPage(id);
+  }
+
   render() {
-    
-
-      this.props.paginator();
-
 
     const dataset = this.props.items;
-    let pageSet = this.props.page;
-    let offset = (pageSet - 1) * 6
-    let paginatedItems = dataset.slice(offset).slice(0, 6)
+    const pageSet = this.props.page;
+    const offset = (pageSet - 1) * 6
+    const paginatedItems = dataset.slice(offset).slice(0, 6)
+    const pages = Math.ceil(dataset.length / 6);
+    const pageNumbers = Array.from({ length: pages }, (x, page) => ++page);
 
-    const handlePage = value => e => {
-      let id = e.target.id;
+    this.componentDidUpdate = () => {
 
-      // console.log(pageNumbers[pageNumbers.length - 1])
-      // console.log(pageNumbers)
-      // console.log(pageNumbers.length)
-      // console.log("ajdi " + id)
-
-      if (id === "right") {
-        this.props.setNextPage()
-      } else if (id === "left") {
-        this.props.setPreviousPage()
+      if (pageSet === pageNumbers.length) {
+        document.getElementById('right').classList.remove('showy');
       } else {
-        this.props.setPage(id);
+        document.getElementById('right').classList.add('showy');
+      }
+      if (pageSet === pageNumbers[0]) {
+        document.getElementById('left').classList.remove('showy');
+      } else {
+        document.getElementById('left').classList.add('showy');
       }
     }
 
@@ -67,15 +65,15 @@ class ProductsList extends Component {
           ))}
 
           <div className="paginator">
-            <FontAwesomeIcon className="arrow" id="left" onClick={handlePage(this.id)} icon={faArrowLeft} />
-            {this.props.pageNumbers.map(id => {
+            <FontAwesomeIcon className="arrow " id="left" onClick={this.handlePage(this.id)} icon={faArrowLeft} />
+            {pageNumbers.map(id => {
               return (
                 <ButtonGroup key={id}>
-                  <Button className="but" id={id} key={id} onClick={handlePage(id)}>{id}</Button>
+                  <Button className="but" id={id} key={id} onClick={this.handlePage(id)}>{id}</Button>
                 </ButtonGroup>
               );
             })}
-            <FontAwesomeIcon className="arrow" id="right" onClick={handlePage(this.id)} icon={faArrowRight} />
+            <FontAwesomeIcon className="arrow showy" id="right" onClick={this.handlePage(this.id)} icon={faArrowRight} />
           </div>
 
         </div>
@@ -84,11 +82,11 @@ class ProductsList extends Component {
   }
 }
 
+
 const mapStateToProps = state => {
   return {
     items: state.items,
-    page: state.page,
-    pageNumbers: state.pageNumbers
+    page: state.page
   }
 }
 
