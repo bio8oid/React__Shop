@@ -230,8 +230,9 @@ export const discountHandle = () => {
     }
 }
 
-export const inputValueHandle = () => {
+export const inputValueHandle = event => {
     return {
         type: INPUT_HANDLE,
+        event
     }
 }

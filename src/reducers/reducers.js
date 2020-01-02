@@ -499,7 +499,7 @@ const Reducers = (state = initState, action) => {
     }
 
     if (action.type === RESET_FILTERS) {
-        var sortedById = initState.items.sort((a, b) => (a.id - b.id))
+        let sortedById = initState.items.sort((a, b) => (a.id - b.id))
         return {
             ...state,
             items: sortedById
@@ -507,7 +507,7 @@ const Reducers = (state = initState, action) => {
     }
 
     if (action.type === DISCOUNT_HANDLE) {
-        var discountedValue = state.total - (state.total * 10 / 100).toFixed(2)
+        let discountedValue = state.total - (state.total * 10 / 100).toFixed(2)
         return {
             ...state,
             total: discountedValue
@@ -515,9 +515,10 @@ const Reducers = (state = initState, action) => {
     }
 
     if (action.type === INPUT_HANDLE) {
+        let code = action.event
         return {
             ...state,
-            text: initState.text
+            text: code
         }
     }
 

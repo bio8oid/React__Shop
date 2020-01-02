@@ -5,11 +5,6 @@ import './Checkout.scss'
 
 class Checkout extends Component {
 
-    constructor(props) {
-        super(props);
-        this.state = {value: ''};
-      }
-
     componentWillUnmount = () => {
         if (this.refs.shipping.checked) {
             this.props.substractShipping()
@@ -29,15 +24,15 @@ class Checkout extends Component {
     }
 
     handleChange = event => {
-        this.setState({value: event.target.value});
-      }
+        this.props.inputValueHandle(event.target.value)
+    }
 
     handleCode = e => {
         e.preventDefault();
-        if (this.props.total === 0) {
-            alert("Total amount is 0£ - NOTHING TO DISCOUNT !")
+        if (this.props.total === 0 || this.props.total === 3.99) {
+            alert("NOTHING TO DISCOUNT !")
         }
-        else if (this.state.value === "CODE10"){
+        else if (this.props.text === "CODE10") {
             document.getElementById('code-input').disabled = true;
             document.getElementById("discount-message").classList.toggle("hide");
             this.props.discountHandle();
@@ -47,7 +42,7 @@ class Checkout extends Component {
     }
 
     render() {
-      
+
         return (
             <div className="checkout-component container">
                 <form onSubmit={this.handleCode} className='checkout-code'>
@@ -75,6 +70,6 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = {
     ...actions
-  }  
+}
 
 export default connect(mapStateToProps, mapDispatchToProps)(Checkout)
