@@ -10,6 +10,7 @@
     display: flex;
     justify-content: center;
     flex-direction: column;
+    height: 40px;
   }
 
   .menu {
@@ -47,8 +48,10 @@
 
   .input-item {
     display: flex;
+    height: 40px;
+    width: 160px;
     p {
-      line-height: 20px;
+      line-height: 40px;
     }
   }
 }

@@ -40,7 +40,7 @@ const initState = {
     items: products,
     addedItems: [],
     indicatorItems: 0,
-    total: 0,
+    total: 0.00,
     clickedProduct: [],
     isOpen: false,
     page: 1,
@@ -507,7 +507,8 @@ const Reducers = (state = initState, action) => {
     }
 
     if (action.type === DISCOUNT_HANDLE) {
-        let discountedValue = state.total - (state.total * 10 / 100).toFixed(2)
+        let discountedValue = (state.total - (state.total * 10 / 100).toFixed(0))
+        console.log((state.total * 10 / 100).toFixed(0))
         return {
             ...state,
             total: discountedValue
