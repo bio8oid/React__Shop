@@ -48,16 +48,16 @@ class Cart extends Component {
 
                                         <div className="cart-item-buttons">
                                             <div className="plus-minus-wrap">
-                                                <Link to="/cart" onClick={() => { this.handleAddQuantity(item.id) }}>
+                                                <Link className="discount-handle" to="/cart" onClick={() => { this.handleAddQuantity(item.id) }}>
                                                     <FontAwesomeIcon icon={faPlusSquare} />
                                                 </Link>
 
-                                                <Link to="/cart" onClick={() => { this.handleSubtractQuantity(item.id) }}>
+                                                <Link className="discount-handle" to="/cart" onClick={() => { this.handleSubtractQuantity(item.id) }}>
                                                     <FontAwesomeIcon icon={faMinusSquare} />
                                                 </Link>
                                             </div>
 
-                                            <Link to="/cart" className="remove-button" onClick={() => { this.handleRemove(item.id) }}>
+                                            <Link to="/cart" className="remove-button discount-handle" onClick={() => { this.handleRemove(item.id) }}>
                                                 <FontAwesomeIcon icon={faTrashAlt} />
                                             </Link>
                                         </div>

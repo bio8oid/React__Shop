@@ -154,7 +154,7 @@ const Reducers = (state = initState, action) => {
     if (action.type === ADD_SHIPPING) {
         return {
             ...state,
-            total: state.total + 3.99
+            total: state.total + 15.00
         }
     }
 
@@ -167,7 +167,7 @@ const Reducers = (state = initState, action) => {
         }
         return {
             ...state,
-            total: state.total - 3.99
+            total: state.total - 15.00
         }
     }
 
@@ -508,7 +508,6 @@ const Reducers = (state = initState, action) => {
 
     if (action.type === DISCOUNT_HANDLE) {
         let discountedValue = (state.total - (state.total * 10 / 100).toFixed(0))
-        console.log((state.total * 10 / 100).toFixed(0))
         return {
             ...state,
             total: discountedValue
