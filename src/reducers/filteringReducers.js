@@ -22,272 +22,272 @@ import {
 import products from '../data/dataCopy.json';
 
 const initState = {
-    items: products,
+    itemsFiltered: products
 }
 
-const filteringReducers = (state = initState, action) => {
+const FilteringReducers = (state = initState, action) => {
 
     if (action.type === FILTER_TYPE_RISERS) {
-        let filteredRisers = initState.items.filter(x => x.tag === 'risers');
-        let notEmpty = state.items.length !== products.length
+        let filteredRisers = initState.itemsFiltered.filter(x => x.tag === 'risers');
+        let notEmpty = state.itemsFiltered.length !== products.length
         if (notEmpty) {
             return {
                 ...state,
                 page: 1,
-                items: [...state.items, ...filteredRisers],
+                itemsFiltered: [...state.itemsFiltered, ...filteredRisers],
             }
         }
         return {
             ...state,
             page: 1,
-            items: [...filteredRisers]
+            itemsFiltered: [...filteredRisers]
         }
     }
 
     if (action.type === RISERS_REMOVED) {
-        let risersRemoved = state.items.filter(x => x.tag !== 'risers');
-        let Empty = state.items.length === state.items.filter(x => x.tag === 'risers').length;
+        let risersRemoved = state.itemsFiltered.filter(x => x.tag !== 'risers');
+        let Empty = state.itemsFiltered.length === state.itemsFiltered.filter(x => x.tag === 'risers').length;
         if (Empty) {
             return {
                 ...state,
-                items: initState.items
+                itemsFiltered: initState.itemsFiltered
             }
         }
         return {
             ...state,
-            items: risersRemoved
+            itemsFiltered: risersRemoved
         }
     }
 
     if (action.type === FILTER_TYPE_LIMBS) {
-        let filteredLimbs = initState.items.filter(x => x.tag === 'limbs');
-        let notEmpty = state.items.length !== products.length;
+        let filteredLimbs = initState.itemsFiltered.filter(x => x.tag === 'limbs');
+        let notEmpty = state.itemsFiltered.length !== products.length;
         if (notEmpty) {
             return {
                 ...state,
                 page: 1,
-                items: [...state.items, ...filteredLimbs],
+                itemsFiltered: [...state.itemsFiltered, ...filteredLimbs],
             }
         }
         return {
             ...state,
             page: 1,
-            items: filteredLimbs
+            itemsFiltered: filteredLimbs
         }
     }
 
     if (action.type === LIMBS_REMOVED) {
-        let limbsRemoved = state.items.filter(x => x.tag !== 'limbs');
-        let Empty = state.items.length === state.items.filter(x => x.tag === 'limbs').length;
+        let limbsRemoved = state.itemsFiltered.filter(x => x.tag !== 'limbs');
+        let Empty = state.itemsFiltered.length === state.itemsFiltered.filter(x => x.tag === 'limbs').length;
         if (Empty) {
             return {
                 ...state,
-                items: initState.items
+                itemsFiltered: initState.itemsFiltered
             }
         }
         return {
             ...state,
-            items: limbsRemoved
+            itemsFiltered: limbsRemoved
         }
     }
 
     if (action.type === FILTER_TYPE_TABS) {
-        let filteredTabs = initState.items.filter(x => x.tag === 'tabs');
-        let notEmpty = state.items.length !== products.length;
+        let filteredTabs = initState.itemsFiltered.filter(x => x.tag === 'tabs');
+        let notEmpty = state.itemsFiltered.length !== products.length;
         if (notEmpty) {
             return {
                 ...state,
                 page: 1,
-                items: [...state.items, ...filteredTabs],
+                itemsFiltered: [...state.itemsFiltered, ...filteredTabs],
             }
         }
         return {
             ...state,
             page: 1,
-            items: filteredTabs
+            itemsFiltered: filteredTabs
         }
     }
 
     if (action.type === TABS_REMOVED) {
-        let tabsRemoved = state.items.filter(x => x.tag !== 'tabs');
-        let Empty = state.items.length === state.items.filter(x => x.tag === 'tabs').length;
+        let tabsRemoved = state.itemsFiltered.filter(x => x.tag !== 'tabs');
+        let Empty = state.itemsFiltered.length === state.itemsFiltered.filter(x => x.tag === 'tabs').length;
         if (Empty) {
             return {
                 ...state,
-                items: initState.items
+                itemsFiltered: initState.itemsFiltered
             }
         }
         return {
             ...state,
-            items: tabsRemoved
+            itemsFiltered: tabsRemoved
         }
     }
 
     if (action.type === FILTER_TYPE_STABILIZERS) {
-        let filteredStabilizers = initState.items.filter(x => x.tag === 'stabilizers');
-        let notEmpty = state.items.length !== products.length;
+        let filteredStabilizers = initState.itemsFiltered.filter(x => x.tag === 'stabilizers');
+        let notEmpty = state.itemsFiltered.length !== products.length;
         if (notEmpty) {
             return {
                 ...state,
                 page: 1,
-                items: [...state.items, ...filteredStabilizers],
+                itemsFiltered: [...state.itemsFiltered, ...filteredStabilizers],
             }
         }
         return {
             ...state,
             page: 1,
-            items: filteredStabilizers
+            itemsFiltered: filteredStabilizers
         }
     }
 
     if (action.type === STABILIZERS_REMOVED) {
-        let stabilizersRemoved = state.items.filter(x => x.tag !== 'stabilizers');
-        let Empty = state.items.length === state.items.filter(x => x.tag === 'stabilizers').length;
+        let stabilizersRemoved = state.itemsFiltered.filter(x => x.tag !== 'stabilizers');
+        let Empty = state.itemsFiltered.length === state.itemsFiltered.filter(x => x.tag === 'stabilizers').length;
         if (Empty) {
             return {
                 ...state,
-                items: initState.items
+                itemsFiltered: initState.itemsFiltered
             }
         }
         return {
             ...state,
-            items: stabilizersRemoved
+            itemsFiltered: stabilizersRemoved
         }
     }
 
     if (action.type === FILTER_TYPE_ARROWS) {
-        let filteredArrows = initState.items.filter(x => x.tag === 'arrows');
-        let notEmpty = state.items.length !== products.length;
+        let filteredArrows = initState.itemsFiltered.filter(x => x.tag === 'arrows');
+        let notEmpty = state.itemsFiltered.length !== products.length;
         if (notEmpty) {
             return {
                 ...state,
                 page: 1,
-                items: [...state.items, ...filteredArrows],
+                itemsFiltered: [...state.itemsFiltered, ...filteredArrows],
             }
         }
         return {
             ...state,
             page: 1,
-            items: filteredArrows
+            itemsFiltered: filteredArrows
         }
     }
 
     if (action.type === ARROWS_REMOVED) {
-        let arrowsRemoved = state.items.filter(x => x.tag !== 'arrows');
-        let Empty = state.items.length === state.items.filter(x => x.tag === 'arrows').length;
+        let arrowsRemoved = state.itemsFiltered.filter(x => x.tag !== 'arrows');
+        let Empty = state.itemsFiltered.length === state.itemsFiltered.filter(x => x.tag === 'arrows').length;
         if (Empty) {
             return {
                 ...state,
-                items: initState.items
+                itemsFiltered: initState.itemsFiltered
             }
         }
         return {
             ...state,
-            items: arrowsRemoved
+            itemsFiltered: arrowsRemoved
         }
     }
 
     if (action.type === FILTER_TYPE_SIGHTS) {
-        let filteredSights = initState.items.filter(x => x.tag === 'sights');
-        let notEmpty = state.items.length !== products.length;
+        let filteredSights = initState.itemsFiltered.filter(x => x.tag === 'sights');
+        let notEmpty = state.itemsFiltered.length !== products.length;
         if (notEmpty) {
             return {
                 ...state,
                 page: 1,
-                items: [...state.items, ...filteredSights],
+                itemsFiltered: [...state.itemsFiltered, ...filteredSights],
             }
         }
         return {
             ...state,
             page: 1,
-            items: filteredSights
+            itemsFiltered: filteredSights
         }
     }
 
     if (action.type === SIGHTS_REMOVED) {
-        let sightsRemoved = state.items.filter(x => x.tag !== 'sights');
-        let Empty = state.items.length === state.items.filter(x => x.tag === 'sights').length;
+        let sightsRemoved = state.itemsFiltered.filter(x => x.tag !== 'sights');
+        let Empty = state.itemsFiltered.length === state.itemsFiltered.filter(x => x.tag === 'sights').length;
         if (Empty) {
             return {
                 ...state,
-                items: initState.items
+                itemsFiltered: initState.itemsFiltered
             }
         }
         return {
             ...state,
-            items: sightsRemoved
+            itemsFiltered: sightsRemoved
         }
     }
 
     if (action.type === FILTER_TYPE_STANDS) {
-        let filteredStands = initState.items.filter(x => x.tag === 'stands');
-        let notEmpty = state.items.length !== products.length;
+        let filteredStands = initState.itemsFiltered.filter(x => x.tag === 'stands');
+        let notEmpty = state.itemsFiltered.length !== products.length;
         if (notEmpty) {
             return {
                 ...state,
                 page: 1,
-                items: [...state.items, ...filteredStands],
+                itemsFiltered: [...state.itemsFiltered, ...filteredStands],
             }
         }
         return {
             ...state,
             page: 1,
-            items: filteredStands
+            itemsFiltered: filteredStands
         }
     }
 
     if (action.type === STANDS_REMOVED) {
-        let standsRemoved = state.items.filter(x => x.tag !== 'stands');
-        let Empty = state.items.length === state.items.filter(x => x.tag === 'stands').length;
+        let standsRemoved = state.itemsFiltered.filter(x => x.tag !== 'stands');
+        let Empty = state.itemsFiltered.length === state.itemsFiltered.filter(x => x.tag === 'stands').length;
         if (Empty) {
             return {
                 ...state,
-                items: initState.items
+                itemsFiltered: initState.itemsFiltered
             }
         }
         return {
             ...state,
-            items: standsRemoved
+            itemsFiltered: standsRemoved
         }
     }
 
     if (action.type === FILTER_TYPE_ARMGUARDS) {
-        let filteredArmguards = initState.items.filter(x => x.tag === 'armguards');
-        let notEmpty = state.items.length !== products.length;
+        let filteredArmguards = initState.itemsFiltered.filter(x => x.tag === 'armguards');
+        let notEmpty = state.itemsFiltered.length !== products.length;
         if (notEmpty) {
             return {
                 ...state,
                 page: 1,
-                items: [...state.items, ...filteredArmguards],
+                itemsFiltered: [...state.itemsFiltered, ...filteredArmguards],
             }
         }
         return {
             ...state,
             page: 1,
-            items: filteredArmguards
+            itemsFiltered: filteredArmguards
         }
     }
 
     if (action.type === ARMGUARDS_REMOVED) {
-        let armguardsRemoved = state.items.filter(x => x.tag !== 'armguards');
-        let Empty = state.items.length === state.items.filter(x => x.tag === 'armguards').length;
+        let armguardsRemoved = state.itemsFiltered.filter(x => x.tag !== 'armguards');
+        let Empty = state.itemsFiltered.length === state.itemsFiltered.filter(x => x.tag === 'armguards').length;
         if (Empty) {
             return {
                 ...state,
-                items: initState.items
+                itemsFiltered: initState.itemsFiltered
             }
         }
         return {
             ...state,
-            items: armguardsRemoved
+            itemsFiltered: armguardsRemoved
         }
     }
 
     if (action.type === RESET_FILTERS) {
-        let sortedById = initState.items.sort((a, b) => (a.id - b.id))
+        let sortedById = initState.itemsFiltered.sort((a, b) => (a.id - b.id))
         return {
             ...state,
-            items: sortedById
+            itemsFiltered: sortedById
         }
     }
 
@@ -296,4 +296,4 @@ const filteringReducers = (state = initState, action) => {
     }
 }
 
-export default filteringReducers
+export default FilteringReducers

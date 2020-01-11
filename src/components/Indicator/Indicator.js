@@ -24,7 +24,9 @@ export class Indicator extends Component {
 
 const mapStateToProps = state => {
     return {
-        indicatorItems: state.indicatorItems
+        // indicatorItems: state.indicatorItems.indicatorItems
+        indicatorItems: state.cartReducers.indicatorItems
+        // indicatorItems: state.indicatorItems
     }
 }
 

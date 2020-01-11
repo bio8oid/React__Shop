@@ -153,7 +153,9 @@ class Selector extends React.Component {
 
 const mapStateToProps = state => {
   return {
-    items: state.items
+    // items: state.items.indicatorItems
+    items: state.cartReducers.items
+    // items: state.items
   };
 };
 

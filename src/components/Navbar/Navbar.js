@@ -31,7 +31,9 @@ class NavMenu extends Component {
 
 const mapStateToProps = state => {
   return {
-    isOpen: state.isOpen
+    isOpen: state.toggleMenuReducer.isOpen
+    // isOpen: state.isOpen.isOpen
+    // isOpen: state.isOpen
   }
 }
 

@@ -1,7 +1,7 @@
 import { SET_PAGE } from '../actions/actions'
 
 const initState = {
-    page: 1,
+    page: 1
 }
 
 const paginationReducers = (state = initState, action) => {

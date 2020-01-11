@@ -25,7 +25,11 @@ class ProductsList extends Component {
 
   render() {
 
-    const dataset = this.props.items;
+    const dataset = this.props.items || this.props.itemsFiltered || this.props.itemsSorted;
+
+    console.log(dataset);
+
+    
     const pageSet = this.props.page;
     const offset = (pageSet - 1) * 6
     const paginatedItems = dataset.slice(offset).slice(0, 6)
@@ -82,11 +86,26 @@ class ProductsList extends Component {
   }
 }
 
+// cartReducers,
+//   filteringReducers,
+//   sortingReducers,
 
 const mapStateToProps = state => {
+  // console.log(state.items)
+  console.log(state.cartReducers.items)
+  console.log(state.filteringReducers.items)
+  console.log(state.sortingReducers.items)
+  console.log(state.paginationReducers.page)
+  // console.log(state.items.items)
   return {
-    items: state.items,
-    page: state.page
+    // items: state.items.items,
+    // page: state.page.page
+    items: state.cartReducers.items,
+    itemsFiltered: state.filteringReducers.items,
+    itemsSorted: state.sortingReducers.items,
+    page: state.paginationReducers.page
+    // items: state.items,
+    // page: state.page
   }
 }
 
