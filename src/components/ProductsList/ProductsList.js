@@ -92,17 +92,19 @@ class ProductsList extends Component {
 
 const mapStateToProps = state => {
   // console.log(state.items)
+  console.log(state)
   console.log(state.cartReducers.items)
-  console.log(state.filteringReducers.items)
-  console.log(state.sortingReducers.items)
+  console.log(state.filteringReducers.itemsFiltered)
+  console.log(state.sortingReducers.itemsSorted)
   console.log(state.paginationReducers.page)
   // console.log(state.items.items)
   return {
     // items: state.items.items,
     // page: state.page.page
+    state,
     items: state.cartReducers.items,
-    itemsFiltered: state.filteringReducers.items,
-    itemsSorted: state.sortingReducers.items,
+    itemsFiltered: state.filteringReducers.itemsFiltered,
+    itemsSorted: state.sortingReducers.itemsSorted,
     page: state.paginationReducers.page
     // items: state.items,
     // page: state.page
