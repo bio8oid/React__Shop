@@ -1,4 +1,4 @@
-import { SET_PAGE } from '../actions/actions'
+import { SET_PAGE } from '../actions/paginationAction'
 
 const initState = {
     page: 1

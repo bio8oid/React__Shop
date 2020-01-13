@@ -5,6 +5,7 @@ import {
     ADD_QUANTITY,
     ADD_SHIPPING,
     SUB_SHIPPING,
+    ITEM_DESCRIPTION,
     SORT_PRICE_ASC,
     SORT_PRICE_DESC,
     SORT_NAME_ASC,
@@ -26,6 +27,7 @@ import {
     FILTER_TYPE_ARMGUARDS,
     ARMGUARDS_REMOVED,
     RESET_FILTERS,
+    DISCOUNT_HANDLE
    
 } from '../actions/actions'
 
@@ -36,6 +38,7 @@ const initState = {
     addedItems: [],
     indicatorItems: 0,
     total: 0.00,
+    describedProduct: []
 }
 
 const itemsReducers = (state = initState, action) => {
@@ -151,6 +154,14 @@ const itemsReducers = (state = initState, action) => {
         return {
             ...state,
             total: state.total - 15.00
+        }
+    }
+
+    if (action.type === ITEM_DESCRIPTION) {
+        let describedProduct = state.items.find(item => item.id === action.id)
+        return {
+            ...state,
+            describedProduct: [describedProduct]
         }
     }
 
@@ -447,6 +458,14 @@ const itemsReducers = (state = initState, action) => {
         return {
             ...state,
             items: sortedById
+        }
+    }
+
+    if (action.type === DISCOUNT_HANDLE) {
+        let discountedValue = (state.total - (state.total * 10 / 100).toFixed(0))
+        return {
+            ...state,
+            total: discountedValue
         }
     }
 

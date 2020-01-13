@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import * as actions from '../../actions/actions';
+import {setPage} from '../../actions/paginationAction';
 import Pulse from 'react-reveal/Pulse';
 import { Link } from 'react-router-dom'
 import './ProductsList.scss'
@@ -25,11 +26,7 @@ class ProductsList extends Component {
 
   render() {
 
-    const dataset = this.props.items || this.props.itemsFiltered || this.props.itemsSorted;
-
-    console.log(dataset);
-
-    
+    const dataset = this.props.items;
     const pageSet = this.props.page;
     const offset = (pageSet - 1) * 6
     const paginatedItems = dataset.slice(offset).slice(0, 6)
@@ -86,33 +83,16 @@ class ProductsList extends Component {
   }
 }
 
-// cartReducers,
-//   filteringReducers,
-//   sortingReducers,
-
 const mapStateToProps = state => {
-  // console.log(state.items)
-  console.log(state)
-  console.log(state.cartReducers.items)
-  console.log(state.filteringReducers.itemsFiltered)
-  console.log(state.sortingReducers.itemsSorted)
-  console.log(state.paginationReducers.page)
-  // console.log(state.items.items)
   return {
-    // items: state.items.items,
-    // page: state.page.page
-    state,
-    items: state.cartReducers.items,
-    itemsFiltered: state.filteringReducers.itemsFiltered,
-    itemsSorted: state.sortingReducers.itemsSorted,
+    items: state.itemsReducers.items,
     page: state.paginationReducers.page
-    // items: state.items,
-    // page: state.page
   }
 }
 
 const mapDispatchToProps = {
-  ...actions
+  ...actions,
+  setPage
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(ProductsList)

@@ -2,6 +2,7 @@ import { NavLink } from "react-router-dom";
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import * as actions from '../../actions/actions'
+import { toggleMenu } from '../../actions/toggleMenuAction'
 import { Collapse, Navbar, NavbarToggler, Nav } from 'reactstrap';
 import "./Navbar.scss";
 
@@ -32,13 +33,12 @@ class NavMenu extends Component {
 const mapStateToProps = state => {
   return {
     isOpen: state.toggleMenuReducer.isOpen
-    // isOpen: state.isOpen.isOpen
-    // isOpen: state.isOpen
   }
 }
 
 const mapDispatchToProps = {
-  ...actions
+  ...actions,
+  toggleMenu
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(NavMenu)

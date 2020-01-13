@@ -1,5 +1,5 @@
 export const ADD_TO_CART = 'ADD_TO_CART';
-export const PASS_ID = 'PASS_ID';
+export const ITEM_DESCRIPTION = 'PASS_ID';
 export const REMOVE_ITEM = 'REMOVE_ITEM';
 export const SUB_QUANTITY = 'SUB_QUANTITY';
 export const ADD_QUANTITY = 'ADD_QUANTITY';
@@ -26,13 +26,8 @@ export const FILTER_TYPE_STANDS = 'FILTER_TYPE_STANDS';
 export const STANDS_REMOVED = 'STANDS_REMOVED';
 export const FILTER_TYPE_ARMGUARDS = 'FILTER_TYPE_ARMGUARDS';
 export const ARMGUARDS_REMOVED = 'ARMGUARDS_REMOVED';
-export const CHECKBOX_UP = 'CHECKBOX_UP';
-export const CHECKBOX_DOWN = 'CHECKBOX_DOWN';
 export const RESET_FILTERS = 'RESET_FILTERS';
-export const TOGGLE_MENU = 'TOGGLE_MENU';
-export const SET_PAGE = 'SET_PAGE';
-export const DISCOUNT_HANDLE = 'DISCOUNT_HANDLE';
-export const INPUT_HANDLE = 'INPUT_HANDLE';
+export const DISCOUNT_HANDLE = 'DISCOUNT_HANDLE'
 
 export const addToCart = id => {
     return {
@@ -43,7 +38,7 @@ export const addToCart = id => {
 
 export const passID = id => {
     return {
-        type: PASS_ID,
+        type: ITEM_DESCRIPTION,
         id
     }
 }
@@ -211,28 +206,8 @@ export const resetFilters = () => {
     }
 }
 
-export const setPage = id => {
-    return {
-        id,
-        type: SET_PAGE,
-    }
-}
-
-export const toggleMenu = () => {
-    return {
-        type: TOGGLE_MENU,
-    }
-}
-
 export const discountHandle = () => {
     return {
         type: DISCOUNT_HANDLE,
-    }
-}
-
-export const inputValueHandle = event => {
-    return {
-        type: INPUT_HANDLE,
-        event
     }
 }

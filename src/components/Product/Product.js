@@ -15,7 +15,7 @@ class Product extends Component {
   }
 
   render() {
-    let itemList = this.props.describedProductReducers.map(item => {
+    let itemList = this.props.items.map(item => {
       return (
         <div className="card" key={item.id}>
           <div className="card-image">
@@ -35,7 +35,7 @@ class Product extends Component {
     return (
       <Zoom cascade>
         <div className="product-component container">
-          <h1 className="product-header">{this.props.describedProductReducers.map(({ title }) => title.slice(0))}</h1>
+          <h1 className="product-header">{this.props.items.map(({ title }) => title.slice(0))}</h1>
           <div className="product-wrapper" >
             {itemList}
           </div>
@@ -47,9 +47,7 @@ class Product extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    // describedProductReducers: state.describedProductReducers.indicatorItems
-    describedProductReducers: state.describedProductReducers.indicatorItems
-    // describedProductReducers: state.describedProductReducers
+    items: state.itemsReducers.describedProduct
   }
 }
 

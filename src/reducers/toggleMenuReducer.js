@@ -1,10 +1,10 @@
-import { TOGGLE_MENU } from '../actions/actions'
+import { TOGGLE_MENU } from '../actions/toggleMenuAction'
 
 const initState = {
     isOpen: false,
 }
 
-const toggleMwnuReducers = (state = initState, action) => {
+const toggleMenuReducers = (state = initState, action) => {
 
     if (action.type === TOGGLE_MENU) {
         let open = state.isOpen === false
@@ -25,4 +25,4 @@ const toggleMwnuReducers = (state = initState, action) => {
     }
 }
 
-export default toggleMwnuReducers
+export default toggleMenuReducers

@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import * as actions from '../../actions/actions';
+import { inputValueHandle } from '../../actions/inputCodeAction';
 import './Checkout.scss'
 
 class Checkout extends Component {
@@ -66,20 +67,15 @@ class Checkout extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        addedItems: state.cartReducers.addedItems,
-        total: state.cartReducers.total,
-        text: state.discountCodeReducers.text
-        // addedItems: state.addedItems.addedItems,
-        // total: state.total.total,
-        // text: state.text.text
-        // addedItems: state.addedItems,
-        // total: state.total,
-        // text: state.text
+        addedItems: state.itemsReducers.addedItems,
+        total: state.itemsReducers.total,
+        text: state.inputCodeReducers.text
     }
 }
 
 const mapDispatchToProps = {
-    ...actions
+    ...actions,
+    inputValueHandle
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Checkout)
