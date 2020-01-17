@@ -27,7 +27,8 @@ import {
     FILTER_TYPE_ARMGUARDS,
     ARMGUARDS_REMOVED,
     RESET_FILTERS,
-    DISCOUNT_HANDLE
+    DISCOUNT_HANDLE,
+    SET_PAGE
    
 } from '../actions/actions'
 
@@ -38,7 +39,8 @@ const initState = {
     addedItems: [],
     indicatorItems: 0,
     total: 0.00,
-    describedProduct: []
+    describedProduct: [],
+    page: 1
 }
 
 const itemsReducers = (state = initState, action) => {
@@ -220,11 +222,13 @@ const itemsReducers = (state = initState, action) => {
         if (Empty) {
             return {
                 ...state,
+                page: 1,
                 items: initState.items
             }
         }
         return {
             ...state,
+            page: 1,
             items: risersRemoved
         }
     }
@@ -252,11 +256,13 @@ const itemsReducers = (state = initState, action) => {
         if (Empty) {
             return {
                 ...state,
+                page: 1,
                 items: initState.items
             }
         }
         return {
             ...state,
+            page: 1,
             items: limbsRemoved
         }
     }
@@ -284,11 +290,13 @@ const itemsReducers = (state = initState, action) => {
         if (Empty) {
             return {
                 ...state,
+                page: 1,
                 items: initState.items
             }
         }
         return {
             ...state,
+            page: 1,
             items: tabsRemoved
         }
     }
@@ -316,11 +324,13 @@ const itemsReducers = (state = initState, action) => {
         if (Empty) {
             return {
                 ...state,
+                page: 1,
                 items: initState.items
             }
         }
         return {
             ...state,
+            page: 1,
             items: stabilizersRemoved
         }
     }
@@ -348,11 +358,13 @@ const itemsReducers = (state = initState, action) => {
         if (Empty) {
             return {
                 ...state,
+                page: 1,
                 items: initState.items
             }
         }
         return {
             ...state,
+            page: 1,
             items: arrowsRemoved
         }
     }
@@ -380,11 +392,13 @@ const itemsReducers = (state = initState, action) => {
         if (Empty) {
             return {
                 ...state,
+                page: 1,
                 items: initState.items
             }
         }
         return {
             ...state,
+            page: 1,
             items: sightsRemoved
         }
     }
@@ -412,11 +426,13 @@ const itemsReducers = (state = initState, action) => {
         if (Empty) {
             return {
                 ...state,
+                page: 1,
                 items: initState.items
             }
         }
         return {
             ...state,
+            page: 1,
             items: standsRemoved
         }
     }
@@ -444,11 +460,13 @@ const itemsReducers = (state = initState, action) => {
         if (Empty) {
             return {
                 ...state,
+                page: 1,
                 items: initState.items
             }
         }
         return {
             ...state,
+            page: 1,
             items: armguardsRemoved
         }
     }
@@ -466,6 +484,31 @@ const itemsReducers = (state = initState, action) => {
         return {
             ...state,
             total: discountedValue
+        }
+    }
+
+    if (action.type === SET_PAGE) {
+        if (action.id === "right") {
+            return {
+                ...state,
+                page: state.page + 1
+            }
+        }
+        if (action.id === "left") {
+            return {
+                ...state,
+                page: state.page - 1
+            }
+        }
+        if (action.id === "") {
+            return {
+                ...state,
+                page: state.page
+            }
+        }
+        return {
+            ...state,
+            page: Number(action.id)
         }
     }
 

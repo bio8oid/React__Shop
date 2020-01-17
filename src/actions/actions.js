@@ -27,7 +27,9 @@ export const STANDS_REMOVED = 'STANDS_REMOVED';
 export const FILTER_TYPE_ARMGUARDS = 'FILTER_TYPE_ARMGUARDS';
 export const ARMGUARDS_REMOVED = 'ARMGUARDS_REMOVED';
 export const RESET_FILTERS = 'RESET_FILTERS';
-export const DISCOUNT_HANDLE = 'DISCOUNT_HANDLE'
+export const DISCOUNT_HANDLE = 'DISCOUNT_HANDLE';
+export const SET_PAGE = 'SET_PAGE';
+
 
 export const addToCart = id => {
     return {
@@ -209,5 +211,12 @@ export const resetFilters = () => {
 export const discountHandle = () => {
     return {
         type: DISCOUNT_HANDLE,
+    }
+}
+
+export const setPage = id => {
+    return {
+        id,
+        type: SET_PAGE,
     }
 }

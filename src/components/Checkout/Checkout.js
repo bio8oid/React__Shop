@@ -55,8 +55,10 @@ class Checkout extends Component {
                 </form>
                 <li className="hide discount" id="discount-message">YOUR 10% DISCOUNT APPLIED</li>
                 <li className="checkout-shipping">
-                    <input id="shipping-checkbox" type="checkbox" ref="shipping" onChange={this.handleChecked} />
-                    <label>Shipping (+ 15.00 £)</label>
+                    <label>
+                        <input id="shipping-checkbox" type="checkbox" ref="shipping" onChange={this.handleChecked} />
+                        Shipping (+ 15.00 £)
+                    </label>
                 </li>
                 <li className="checkout-total">Total: {this.props.total}  £</li>
                 <button onClick={() => { window.location.href = 'https://www.paypal.com/signin'; }} className="checkout-btn">Checkout</button>

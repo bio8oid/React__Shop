@@ -17,7 +17,7 @@ MongoClient.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true }, (e
         console.log(error);
     }
     productsData.forEach(readProducts, errorFunc);
-    console.log(readProducts());
+    // console.log(readProducts());
     client.close();
 });
 

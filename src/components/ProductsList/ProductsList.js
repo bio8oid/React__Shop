@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux'
+import { connect } from 'react-redux';
 import * as actions from '../../actions/actions';
-import {setPage} from '../../actions/paginationAction';
 import Pulse from 'react-reveal/Pulse';
-import { Link } from 'react-router-dom'
-import './ProductsList.scss'
+import { Link } from 'react-router-dom';
+import './ProductsList.scss';
 import { Button, ButtonGroup } from 'reactstrap';
 import { faArrowLeft, faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -85,14 +84,13 @@ class ProductsList extends Component {
 
 const mapStateToProps = state => {
   return {
-    items: state.itemsReducers.items,
-    page: state.paginationReducers.page
+    page: state.itemsReducers.page,
+    items: state.itemsReducers.items
   }
 }
 
 const mapDispatchToProps = {
-  ...actions,
-  setPage
+  ...actions
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(ProductsList)
