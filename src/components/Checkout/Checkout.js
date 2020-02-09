@@ -16,7 +16,7 @@ class Checkout extends Component {
         if (e.target.checked) {
             this.props.addShipping();
             if ((window.location.href.indexOf('cart') > -1) && this.props.addedItems.length > 0) {
-                alert("Try our discount code: CODE10");
+                alert("Try our discount code: CODE10%");
             }
         }
         else {
@@ -33,7 +33,7 @@ class Checkout extends Component {
         if (this.props.total === 0 || this.props.total === 3.99) {
             alert("NOTHING TO DISCOUNT !");
         }
-        else if (this.props.text === "CODE10") {
+        else if (this.props.text === "CODE10%") {
             const icons = document.querySelectorAll('.discount-handle');
             for (var item of icons) {
                 item.classList.toggle("invisible");

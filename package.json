@@ -1,6 +1,7 @@
 {
   "name": "shop-app",
   "version": "0.1.0",
+  "author": "bio8oid",
   "private": true,
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.22",
