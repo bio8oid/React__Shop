@@ -52,6 +52,7 @@ class Checkout extends Component {
             <div className="checkout-component container">
                 <form onSubmit={this.handleCode} className='checkout-code'>
                     <input id="code-input" type="text" placeholder='Enter code' onChange={this.handleChange} />
+                    <input className="apply-btn btn" type="submit" value="Apply" />
                 </form>
                 <li className="hide discount" id="discount-message">YOUR 10% DISCOUNT APPLIED</li>
                 <li className="checkout-shipping">
@@ -67,7 +68,7 @@ class Checkout extends Component {
     }
 }
 
-const mapStateToProps = (state) => {
+const mapStateToProps = state => {
     return {
         addedItems: state.itemsReducers.addedItems,
         total: state.itemsReducers.total,
