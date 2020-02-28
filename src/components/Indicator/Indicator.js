@@ -10,7 +10,7 @@ export class Indicator extends Component {
 
     render() {
         return (
-            <Link to="/cart">
+            <Link className="cart-icon-link" to="/cart">
                 <div className="cart-icon">
                     <FontAwesomeIcon icon={faShoppingBag} />
                     <div className="cart-counter">

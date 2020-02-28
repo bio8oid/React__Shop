@@ -1,67 +1,53 @@
 const MongoClient = require('mongodb').MongoClient;
 const assert = require('assert');
 
-// const express = require('express');
-// // const cors = require('cors');
 
-// const app = express();
+// var express = require('express');
+// var mongodb = require('mongodb');
+// var app = express();
 
-// // app.use(cors());
-// app.use(express.urlencoded({ extended: false }));
-// app.use(express.json());
+// var MongoClient = require('mongodb').MongoClient;
+// var db;
 
-// app.get('/', (req, res) => {
-//     console.log(res.json(data))
+// const uri = "mongodb+srv://8bollod8:bollod@clustershopapp-j4vjy.mongodb.net/Shop_App_Archery?retryWrites=true&w=majority"
+
+// // Initialize connection once
+// MongoClient.connect(uri, function (err, client) {
+//     if (err) throw err;
+
+//     db = client.db("Shop_App_Archery");
+
+//     // Start the application after the database connection is ready
+//     // app.listen(3000);
+//     // console.log("Listening on port 3000");
+
+
+// // Reuse database object in request handlers
+// // app.get("/", function (req, res) {
+//     db.collection("products").find({}, function (res, docs) {
+//         docs.each(function (err, doc) {
+//             if (doc) {
+//                 console.log(doc);
+//                 // document.window.getElementById('data').innerHTML = doc;
+//             }
+//         });
+//     });
+// // }); 
 // });
+
+
+
 const uri = "mongodb+srv://8bollod8:bollod@clustershopapp-j4vjy.mongodb.net/Shop_App_Archery?retryWrites=true&w=majority"
-
-MongoClient.connect(uri, function (err, client) {
-    // test.equal(null, err);
-    // test.ok(db != null);
-
-    const db = client.db("Shop_App_Archery");
-
-    db.collection("products").find({}, function (err, result) {
-        // test.equal(null, err);
-        // test.equal(1, result);
-
-        db.close();
-        test.done();
-    });
-});
-
-
-
-// MongoClient.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true }, (err, client) => {
-
-//     assert.equal(null, err);
-//     const db = client.db("Shop_App_Archery");
-//     var productsData = db.collection('products').find({});
+MongoClient.connect(uri, { useNewUrlParser: true }, (err, client) => {
     
-//     readProducts = doc => {
-//         console.log(doc);
-//         // let data = [];
-//         // data.push(doc)
-//         // // console.log(data);
-//         // return data;
-//     }
-//     errorFunc = error => {
-//         console.log(error);
-//     }
-//    const param = productsData.forEach(readProducts, errorFunc);
-//     // productsData(x => readProducts);
-//     // console.log(readProducts());
-//     // console.log(param);
-//     client.close();
-// });
-
-// let transfer = (readProducts, param) => {
-//     console.log(param)
-//     console.log(readProducts)
-//     // return readProducts()
-// // console.log(data)
-// }
-// transfer()
-// app.listen(3000, function(){
-//     console.log('Server is running on port:', 3000);
-//   });
+    assert.equal(null, err);
+    const db = client.db("Shop_App_Archery");
+    var productsData = db.collection('products').find({});
+    
+    readProducts =  doc => {
+        console.log(doc);
+    }
+    
+   productsData.forEach(readProducts);
+    client.close();
+});

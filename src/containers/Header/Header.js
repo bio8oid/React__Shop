@@ -10,7 +10,7 @@ class Header extends React.Component {
       <div className="header-component">
         <div className="container header-wrap">
           <Link to="/home">
-            <div aria-label="logo" className='logo-image'></div>
+            <div className='logo-image'></div>
           </Link>
           <NavMenu />
           <Indicator />
