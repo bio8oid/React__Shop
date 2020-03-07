@@ -35,7 +35,7 @@ const assert = require('assert');
 // // }); 
 // });
 
-
+var dataProducts = [];
 
 const uri = "mongodb+srv://8bollod8:bollod@clustershopapp-j4vjy.mongodb.net/Shop_App_Archery?retryWrites=true&w=majority"
 MongoClient.connect(uri, { useNewUrlParser: true }, (err, client) => {
@@ -44,10 +44,25 @@ MongoClient.connect(uri, { useNewUrlParser: true }, (err, client) => {
     const db = client.db("Shop_App_Archery");
     var productsData = db.collection('products').find({});
     
-    readProducts =  doc => {
-        console.log(doc);
-    }
-    
-   productsData.forEach(readProducts);
-    client.close();
-});
+    // readProducts =  doc => {
+    //     console.log(doc);
+    // }
+    exports.readProducts = async (req, res) => {
+
+        try {
+            // res.json(await Post.find());
+            // console.log(res)
+            // console.log(req)
+            dataProducts.push(req)
+            // console.log(dataProducts)
+            return dataProducts
+        } catch (err) {
+            console.log(err)
+        }  
+        };
+        
+        productsData.forEach(this.readProducts);
+        client.close();
+    })
+
+// console.log(this.readProducts)
