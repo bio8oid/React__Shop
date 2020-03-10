@@ -1,12 +1,18 @@
-### React__Redux__Shop__App
-
-[SHOP - heroku deploy](https://archery-react.herokuapp.com/)
-
-[SHOP - firebase deploy](https://archery-shop-dabe8.firebaseapp.com)
+ <h2 align="center">React Redux Shop App</h2>
 
 
 
+[DEMO - firebase deploy (PWA)](https://archery-shop-dabe8.firebaseapp.com)
 
+#
+
+[DEMO - heroku deploy](https://archery-react.herokuapp.com/)
+
+#
+
+![](public/images/demo.webp)
+
+#
 
 ## Installation
 In order to setup, run and start hacking the app locally you just have to:
