@@ -4,7 +4,7 @@
   "icons": [{
     "src": "./logo-1.webp",
       "sizes": "512x512",
-      "type": "image/png"
+      "type": "image/webp"
     }
   ],
   "start_url": "/index.html",
