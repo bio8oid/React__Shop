@@ -2,9 +2,9 @@
   "name": "Archery Shop",
   "short_name": "PWA",
   "icons": [{
-    "src": "./logo-1.webp",
+    "src": "./logo-1.png",
       "sizes": "512x512",
-      "type": "image/webp"
+      "type": "image/png"
     }
   ],
   "start_url": "/index.html",
