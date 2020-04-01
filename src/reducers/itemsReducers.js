@@ -1,4 +1,5 @@
 import {
+    LOAD_PRODUCTS,
     ADD_TO_CART,
     REMOVE_ITEM,
     SUB_QUANTITY,
@@ -30,12 +31,45 @@ import {
     DISCOUNT_HANDLE,
     SET_PAGE
    
-} from '../actions/actions'
+} from '../actions/actions';
 
-import products from '../data/dataCopy.json';
+// import axios from 'axios';
+
+
+// export var loadProductsRequest = async() => {
+
+//         try {
+//             let res = await axios.get('http://localhost:4000/');
+//             // await new Promise((resolve, reject) => setTimeout(resolve, 2000));
+//             console.log('res:', res.data)
+//             var products = res.data
+//             return  products;
+//             // dispatch(loadProducts(res));
+//         } catch (e) {
+//             console.log(e.message);
+//         }
+// };
+// products = loadProductsRequest()
+// var products = new Promise(
+//     function (resolve, reject) {
+//         if (resolve) {
+           
+//             // resolve(phone); // fulfilled
+//            loadProductsRequest();
+//         } else {
+//             var reason = new Error('mom is not happy');
+//             reject(reason); // reject
+//         }
+
+//     }
+// );
+
+
+
+// import products from '../data/dataCopy.json';
 
 const initState = {
-    items: products,
+    items: [],
     addedItems: [],
     indicatorItems: 0,
     total: 0.00,
@@ -44,6 +78,22 @@ const initState = {
 }
 
 const itemsReducers = (state = initState, action) => {
+
+    if (action.type === LOAD_PRODUCTS) {
+
+            // let res =  fetch('http//loalhost4000/');
+            // // console.log(JSON.stringify(res.data))
+            // res = JSON.stringify(res.data);
+
+        console.log(action)
+        console.log(action.data.data)
+        let res = action.data.data;
+        
+        return {
+            ...state,
+            items: [initState.items, ...res]
+        }
+    }
 
     if (action.type === ADD_TO_CART) {
         let addedItem = state.items.find(item => item.id === action.id)
@@ -201,7 +251,7 @@ const itemsReducers = (state = initState, action) => {
 
     if (action.type === FILTER_TYPE_RISERS) {
         let filteredRisers = initState.items.filter(x => x.tag === 'risers');
-        let notEmpty = state.items.length !== products.length
+        let notEmpty = state.items.length !== initState.items.length
         if (notEmpty) {
             return {
                 ...state,
@@ -235,7 +285,7 @@ const itemsReducers = (state = initState, action) => {
 
     if (action.type === FILTER_TYPE_LIMBS) {
         let filteredLimbs = initState.items.filter(x => x.tag === 'limbs');
-        let notEmpty = state.items.length !== products.length;
+        let notEmpty = state.items.length !== initState.items.length;
         if (notEmpty) {
             return {
                 ...state,
@@ -269,7 +319,7 @@ const itemsReducers = (state = initState, action) => {
 
     if (action.type === FILTER_TYPE_TABS) {
         let filteredTabs = initState.items.filter(x => x.tag === 'tabs');
-        let notEmpty = state.items.length !== products.length;
+        let notEmpty = state.items.length !== initState.items.length;
         if (notEmpty) {
             return {
                 ...state,
@@ -303,7 +353,7 @@ const itemsReducers = (state = initState, action) => {
 
     if (action.type === FILTER_TYPE_STABILIZERS) {
         let filteredStabilizers = initState.items.filter(x => x.tag === 'stabilizers');
-        let notEmpty = state.items.length !== products.length;
+        let notEmpty = state.items.length !== initState.items.length;
         if (notEmpty) {
             return {
                 ...state,
@@ -337,7 +387,7 @@ const itemsReducers = (state = initState, action) => {
 
     if (action.type === FILTER_TYPE_ARROWS) {
         let filteredArrows = initState.items.filter(x => x.tag === 'arrows');
-        let notEmpty = state.items.length !== products.length;
+        let notEmpty = state.items.length !== initState.items.length;
         if (notEmpty) {
             return {
                 ...state,
@@ -371,7 +421,7 @@ const itemsReducers = (state = initState, action) => {
 
     if (action.type === FILTER_TYPE_SIGHTS) {
         let filteredSights = initState.items.filter(x => x.tag === 'sights');
-        let notEmpty = state.items.length !== products.length;
+        let notEmpty = state.items.length !== initState.items.length;
         if (notEmpty) {
             return {
                 ...state,
@@ -405,7 +455,7 @@ const itemsReducers = (state = initState, action) => {
 
     if (action.type === FILTER_TYPE_STANDS) {
         let filteredStands = initState.items.filter(x => x.tag === 'stands');
-        let notEmpty = state.items.length !== products.length;
+        let notEmpty = state.items.length !== initState.items.length;
         if (notEmpty) {
             return {
                 ...state,
@@ -439,7 +489,7 @@ const itemsReducers = (state = initState, action) => {
 
     if (action.type === FILTER_TYPE_ARMGUARDS) {
         let filteredArmguards = initState.items.filter(x => x.tag === 'armguards');
-        let notEmpty = state.items.length !== products.length;
+        let notEmpty = state.items.length !== initState.items.length;
         if (notEmpty) {
             return {
                 ...state,

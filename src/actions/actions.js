@@ -1,3 +1,8 @@
+import axios from 'axios';
+// import Product from '../../server/productModel';
+// const Product = require('./productModel');
+
+export const LOAD_PRODUCTS = 'LOAD_PRODUCTS';
 export const ADD_TO_CART = 'ADD_TO_CART';
 export const ITEM_DESCRIPTION = 'PASS_ID';
 export const REMOVE_ITEM = 'REMOVE_ITEM';
@@ -30,6 +35,28 @@ export const RESET_FILTERS = 'RESET_FILTERS';
 export const DISCOUNT_HANDLE = 'DISCOUNT_HANDLE';
 export const SET_PAGE = 'SET_PAGE';
 
+
+export const loadProducts = load => {
+    // loadProductsRequest()
+//  async dispatch => {
+
+            // try {
+            //     let res = await axios.get('http://localhost:4000/');
+            //     console.log(res.data)
+            //     // console.log(JSON.stringify(res.data))
+            //     load = res.data;
+            // } catch (e) {
+            //     console.log(e.message);
+            // }
+
+        // };
+    // };
+    
+    return {
+        type: LOAD_PRODUCTS,
+        data: load
+    }
+}
 
 export const addToCart = id => {
     return {
@@ -220,3 +247,34 @@ export const setPage = id => {
         type: SET_PAGE,
     }
 }
+
+
+
+
+
+
+/* THUNK */
+
+export const loadProductsRequest = () => {
+    return async dispatch => {
+
+        try {
+            let res = await axios.get('http://localhost:4000/');
+            // await new Promise((resolve, reject) => setTimeout(resolve, 2000));
+            console.log('res:', res.data)
+            dispatch(loadProducts(res.data));
+        } catch (e) {
+            console.log(e.message);
+        }
+
+    };
+};
+
+// try {
+//     let res = await axios.get('http://localhost:4000/');
+//     console.log(res.data)
+//     // console.log(JSON.stringify(res.data))
+//     load = res.data;
+// } catch (e) {
+//     console.log(e.message);
+// }

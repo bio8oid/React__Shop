@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import * as actions from '../../actions/actions';
+// import { loadProductsRequest } from '../../reducers/itemsReducers';
+import { loadProductsRequest, loadProducts } from '../../actions/actions';
 import Pulse from 'react-reveal/Pulse';
 import { Link } from 'react-router-dom';
 import './ProductsList.scss';
@@ -9,6 +11,15 @@ import { faArrowLeft, faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 class ProductsList extends Component {
+
+  componentDidMount() {
+    const { loadProductsRequest } = this.props;
+    loadProductsRequest();
+    // loadProductsRequest();
+    // const { loadProducts } = this.props;
+    // loadProducts();
+    // this.props.loadProducts();
+  }
 
   handleClick = id => {
     this.props.addToCart(id);
@@ -26,6 +37,7 @@ class ProductsList extends Component {
   render() {
 
     const dataset = this.props.items;
+    console.log('dataset:', dataset)
     const pageSet = this.props.page;
     const offset = (pageSet - 1) * 6
     const paginatedItems = dataset.slice(offset).slice(0, 6)
@@ -83,14 +95,30 @@ class ProductsList extends Component {
 }
 
 const mapStateToProps = state => {
+  console.log('state.itemsReducers.items:', state.itemsReducers.items)
   return {
     page: state.itemsReducers.page,
-    items: state.itemsReducers.items
+    // items: state.itemsReducers.items,
+    items: loadProducts(state)
   }
 }
 
-const mapDispatchToProps = {
-  ...actions
-}
+// const mapDispatchToProps = () => ({
+const mapDispatchToProps = dispatch => ({
+  ...actions,
+  loadProducts: () => dispatch(loadProductsRequest()),
+})
 
 export default connect(mapStateToProps, mapDispatchToProps)(ProductsList)
+
+
+// const mapStateToProps = state => ({
+//   posts: getPosts(state),
+//   request: getRequest(state),
+// });
+
+// const mapDispatchToProps = dispatch => ({
+//   loadPosts: () => dispatch(loadPostsRequest()),
+// });
+
+// export default connect(mapStateToProps, mapDispatchToProps)(Posts);

@@ -79,56 +79,126 @@
 //                         "img": "http://www.cbarchery.co.uk/WebRoot/StoreLGB/Shops/62059681/54F4/6190/6A88/BC9A/99E9/C0A8/2AB8/4593/WW_WIAWIS_RISER_wht_grn.jpg"
 // },
 
+// const productSchema = require('../src/actions/productModel');
+// const getProducts = require('../src/actions/actions');
 
 
-var mongoose = require("mongoose");
+// var mongoose = require("mongoose");
+// const Schema = mongoose.Schema;
 
-const Schema = mongoose.Schema;
+// const express = require("express");
+// const app = express();
+// var port = 4000;
+// const router = express.Router();
+// var uri = "mongodb+srv://8bollod8:bollod@clustershopapp-j4vjy.mongodb.net/Shop_App_Archery?retryWrites=true&w=majority";
+
+// // const cors = require('cors');
+// // const helmet = require('helmet');
+
+// // const getProducts = async (req, res) => {
+
+// //     try {
+// //         res.status(200).json(await Product.find());
+// //     } catch (err) {
+// //         res.status(500).json(err);
+// //     }
+
+// // };
 
 
+// // import routes
+// // const postRoutes = require('./routes/post.routes');
 
-const express = require("express");
-const app = express();
-var port = 4000;
-const router = express.Router();
-var uri = "mongodb+srv://8bollod8:bollod@clustershopapp-j4vjy.mongodb.net/Shop_App_Archery?retryWrites=true&w=majority";
+// // app.use(cors());
+// // app.use(express.urlencoded({ extended: true }));
+// // app.use(express.json());
+// app.use('/', getProducts);
+// // app.use(helmet());
 
-mongoose.connect(uri, { useUnifiedTopology: true, useNewUrlParser: true });
 
-const connection = mongoose.connection;
+// var productSchema = new Schema({
+//     id: { type: 'String' },
+//     tag: { type: 'String' },
+//     title: { type: 'String' },
+//     desc: { type: 'String' },
+//     price: { type: 'String' },
+//     desc: { type: 'String' },
+// });
 
-connection.once("open", function () {
-    console.log("MongoDB database connection established successfully");
-});
 
-var productSchema = new Schema({
-    id: { type: 'String' },
-    tag: { type: 'String' },
-    title: { type: 'String' },
-    desc: { type: 'String' },
-    price: { type: 'String' },
-    desc: { type: 'String' },
-});
+// // router.route('/').get(getProducts);
 
-var Product = mongoose.model('Product', productSchema);
+// var Product = mongoose.model('Product', productSchema);
 
-app.use("/", router);
+// mongoose.connect(uri, { useUnifiedTopology: true, useNewUrlParser: true });
 
-router.route("/").get(function (req, res) {
-    Product.find({}, function (err, result) {
-        if (err) {
-            res.send(err);
-        } else {
-            res.send(result);
-            // console.log('result:', result)
-            // console.log('result:', res)
-        }
-    });
-});
+// const connection = mongoose.connection;
 
-app.listen(port, function () {
-    console.log("Server is running on Port: " + port);
-});
+// // const loadTestData = async (data) => {
+
+// //     // const data = [
+// //     //     {
+// //     //         id: '21sd42sdsaaf',
+// //     //         title: 'How do I get funding for my startup?',
+// //     //         desc: ' Getting funding for your startup can be a bit frustrating. You want <b>a lot of money</b> and <b>you don\'t have a lot to offer. But don\'t worry.</b> There is something you can do! I\'ll teach you everything you need to know. Are you ready?',
+// //     //     }
+// //     // ];
+
+// //     try {
+// //         let counter = await Product.countDocuments();
+// //         if (counter === 0) {
+// //             console.log('No Products. Loading data...');
+// //             await Product.create(data);
+// //             console.log('Test data has been successfully loaded');
+// //         }
+// //     } catch (err) {
+// //         console.log('Couldn\'t load test data', err);
+// //     }
+
+// // };
+
+// app.use("/", router);
+
+
+// connection.once("open", function () {
+//     console.log("MongoDB database connection established successfully");
+
+//     // app.get("/home", (req, res) => {
+//     Product.find({}, function (err, result) {
+//         if (err) {
+//             res.send(err);
+//         } else {
+//             // console.log('res:', res)
+//             console.log('result:', result)
+//             // res.send(result);
+//             // console.log('result:', result)
+//             // console.log('result:', res)
+//         }
+//     });
+// // });
+
+// });
+
+
+// // app.use("/", router);
+
+// // router.route("/").get(function (req, res) {
+// //     Product.find({}, function (err, result) {
+// //         if (err) {
+// //             res.send(err);
+// //         } else {
+// //             // console.log('res:', res)
+// //             // console.log('result:', result)
+// //             res.send(result);
+// //             // console.log('result:', result)
+// //             // console.log('result:', res)
+// //         }
+// //     });
+// // });
+
+// app.listen(port, function () {
+//     console.log("Server is running on Port: " + port);
+// });
 
 
 // // ---------------------------------------------------------------------------
@@ -243,3 +313,103 @@ app.listen(port, function () {
 // };
 
 // module.exports = loadTestData;
+
+
+
+
+/////////////////////////////////////////////////////////
+
+
+var mongoose = require("mongoose");
+// const Schema = mongoose.Schema;
+
+const express = require("express");
+const app = express();
+var port = 4000;
+// var kennel = require("./model.js");
+
+const loadDefaultData = require('./defaultData');
+
+const router = express.Router();
+var uri = "mongodb+srv://8bollod8:bollod@clustershopapp-j4vjy.mongodb.net/Shop_App_Archery?retryWrites=true&w=majority";
+
+const cors = require('cors');
+const helmet = require('helmet');
+
+app.use(cors());
+app.use(helmet());
+
+mongoose.connect(uri, { useUnifiedTopology: true, useNewUrlParser: true });
+
+const connection = mongoose.connection;
+
+connection.once("open", function (err,res) {
+    console.log("MongoDB database connection established successfully");
+    loadDefaultData();
+    // console.log('loadDefaultData:', loadDefaultData().resolved)
+    // res.send('kazik');
+    // // res.send(loadDefaultData());
+
+//    app.get(function (err, res) {
+//     // Product.find({}, function (err, result) {
+//     //     if (err) {
+//     //         res.send(err);
+//     //         loadDefaultData();
+//     //     } else {
+//     //         // console.log('result:', result)
+//     //         res.send(result);
+//     //     }
+//     // });
+//         if (err) {
+//             res.send(err);
+//         } else {
+//             // loadDefaultData();
+
+//             // console.log('result:', loadDefaultData())
+//             // console.log('result:', loadDefaultData)
+//             // console.log('result:', result)
+//             res.send(loadDefaultData());
+//             // res.send();
+//         }
+// });
+
+});
+
+// var productSchema = new Schema({
+//     id: { type: 'String' },
+//     tag: { type: 'String' },
+//     title: { type: 'String' },
+//     desc: { type: 'String' },
+//     price: { type: 'String' },
+//     desc: { type: 'String' },
+// });
+
+// var Product = mongoose.model('Product', productSchema);
+
+
+// app.use("/", router);
+
+// router.route("/").get(function (err, res) {
+//     // Product.find({}, function (err, result) {
+//     //     if (err) {
+//     //         res.send(err);
+//     //         loadDefaultData();
+//     //     } else {
+//     //         // console.log('result:', result)
+//     //         res.send(result);
+//     //     }
+//     // });
+//         if (err) {
+//             res.send(err);
+//         } else {
+//             // loadDefaultData();
+
+//             // console.log('result:', result)
+//             res.send(loadDefaultData());
+//             // res.send();
+//         }
+// });
+
+app.listen(port, function () {
+    console.log("Server is running on Port: " + port);
+});
