@@ -328,7 +328,9 @@ const app = express();
 var port = 4000;
 // var kennel = require("./model.js");
 
-const loadDefaultData = require('./defaultData');
+// const loadDefaultData = require('./defaultData');
+const Product = require('./productModel');
+
 
 const router = express.Router();
 var uri = "mongodb+srv://8bollod8:bollod@clustershopapp-j4vjy.mongodb.net/Shop_App_Archery?retryWrites=true&w=majority";
@@ -345,7 +347,7 @@ const connection = mongoose.connection;
 
 connection.once("open", function (err,res) {
     console.log("MongoDB database connection established successfully");
-    loadDefaultData();
+    // loadDefaultData();
     // console.log('loadDefaultData:', loadDefaultData().resolved)
     // res.send('kazik');
     // // res.send(loadDefaultData());
@@ -387,28 +389,28 @@ connection.once("open", function (err,res) {
 // var Product = mongoose.model('Product', productSchema);
 
 
-// app.use("/", router);
+app.use("/", router);
 
-// router.route("/").get(function (err, res) {
-//     // Product.find({}, function (err, result) {
-//     //     if (err) {
-//     //         res.send(err);
-//     //         loadDefaultData();
-//     //     } else {
-//     //         // console.log('result:', result)
-//     //         res.send(result);
-//     //     }
-//     // });
-//         if (err) {
-//             res.send(err);
-//         } else {
-//             // loadDefaultData();
+router.route("/").get(function (err, res) {
+    Product.find({}, function (err, result) {
+        if (err) {
+            res.send(err);
+            loadDefaultData();
+        } else {
+            // console.log('result:', result)
+            res.send(result);
+        }
+    });
+        // if (err) {
+        //     res.send(err);
+        // } else {
+        //     // loadDefaultData();
 
-//             // console.log('result:', result)
-//             res.send(loadDefaultData());
-//             // res.send();
-//         }
-// });
+        //     // console.log('result:', result)
+        //     res.send(loadDefaultData());
+        //     // res.send();
+        // }
+});
 
 app.listen(port, function () {
     console.log("Server is running on Port: " + port);

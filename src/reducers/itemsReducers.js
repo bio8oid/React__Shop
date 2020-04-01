@@ -33,34 +33,43 @@ import {
    
 } from '../actions/actions';
 
+
+// import { response } from 'express';
+
 // import axios from 'axios';
 
 
-// export var loadProductsRequest = async() => {
 
+// const getProducts = async () => {
 //         try {
 //             let res = await axios.get('http://localhost:4000/');
-//             // await new Promise((resolve, reject) => setTimeout(resolve, 2000));
 //             console.log('res:', res.data)
-//             var products = res.data
-//             return  products;
-//             // dispatch(loadProducts(res));
+//             return res.data;
 //         } catch (e) {
 //             console.log(e.message);
 //         }
-// };
-// products = loadProductsRequest()
-// var products = new Promise(
-//     function (resolve, reject) {
-//         if (resolve) {
-           
-//             // resolve(phone); // fulfilled
-//            loadProductsRequest();
-//         } else {
-//             var reason = new Error('mom is not happy');
-//             reject(reason); // reject
-//         }
+//     };
 
+// var products = new Promise((resolve, reject) => { 
+//     setTimeout(() => {
+//         resolve(getProducts());
+//     }, 10000);
+// });
+//     console.log('products:', products)
+
+
+
+// products = loadProductsRequest()
+
+// var products = new Promise(
+//       async () => {
+//         try {
+//             let res = await axios.get('http://localhost:4000/');
+//             console.log('res:', res.data)
+//             return res.data;
+//         } catch (e) {
+//             console.log(e.message);
+//         }
 //     }
 // );
 
@@ -69,7 +78,9 @@ import {
 // import products from '../data/dataCopy.json';
 
 const initState = {
+    itemsTemplate: [],
     items: [],
+    // numberOfItems: 0,
     addedItems: [],
     indicatorItems: 0,
     total: 0.00,
@@ -86,19 +97,21 @@ const itemsReducers = (state = initState, action) => {
             // res = JSON.stringify(res.data);
 
         console.log(action)
-        console.log(action.data.data)
-        let res = action.data.data;
+        console.log(action.data)
+        let serverResponse = action.data;
         
         return {
             ...state,
-            items: [initState.items, ...res]
+            items: [...initState.items, ...serverResponse],
+            itemsTemplate: [...initState.itemsTemplate, ...serverResponse],
+            // numberOfItems: serverResponse.length
         }
     }
 
     if (action.type === ADD_TO_CART) {
         let addedItem = state.items.find(item => item.id === action.id)
-        let existed_item = state.addedItems.find(item => action.id === item.id)
-        if (existed_item) {
+        let existedItem = state.addedItems.find(item => action.id === item.id)
+        if (existedItem) {
             addedItem.quantity += 1
             return {
                 ...state,
@@ -121,22 +134,22 @@ const itemsReducers = (state = initState, action) => {
 
     if (action.type === REMOVE_ITEM) {
         let itemToRemove = state.addedItems.find(item => action.id === item.id)
-        let new_items = state.addedItems.filter(item => action.id !== item.id)
+        let newItems = state.addedItems.filter(item => action.id !== item.id)
         let newTotal = state.total - (itemToRemove.price * itemToRemove.quantity)
 
-        if (new_items.length === 0) {
+        if (newItems.length === 0) {
             document.getElementById('shipping-checkbox').checked = false;
             document.getElementById("discount-message").classList.add("hide");
             return {
                 ...state,
-                addedItems: new_items,
+                addedItems: newItems,
                 total: 0,
                 indicatorItems: state.indicatorItems - itemToRemove.quantity
             }
         }
         return {
             ...state,
-            addedItems: new_items,
+            addedItems: newItems,
             total: newTotal,
             indicatorItems: state.indicatorItems - itemToRemove.quantity
         }
@@ -156,23 +169,23 @@ const itemsReducers = (state = initState, action) => {
     if (action.type === SUB_QUANTITY) {
         let addedItem = state.items.find(item => item.id === action.id)
         if (addedItem.quantity === 1) {
-            let new_items = state.addedItems.filter(item => item.id !== action.id)
+            let newItems = state.addedItems.filter(item => item.id !== action.id)
             let newTotal = state.total - addedItem.price
 
-            if (new_items.length === 0) {
+            if (newItems.length === 0) {
                 document.getElementById('shipping-checkbox').checked = false;
                 document.getElementById("discount-message").classList.add("hide");
 
                 return {
                     ...state,
-                    addedItems: new_items,
+                    addedItems: newItems,
                     total: 0,
                     indicatorItems: state.indicatorItems - 1
                 }
             }
             return {
                 ...state,
-                addedItems: new_items,
+                addedItems: newItems,
                 total: newTotal,
                 indicatorItems: state.indicatorItems - 1
             }
@@ -250,8 +263,8 @@ const itemsReducers = (state = initState, action) => {
     }
 
     if (action.type === FILTER_TYPE_RISERS) {
-        let filteredRisers = initState.items.filter(x => x.tag === 'risers');
-        let notEmpty = state.items.length !== initState.items.length
+        let filteredRisers = state.items.filter(x => x.tag === 'risers');
+        let notEmpty = state.items.length !== state.itemsTemplate.length;
         if (notEmpty) {
             return {
                 ...state,
@@ -273,7 +286,7 @@ const itemsReducers = (state = initState, action) => {
             return {
                 ...state,
                 page: 1,
-                items: initState.items
+                items: state.itemsTemplate
             }
         }
         return {

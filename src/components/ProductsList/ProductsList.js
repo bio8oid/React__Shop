@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import * as actions from '../../actions/actions';
 // import { loadProductsRequest } from '../../reducers/itemsReducers';
-import { loadProductsRequest, loadProducts } from '../../actions/actions';
+import { loadProductsRequest } from '../../actions/actions';
 import Pulse from 'react-reveal/Pulse';
 import { Link } from 'react-router-dom';
 import './ProductsList.scss';
@@ -13,11 +13,11 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 class ProductsList extends Component {
 
   componentDidMount() {
-    const { loadProductsRequest } = this.props;
-    loadProductsRequest();
+    // const { loadProductsRequest } = this.props;
     // loadProductsRequest();
-    // const { loadProducts } = this.props;
-    // loadProducts();
+    // loadProductsRequest();
+    const { loadProducts } = this.props;
+    loadProducts();
     // this.props.loadProducts();
   }
 
@@ -95,11 +95,14 @@ class ProductsList extends Component {
 }
 
 const mapStateToProps = state => {
-  console.log('state.itemsReducers.items:', state.itemsReducers.items)
+  // console.log('state.itemsReducers.items:', state.itemsReducers.items)
   return {
     page: state.itemsReducers.page,
-    // items: state.itemsReducers.items,
-    items: loadProducts(state)
+    items: state.itemsReducers.items,
+    itemsTemplate: state.itemsReducers.itemsTemplate,
+    numberOfItems: state.itemsReducers.numberOfItems,
+
+    // items: loadProducts(state)
   }
 }
 
