@@ -6,7 +6,7 @@ const loadDefaultData = async () => {
         {
             "id": 1,
             "tag": "risers",
-            "title": "W&W Nano Max Riser",
+            "title": "Psikutas",
             "desc": "Developed using WIN&WIN's carbon technology that absorbs shock and minimizes movemnet to make shooting more accurate and stable.",
             "price": 595,
             "img": "http://www.cbarchery.co.uk/WebRoot/StoreLGB/Shops/62059681/54F4/6190/6A88/BC9A/99E9/C0A8/2AB8/4593/WW_WIAWIS_RISER_wht_grn.jpg"

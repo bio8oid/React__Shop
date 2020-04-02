@@ -96,9 +96,11 @@ const itemsReducers = (state = initState, action) => {
             // // console.log(JSON.stringify(res.data))
             // res = JSON.stringify(res.data);
 
-        console.log(action)
+        // console.log(action)
         console.log(action.data)
-        let serverResponse = action.data;
+        const refactored = action.data.map(x => x.price ? {...x, price: Number(x.price)} : x )
+        console.log('refactored:', refactored)
+        let serverResponse = refactored;
         
         return {
             ...state,
@@ -110,6 +112,7 @@ const itemsReducers = (state = initState, action) => {
 
     if (action.type === ADD_TO_CART) {
         let addedItem = state.items.find(item => item.id === action.id)
+        console.log('addedItem:', addedItem)
         let existedItem = state.addedItems.find(item => action.id === item.id)
         if (existedItem) {
             addedItem.quantity += 1
@@ -159,6 +162,7 @@ const itemsReducers = (state = initState, action) => {
         let addedItem = state.items.find(item => item.id === action.id)
         addedItem.quantity += 1
         let newTotal = state.total + addedItem.price
+        console.log('newTotal:', newTotal)
         return {
             ...state,
             total: newTotal,
@@ -555,6 +559,7 @@ const itemsReducers = (state = initState, action) => {
     }
 
     if (action.type === SET_PAGE) {
+        console.log('action.id:', action.id)
         if (action.id === "right") {
             return {
                 ...state,

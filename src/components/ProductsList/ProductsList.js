@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import * as actions from '../../actions/actions';
+import { loadProductsRequest, addToCart, passID, setPage } from '../../actions/actions';
+// import * as actions from '../../actions/actions';
 // import { loadProductsRequest } from '../../reducers/itemsReducers';
-import { loadProductsRequest } from '../../actions/actions';
 import Pulse from 'react-reveal/Pulse';
 import { Link } from 'react-router-dom';
 import './ProductsList.scss';
@@ -16,9 +16,9 @@ class ProductsList extends Component {
     // const { loadProductsRequest } = this.props;
     // loadProductsRequest();
     // loadProductsRequest();
-    const { loadProducts } = this.props;
-    loadProducts();
-    // this.props.loadProducts();
+    // const { loadProducts } = this.props;
+    // loadProducts();
+    this.props.loadProducts();
   }
 
   handleClick = id => {
@@ -31,6 +31,7 @@ class ProductsList extends Component {
 
   handlePage = value => e => {
     let id = e.target.id;
+    console.log('id:', id)
     this.props.setPage(id);
   }
 
@@ -101,7 +102,7 @@ const mapStateToProps = state => {
     page: state.itemsReducers.page,
     items: state.itemsReducers.items,
     itemsTemplate: state.itemsReducers.itemsTemplate,
-    numberOfItems: state.itemsReducers.numberOfItems,
+    // numberOfItems: state.itemsReducers.numberOfItems,
 
     // items: loadProducts(state)
   }
@@ -109,8 +110,13 @@ const mapStateToProps = state => {
 
 // const mapDispatchToProps = () => ({
 const mapDispatchToProps = dispatch => ({
-  ...actions,
+  // addToCart, passID, setPage,
+  // ...actions({loadProducts: () => dispatch(loadProductsRequest())})
+  addToCart: id => dispatch(addToCart(id)),
+  passID: id => dispatch(passID(id)),
+  setPage: id => dispatch(setPage(id)),
   loadProducts: () => dispatch(loadProductsRequest()),
+  // addToCart, passID, setPage
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(ProductsList)
