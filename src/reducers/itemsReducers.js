@@ -263,9 +263,11 @@ const itemsReducers = (state = initState, action) => {
     }
 
     if (action.type === FILTER_TYPE_RISERS) {
-        let filteredRisers = state.items.filter(x => x.tag === 'risers');
-        let notEmpty = state.items.length !== state.itemsTemplate.length;
-        if (notEmpty) {
+        let filteredRisers = state.itemsTemplate.filter(x => x.tag === 'risers');
+        let alreadyFiltered = state.items.length !== state.itemsTemplate.length;
+        console.log('filteredRisers:', filteredRisers)
+
+        if (alreadyFiltered) {
             return {
                 ...state,
                 page: 1,
@@ -275,7 +277,7 @@ const itemsReducers = (state = initState, action) => {
         return {
             ...state,
             page: 1,
-            items: [...filteredRisers]
+            items: filteredRisers
         }
     }
 
@@ -297,9 +299,11 @@ const itemsReducers = (state = initState, action) => {
     }
 
     if (action.type === FILTER_TYPE_LIMBS) {
-        let filteredLimbs = initState.items.filter(x => x.tag === 'limbs');
-        let notEmpty = state.items.length !== initState.items.length;
-        if (notEmpty) {
+        let filteredLimbs = state.itemsTemplate.filter(x => x.tag === 'limbs');
+        let alreadyFiltered = state.items.length !== state.itemsTemplate.length;
+        console.log('filteredLimbs:', filteredLimbs)
+
+        if (alreadyFiltered) {
             return {
                 ...state,
                 page: 1,
@@ -320,7 +324,7 @@ const itemsReducers = (state = initState, action) => {
             return {
                 ...state,
                 page: 1,
-                items: initState.items
+                items: state.itemsTemplate
             }
         }
         return {
@@ -331,9 +335,9 @@ const itemsReducers = (state = initState, action) => {
     }
 
     if (action.type === FILTER_TYPE_TABS) {
-        let filteredTabs = initState.items.filter(x => x.tag === 'tabs');
-        let notEmpty = state.items.length !== initState.items.length;
-        if (notEmpty) {
+        let filteredTabs = state.itemsTemplate.filter(x => x.tag === 'tabs');
+        let alreadyFiltered = state.items.length !== state.itemsTemplate.length;
+        if (alreadyFiltered) {
             return {
                 ...state,
                 page: 1,
@@ -354,7 +358,7 @@ const itemsReducers = (state = initState, action) => {
             return {
                 ...state,
                 page: 1,
-                items: initState.items
+                items: state.itemsTemplate
             }
         }
         return {
@@ -365,9 +369,9 @@ const itemsReducers = (state = initState, action) => {
     }
 
     if (action.type === FILTER_TYPE_STABILIZERS) {
-        let filteredStabilizers = initState.items.filter(x => x.tag === 'stabilizers');
-        let notEmpty = state.items.length !== initState.items.length;
-        if (notEmpty) {
+        let filteredStabilizers = state.itemsTemplate.filter(x => x.tag === 'stabilizers');
+        let alreadyFiltered = state.items.length !== state.itemsTemplate.length;
+        if (alreadyFiltered) {
             return {
                 ...state,
                 page: 1,
@@ -388,7 +392,7 @@ const itemsReducers = (state = initState, action) => {
             return {
                 ...state,
                 page: 1,
-                items: initState.items
+                items: state.itemsTemplate
             }
         }
         return {
@@ -399,9 +403,9 @@ const itemsReducers = (state = initState, action) => {
     }
 
     if (action.type === FILTER_TYPE_ARROWS) {
-        let filteredArrows = initState.items.filter(x => x.tag === 'arrows');
-        let notEmpty = state.items.length !== initState.items.length;
-        if (notEmpty) {
+        let filteredArrows = state.itemsTemplate.filter(x => x.tag === 'arrows');
+        let alreadyFiltered = state.items.length !== state.itemsTemplate.length;
+        if (alreadyFiltered) {
             return {
                 ...state,
                 page: 1,
@@ -422,7 +426,7 @@ const itemsReducers = (state = initState, action) => {
             return {
                 ...state,
                 page: 1,
-                items: initState.items
+                items: state.itemsTemplate
             }
         }
         return {
@@ -433,9 +437,9 @@ const itemsReducers = (state = initState, action) => {
     }
 
     if (action.type === FILTER_TYPE_SIGHTS) {
-        let filteredSights = initState.items.filter(x => x.tag === 'sights');
-        let notEmpty = state.items.length !== initState.items.length;
-        if (notEmpty) {
+        let filteredSights = state.itemsTemplate.filter(x => x.tag === 'sights');
+        let alreadyFiltered = state.items.length !== state.itemsTemplate.length;
+        if (alreadyFiltered) {
             return {
                 ...state,
                 page: 1,
@@ -456,7 +460,7 @@ const itemsReducers = (state = initState, action) => {
             return {
                 ...state,
                 page: 1,
-                items: initState.items
+                items: state.itemsTemplate
             }
         }
         return {
@@ -467,9 +471,9 @@ const itemsReducers = (state = initState, action) => {
     }
 
     if (action.type === FILTER_TYPE_STANDS) {
-        let filteredStands = initState.items.filter(x => x.tag === 'stands');
-        let notEmpty = state.items.length !== initState.items.length;
-        if (notEmpty) {
+        let filteredStands = state.itemsTemplate.filter(x => x.tag === 'stands');
+        let alreadyFiltered = state.items.length !== state.itemsTemplate.length;
+        if (alreadyFiltered) {
             return {
                 ...state,
                 page: 1,
@@ -490,7 +494,7 @@ const itemsReducers = (state = initState, action) => {
             return {
                 ...state,
                 page: 1,
-                items: initState.items
+                items: state.itemsTemplate
             }
         }
         return {
@@ -501,9 +505,9 @@ const itemsReducers = (state = initState, action) => {
     }
 
     if (action.type === FILTER_TYPE_ARMGUARDS) {
-        let filteredArmguards = initState.items.filter(x => x.tag === 'armguards');
-        let notEmpty = state.items.length !== initState.items.length;
-        if (notEmpty) {
+        let filteredArmguards = state.itemsTemplate.filter(x => x.tag === 'armguards');
+        let alreadyFiltered = state.items.length !== state.itemsTemplate.length;
+        if (alreadyFiltered) {
             return {
                 ...state,
                 page: 1,
@@ -524,7 +528,7 @@ const itemsReducers = (state = initState, action) => {
             return {
                 ...state,
                 page: 1,
-                items: initState.items
+                items: state.itemsTemplate
             }
         }
         return {
@@ -535,7 +539,7 @@ const itemsReducers = (state = initState, action) => {
     }
 
     if (action.type === RESET_FILTERS) {
-        let sortedById = initState.items.sort((a, b) => (a.id - b.id))
+        let sortedById = state.itemsTemplate.sort((a, b) => (a.id - b.id))
         return {
             ...state,
             items: sortedById

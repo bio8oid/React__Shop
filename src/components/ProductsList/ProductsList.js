@@ -41,6 +41,7 @@ class ProductsList extends Component {
     const pageSet = this.props.page;
     const offset = (pageSet - 1) * 6
     const paginatedItems = dataset.slice(offset).slice(0, 6)
+    console.log('paginatedItems:', paginatedItems)
     const pages = Math.ceil(dataset.length / 6);
     const pageNumbers = Array.from({ length: pages }, (x, page) => ++page);
 
