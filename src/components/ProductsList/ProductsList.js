@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { loadProductsRequest, addToCart, passID, setPage } from '../../actions/actions';
-// import * as actions from '../../actions/actions';
-// import { loadProductsRequest } from '../../reducers/itemsReducers';
 import Pulse from 'react-reveal/Pulse';
 import { Link } from 'react-router-dom';
 import './ProductsList.scss';
@@ -13,11 +11,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 class ProductsList extends Component {
 
   componentDidMount() {
-    // const { loadProductsRequest } = this.props;
-    // loadProductsRequest();
-    // loadProductsRequest();
-    // const { loadProducts } = this.props;
-    // loadProducts();
     this.props.loadProducts();
   }
 
@@ -31,18 +24,15 @@ class ProductsList extends Component {
 
   handlePage = value => e => {
     let id = e.target.id;
-    console.log('id:', id)
     this.props.setPage(id);
   }
 
   render() {
 
     const dataset = this.props.items;
-    console.log('dataset:', dataset)
     const pageSet = this.props.page;
     const offset = (pageSet - 1) * 6
     const paginatedItems = dataset.slice(offset).slice(0, 6)
-    console.log('paginatedItems:', paginatedItems)
     const pages = Math.ceil(dataset.length / 6);
     const pageNumbers = Array.from({ length: pages }, (x, page) => ++page);
 
@@ -97,38 +87,18 @@ class ProductsList extends Component {
 }
 
 const mapStateToProps = state => {
-  // console.log('state.itemsReducers.items:', state.itemsReducers.items)
   return {
     page: state.itemsReducers.page,
     items: state.itemsReducers.items,
     itemsTemplate: state.itemsReducers.itemsTemplate,
-    // numberOfItems: state.itemsReducers.numberOfItems,
-
-    // items: loadProducts(state)
   }
 }
 
-// const mapDispatchToProps = () => ({
 const mapDispatchToProps = dispatch => ({
-  // addToCart, passID, setPage,
-  // ...actions({loadProducts: () => dispatch(loadProductsRequest())})
   addToCart: id => dispatch(addToCart(id)),
   passID: id => dispatch(passID(id)),
   setPage: id => dispatch(setPage(id)),
   loadProducts: () => dispatch(loadProductsRequest()),
-  // addToCart, passID, setPage
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(ProductsList)
-
-
-// const mapStateToProps = state => ({
-//   posts: getPosts(state),
-//   request: getRequest(state),
-// });
-
-// const mapDispatchToProps = dispatch => ({
-//   loadPosts: () => dispatch(loadPostsRequest()),
-// });
-
-// export default connect(mapStateToProps, mapDispatchToProps)(Posts);

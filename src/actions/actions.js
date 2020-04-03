@@ -1,6 +1,4 @@
 import axios from 'axios';
-// import Product from '../../server/productModel';
-// const Product = require('./productModel');
 
 export const LOAD_PRODUCTS = 'LOAD_PRODUCTS';
 export const ADD_TO_CART = 'ADD_TO_CART';
@@ -249,10 +247,6 @@ export const setPage = id => {
 }
 
 
-
-
-
-
 /* THUNK */
 
 export const loadProductsRequest = () => {
@@ -260,7 +254,6 @@ export const loadProductsRequest = () => {
 
         try {
             let res = await axios.get('http://localhost:4000/');
-            // await new Promise((resolve, reject) => setTimeout(resolve, 2000));
             console.log('res:', res.data)
             dispatch(loadProducts(res.data));
         } catch (e) {
@@ -269,12 +262,3 @@ export const loadProductsRequest = () => {
 
     };
 };
-
-// try {
-//     let res = await axios.get('http://localhost:4000/');
-//     console.log(res.data)
-//     // console.log(JSON.stringify(res.data))
-//     load = res.data;
-// } catch (e) {
-//     console.log(e.message);
-// }
