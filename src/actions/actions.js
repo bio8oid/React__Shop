@@ -1,5 +1,3 @@
-// import axios from 'axios';
-
 export const LOAD_PRODUCTS = 'LOAD_PRODUCTS';
 export const ADD_TO_CART = 'ADD_TO_CART';
 export const ITEM_DESCRIPTION = 'PASS_ID';
@@ -238,7 +236,8 @@ export const loadProductsRequest = () => {
     return async dispatch => {
 
         try {
-            let res = await fetch('http://localhost:4000/');
+            // let res = await fetch('https://archery-shop-dabe8.firebaseapp.com/');
+            let res = await fetch('http://localhost:8000/');
             let data = await res.json();
             console.log(data)
             dispatch(loadProducts(data));
