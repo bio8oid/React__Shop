@@ -1,4 +1,4 @@
-import axios from 'axios';
+// import axios from 'axios';
 
 export const LOAD_PRODUCTS = 'LOAD_PRODUCTS';
 export const ADD_TO_CART = 'ADD_TO_CART';
@@ -35,216 +35,201 @@ export const SET_PAGE = 'SET_PAGE';
 
 
 export const loadProducts = load => {
-    // loadProductsRequest()
-//  async dispatch => {
-
-            // try {
-            //     let res = await axios.get('http://localhost:4000/');
-            //     console.log(res.data)
-            //     // console.log(JSON.stringify(res.data))
-            //     load = res.data;
-            // } catch (e) {
-            //     console.log(e.message);
-            // }
-
-        // };
-    // };
-    
     return {
         type: LOAD_PRODUCTS,
         data: load
-    }
-}
+    };
+};
 
 export const addToCart = id => {
     return {
         type: ADD_TO_CART,
         id
-    }
-}
+    };
+};
 
 export const passID = id => {
     return {
         type: ITEM_DESCRIPTION,
         id
-    }
-}
+    };
+};
 
 export const removeItem = id => {
     return {
         type: REMOVE_ITEM,
         id
-    }
-}
+    };
+};
 
 export const subtractQuantity = id => {
     return {
         type: SUB_QUANTITY,
         id
-    }
-}
+    };
+};
 
 export const addQuantity = id => {
     return {
         type: ADD_QUANTITY,
         id
-    }
-}
+    };
+};
 
 export const addShipping = () => {
     return {
         type: ADD_SHIPPING
-    }
-}
+    };
+};
 
 export const substractShipping = () => {
     return {
         type: SUB_SHIPPING
-    }
-}
+    };
+};
 
 export const updateList = () => {
     return {
         type: UPDATE_LIST,
-    }
-}
+    };
+};
 
 export const sortedByPriceAsc = () => {
     return {
         type: SORT_PRICE_ASC,
-    }
-}
+    };
+};
 
 export const sortedByPriceDesc = () => {
     return {
         type: SORT_PRICE_DESC,
-    }
-}
+    };
+};
 
 export const sortedByNameAsc = () => {
     return {
         type: SORT_NAME_ASC,
-    }
-}
+    };
+};
 
 export const sortedByNameDesc = () => {
     return {
         type: SORT_NAME_DESC,
-    }
-}
+    };
+};
 
 export const filteredByTypeRisers = () => {
     return {
         type: FILTER_TYPE_RISERS,
-    }
-}
+    };
+};
 
 export const risersRemoved = () => {
     return {
         type: RISERS_REMOVED,
-    }
-}
+    };
+};
 
 export const filteredByTypeLimbs = () => {
     return {
         type: FILTER_TYPE_LIMBS,
-    }
-}
+    };
+};
 
 export const limbsRemoved = () => {
     return {
         type: LIMBS_REMOVED,
-    }
-}
+    };
+};
 
 export const filteredByTypeTabs = () => {
     return {
         type: FILTER_TYPE_TABS,
-    }
-}
+    };
+};
 
 export const tabsRemoved = () => {
     return {
         type: TABS_REMOVED,
-    }
-}
+    };
+};
 
 export const filteredByTypeStabilizers = () => {
     return {
         type: FILTER_TYPE_STABILIZERS,
-    }
-}
+    };
+};
 
 export const stabilizersRemoved = () => {
     return {
         type: STABILIZERS_REMOVED,
-    }
-}
+    };
+};
 
 export const filteredByTypeArrows = () => {
     return {
         type: FILTER_TYPE_ARROWS,
-    }
-}
+    };
+};
 export const arrowsRemoved = () => {
     return {
         type: ARROWS_REMOVED,
-    }
-}
+    };
+};
 
 export const filteredByTypeSights = () => {
     return {
         type: FILTER_TYPE_SIGHTS,
-    }
-}
+    };
+};
 export const sightsRemoved = () => {
     return {
         type: SIGHTS_REMOVED,
-    }
-}
+    };
+};
 
 export const filteredByTypeStands = () => {
     return {
         type: FILTER_TYPE_STANDS,
-    }
-}
+    };
+};
 
 export const standsRemoved = () => {
     return {
         type: STANDS_REMOVED,
-    }
-}
+    };
+};
 
 export const filteredByTypeArmguards = () => {
     return {
         type: FILTER_TYPE_ARMGUARDS,
-    }
-}
+    };
+};
 
 export const armguardsRemoved = () => {
     return {
         type: ARMGUARDS_REMOVED,
-    }
-}
+    };
+};
 
 export const resetFilters = () => {
     return {
         type: RESET_FILTERS,
-    }
-}
+    };
+};
 
 export const discountHandle = () => {
     return {
         type: DISCOUNT_HANDLE,
-    }
-}
+    };
+};
 
 export const setPage = id => {
     return {
         id,
         type: SET_PAGE,
-    }
-}
+    };
+};
 
 
 /* THUNK */
@@ -253,12 +238,13 @@ export const loadProductsRequest = () => {
     return async dispatch => {
 
         try {
-            let res = await axios.get('http://localhost:4000/');
-            console.log('res:', res.data)
-            dispatch(loadProducts(res.data));
+            let res = await fetch('http://localhost:4000/');
+            let data = await res.json();
+            console.log(data)
+            dispatch(loadProducts(data));
         } catch (e) {
             console.log(e.message);
-        }
+        };
 
     };
 };

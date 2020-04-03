@@ -29,7 +29,7 @@ router.route("/").get(function (err, res) {
             console.log('err:', err)
         } else {
             res.send(result);
-        }
+        };
     });
 });
 
