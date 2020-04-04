@@ -1,19 +1,26 @@
-var mongoose = require("mongoose");
 const express = require("express");
-const app = express();
+const cors = require('cors');
 const config = require('./config');
+var mongoose = require("mongoose");
+const helmet = require('helmet');
+const path = require('path');
 
-// var port = 4000;
+const app = express();
 const router = express.Router();
-// var uri = "mongodb+srv://8bollod8:bollod@clustershopapp-j4vjy.mongodb.net/Shop_App_Archery?retryWrites=true&w=majority";
+
 const Product = require('./productModel');
 
-const cors = require('cors');
-const helmet = require('helmet');
-
 app.use(cors());
-app.use(helmet());
+app.use(express.urlencoded({ extended: false }));
+app.use(express.json());
 app.use('/', router);
+app.use(helmet());
+
+app.use(express.static(path.join(__dirname, '/../build')));
+
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname + '/../build/index.html'));
+});
 
 mongoose.connect(config.DB, { useUnifiedTopology: true, useNewUrlParser: true });
 
@@ -30,6 +37,7 @@ router.route("/").get(function (err, res) {
         if (err) {
             console.log('err:', err)
         } else {
+            console.log('got it !')
             res.send(result);
         };
     });

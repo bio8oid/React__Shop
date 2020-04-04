@@ -236,10 +236,8 @@ export const loadProductsRequest = () => {
     return async dispatch => {
 
         try {
-            let res = await fetch('https://archery-shop-dabe8.firebaseapp.com/');
-            // let res = await fetch('http://localhost:8000/');
+            let res = await fetch('https://archery-react.herokuapp.com/');
             let data = await res.json();
-            console.log(data)
             dispatch(loadProducts(data));
         } catch (e) {
             console.log(e.message);
