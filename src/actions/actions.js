@@ -236,8 +236,11 @@ export const loadProductsRequest = () => {
     return async dispatch => {
 
         try {
-            let res = await fetch('https://archery-react.herokuapp.com/');
+            // let res = await fetch('https://archery-react.herokuapp.com/');
+            let res = await fetch('http://localhost:8000/');
+            console.log('res:', res)
             let data = await res.json();
+            console.log('data:', data)
             dispatch(loadProducts(data));
         } catch (e) {
             console.log(e.message);
