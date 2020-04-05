@@ -3,7 +3,7 @@ const cors = require('cors');
 const config = require('./config');
 var mongoose = require("mongoose");
 const helmet = require('helmet');
-// const path = require('path');
+const path = require('path');
 
 const app = express();
 const router = express.Router();
@@ -11,16 +11,16 @@ const router = express.Router();
 const Product = require('./productModel');
 
 app.use(cors());
-// app.use(express.urlencoded({ extended: false }));
-// app.use(express.json());
-app.use('/', router);
+app.use(express.urlencoded({ extended: false }));
+app.use(express.json());
+app.use('/api', router);
 app.use(helmet());
 
-// app.use(express.static(path.join(__dirname, '/../build')));
+app.use(express.static(path.join(__dirname, '/../build')));
 
-// app.get('*', (req, res) => {
-//     res.sendFile(path.join(__dirname + '/../build/index.html'));
-// });
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname + '/../build/index.html'));
+});
 
 mongoose.connect(config.DB, { useUnifiedTopology: true, useNewUrlParser: true });
 
@@ -37,7 +37,7 @@ router.route("/").get(function (err, res) {
         if (err) {
             console.log('err:', err)
         } else {
-            // console.log('got it !')
+            // console.log(result)
             res.send(result);
         };
     });
