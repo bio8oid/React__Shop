@@ -13,7 +13,7 @@ const Product = require('./productModel');
 app.use(cors());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
-app.use('/api', router);
+app.use('/', router);
 app.use(helmet());
 
 // app.use(express.static(path.join(__dirname, '/../build')));
@@ -32,7 +32,7 @@ connection.once('open', () => {
 
 connection.on('error', (err) => console.log('Error ' + err));
 
-router.route("/").get(function (err, res) {
+router.route("/home").get(function (err, res) {
     Product.find({}, function (err, result) {
         if (err) {
             console.log('err:', err)
