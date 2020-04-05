@@ -3,7 +3,7 @@ const cors = require('cors');
 const config = require('./config');
 var mongoose = require("mongoose");
 const helmet = require('helmet');
-// const path = require('path');
+const path = require('path');
 
 const app = express();
 const router = express.Router();
@@ -16,11 +16,11 @@ app.use(express.json());
 app.use('/', router);
 app.use(helmet());
 
-// app.use(express.static(path.join(__dirname, '/../build')));
+app.use(express.static(path.join(__dirname, '/../build')));
 
-// app.get('*', (req, res) => {
-//     res.sendFile(path.join(__dirname + '/../build/index.html'));
-// });
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname + '/../build/index.html'));
+});
 
 mongoose.connect(config.DB, { useUnifiedTopology: true, useNewUrlParser: true });
 
