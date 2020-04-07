@@ -6,9 +6,9 @@ const helmet = require('helmet');
 const path = require('path');
 
 const app = express();
-const router = express.Router();
 
-const Product = require('./productModel');
+// import routes
+const router = require('./routes/product.route');
 
 app.use(cors());
 app.use(express.urlencoded({ extended: false }));
@@ -16,12 +16,10 @@ app.use(express.json());
 app.use('/', router);
 app.use(helmet());
 
+// send static files to client
 app.use(express.static(path.join(__dirname, '/../build')));
 
-app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname + '/../build/index.html'));
-});
-
+// connect to database
 mongoose.connect(config.DB, { useUnifiedTopology: true, useNewUrlParser: true });
 
 const connection = mongoose.connection;
@@ -32,15 +30,9 @@ connection.once('open', () => {
 
 connection.on('error', (err) => console.log('Error ' + err));
 
-router.route("/").get(function (err, res) {
-    Product.find({}, function (err, result) {
-        if (err) {
-            console.log('err:', err)
-        } else {
-            // console.log(result)
-            res.send(result);
-        };
-    });
+// backup API request handler
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname + '/../build/index.html'));
 });
 
 app.listen(config.PORT, function () {
