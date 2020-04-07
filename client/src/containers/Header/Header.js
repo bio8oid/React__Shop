@@ -9,7 +9,7 @@ class Header extends React.Component {
     return (
       <div className="header-component">
         <div className="container header-wrap">
-          <Link to="/home">
+          <Link to="/">
             <div className='logo-image'></div>
           </Link>
           <NavMenu />

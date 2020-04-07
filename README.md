@@ -10,7 +10,7 @@
 
 #
 
-![](public/images/demo.webp)
+![](client/public/images/demo.webp)
 
 #
 

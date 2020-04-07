@@ -10,8 +10,8 @@
     "start": "npm-run-all -p -l start:*",
     "start:server": "cd server && yarn start",
     "start:client": "cd client && yarn start",
-    "install:client": "cd client && npm install",
-    "install:server": "cd server && npm install",
+    "install:client": "cd client && yarn install",
+    "install:server": "cd server && yarn install",
     "postinstall": "run-p install:*"
   },
   "engines": {
