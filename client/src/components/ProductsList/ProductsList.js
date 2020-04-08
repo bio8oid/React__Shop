@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { loadProductsRequest, addToCart, passID, setPage } from '../../actions/actions';
+import { loadProductsRequest, addToCart, passID, setPage } from '../../redux/actions/actions';
 import Pulse from 'react-reveal/Pulse';
 import { Link } from 'react-router-dom';
 import './ProductsList.scss';

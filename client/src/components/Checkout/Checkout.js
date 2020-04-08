@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import * as actions from '../../actions/actions';
-import { inputValueHandle } from '../../actions/inputCodeAction';
+import * as actions from '../../redux/actions/actions';
+import { inputValueHandle } from '../../redux/actions/inputCodeAction';
 import './Checkout.scss'
 
 class Checkout extends Component {

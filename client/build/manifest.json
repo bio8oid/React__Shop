@@ -1,10 +1,16 @@
 {
-  "name": "Archery Shop",
-  "short_name": "PWA",
-  "icons": [{
-    "src": "./logo-1.png",
-      "sizes": "512x512",
-      "type": "image/png"
+  "short_name": "React App",
+  "name": "Create React App Sample",
+  "icons": [
+    {
+      "src": "favicon.ico",
+      "sizes": "16x16",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "logo-1.webp",
+      "type": "image/webp",
+      "sizes": "512x512"
     }
   ],
   "start_url": "/index.html",

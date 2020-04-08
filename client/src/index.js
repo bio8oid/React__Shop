@@ -2,7 +2,7 @@ import React from "react";
 import { render } from "react-dom";
 import { Switch, Route, BrowserRouter } from "react-router-dom";
 import { Provider } from 'react-redux';
-import store from './store/store';
+import store from './redux/store/store';
 
 import "bootstrap/dist/css/bootstrap.css";
 import './assets/fonts/Montserrat-Black.ttf';
@@ -25,7 +25,6 @@ class App extends React.Component {
         <MainLayout>
           <Switch>
             <Route exact path={"/"} component={Home} />
-            {/* <Route exact path={"/home"} component={Home} /> */}
             <Route exact path={"/faq"} component={Faq} />
             <Route exact path={"/terms"} component={Terms} />
             <Route exact path={"/contact"} component={Contact} />

@@ -1,8 +1,8 @@
 import { NavLink } from "react-router-dom";
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
-import * as actions from '../../actions/actions'
-import { toggleMenu } from '../../actions/toggleMenuAction'
+import * as actions from '../../redux/actions/actions'
+import { toggleMenu } from '../../redux/actions/toggleMenuAction'
 import { Collapse, Navbar, NavbarToggler, Nav } from 'reactstrap';
 import "./Navbar.scss";
 
