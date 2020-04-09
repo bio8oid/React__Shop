@@ -18,7 +18,7 @@ class NavMenu extends Component {
         <NavbarToggler aria-label="toggler" style={{ margin: '20px'}} onClick={this.props.toggleMenu} />
           <Collapse isOpen={this.props.isOpen} navbar>
             <Nav className="ml-auto menu" navbar>
-              <NavLink style={{ textDecoration: 'none' }} exact to="/home" activeClassName="active">HOME</NavLink>
+              <NavLink style={{ textDecoration: 'none' }} exact to="/" activeClassName="active">HOME</NavLink>
               <NavLink style={{ textDecoration: 'none' }} exact to="/faq" activeClassName="active">FAQ</NavLink>
               <NavLink style={{ textDecoration: 'none' }} exact to="/terms" activeClassName="active">TERMS & CONDITIONS</NavLink>
               <NavLink style={{ textDecoration: 'none' }} exact to="/contact" activeClassName="active">CONTACT</NavLink>

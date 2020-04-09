@@ -236,8 +236,9 @@ export const loadProductsRequest = () => {
     return async dispatch => {
 
         try {
-            let res = await fetch('https://archery-react.herokuapp.com/api');
-            // let res = await fetch('http://localhost:8000/api');
+            // let res = await fetch('https://archery-shop-dabe8.firebaseapp.com/api/');
+            // let res = await fetch('https://archery-react.herokuapp.com/api');
+            let res = await fetch('http://localhost:8000/api');
             console.log('res:', res)
             let data = await res.json();
             console.log('data:', data)
