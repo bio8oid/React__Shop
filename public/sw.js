@@ -1,4 +1,4 @@
-var cacheName = 'app-name';
+var cacheName = 'Archery Shop';
 var filesToCache = [
   '/',
   '/index.html',
