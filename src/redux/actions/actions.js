@@ -244,7 +244,6 @@ export const loadProductsRequest = () => {
             var ref = database.database().ref();
             ref.on("value", function (snapshot) {
                 let data = snapshot.val();
-                console.log('data:', data)
                 dispatch(loadProducts(data));
             });
         } catch (e) {
