@@ -6,7 +6,7 @@
 
 #
 
-[DEMO - heroku deploy](https://archery-react.herokuapp.com/)
+[DEMO - heroku deploy (PWA)](https://archery-react.herokuapp.com/)
 
 #
 
