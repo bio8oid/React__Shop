@@ -9,7 +9,6 @@
     "@fortawesome/react-fontawesome": "^0.1.4",
     "bootstrap": "^4.4.1",
     "firebase": "^7.14.0",
-    "mongoose": "^5.7.1",
     "node-sass": "^4.13.1",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
@@ -46,8 +45,6 @@
     "assert": "^2.0.0",
     "enzyme": "^3.10.0",
     "enzyme-adapter-react-16": "^1.14.0",
-    "express": "^4.17.1",
-    "mongodb": "^3.3.4",
     "react-test-renderer": "^16.9.0"
   },
   "engines": {

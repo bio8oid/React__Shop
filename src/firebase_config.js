@@ -1,5 +1,5 @@
-import firebase from 'firebase';
-
+import fajerbejs from 'firebase/app';
+import 'firebase/database';
 
 const config = {
     apiKey: process.env.REACT_APP_API_KEY,
@@ -11,4 +11,4 @@ const config = {
     appId: process.env.REACT_APP_APP_ID
 };
 
-export const database = firebase.initializeApp(config);
+export const configData = fajerbejs.initializeApp(config);

@@ -1,4 +1,4 @@
-import { database } from '../../firebase_config'
+import { configData } from '../../firebase_config'
 
 
 export const LOAD_PRODUCTS = 'LOAD_PRODUCTS';
@@ -241,7 +241,7 @@ export const loadProductsRequest = () => {
     return async dispatch => {
 
         try {
-            var ref = database.database().ref();
+            var ref = configData.database().ref();
             ref.on("value", function (snapshot) {
                 let data = snapshot.val();
                 dispatch(loadProducts(data));
