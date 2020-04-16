@@ -1,8 +1,6 @@
 var cacheName = 'Archery_Shop-MERN-Heroku';
 var filesToCache = [
-    '/',
-    '/index.html',
-    '/404.html'
+    '/'
 ];
 self.addEventListener('install', function (e) {
     console.log('[ServiceWorker] Install');
