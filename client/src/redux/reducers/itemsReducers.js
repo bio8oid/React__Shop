@@ -48,7 +48,7 @@ const itemsReducers = (state = initState, action) => {
 
     if (action.type === LOAD_PRODUCTS) {
         const refactored = action.data.map(x => x.price ? { ...x, price: Number(x.price) } : x);
-        let serverResponse = refactored;
+        let serverResponse = refactored.sort((a, b) => (a.id - b.id));
 
         return {
             ...state,
