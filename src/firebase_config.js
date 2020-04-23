@@ -1,4 +1,4 @@
-import fajerbejs from 'firebase/app';
+import * as fajerbejs from 'firebase/app';
 import 'firebase/database';
 
 const config = {
