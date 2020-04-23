@@ -9,10 +9,10 @@
 /coverage
 
 # # production
-/build
 .firebase
 .firebaserc
-.firebase.json
+firebase.json
+.env
 
 # misc
 .DS_Store
