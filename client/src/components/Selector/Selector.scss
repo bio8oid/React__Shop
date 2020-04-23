@@ -20,8 +20,17 @@
     width: 140px;
   }
 
-  .selector-btn {
+   .selector-btn {
     height: 40px;
+    color: #cab6b6;
+
+    @media not all and (hover: none) {
+      &:focus,
+      &:active,
+      &:hover {
+        color: #f87428;
+      }
+    }
   }
 
   .input-group {
