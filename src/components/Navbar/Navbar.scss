@@ -1,21 +1,15 @@
-a,
-a:visited {
-  color: #959595;
+a {
+  color: #cab6b6;
+  margin-top: 30px;
+  margin-right: 20px;
 
   @media not all and (hover: none) {
+    &:focus,
+    &:active,
     &:hover {
       color: #f87428;
     }
   }
-}
-
-a.active {
-  color: #f87428;
-}
-
-nav a {
-  margin-top: 30px;
-  margin-right: 20px;
 }
 
 .navbar-component {
