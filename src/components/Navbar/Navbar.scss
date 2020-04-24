@@ -1,11 +1,13 @@
 a {
-  color: #cab6b6;
-  margin-top: 30px;
-  margin-right: 20px;
+  color: #959595;
+  outline: none;
+
+  &:focus,
+  &:active {
+    color: #f87428;
+  }
 
   @media not all and (hover: none) {
-    &:focus,
-    &:active,
     &:hover {
       color: #f87428;
     }

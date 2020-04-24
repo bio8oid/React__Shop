@@ -22,11 +22,15 @@
 
   .selector-btn {
     height: 40px;
-    color: #cab6b6;
+    color: #959595;
+    outline: none;
+
+    &:focus,
+    &:active {
+      color: #f87428;
+    }
 
     @media not all and (hover: none) {
-      &:focus,
-      &:active,
       &:hover {
         color: #f87428;
       }
