@@ -9,6 +9,6 @@ var Product = new Schema({
     desc: { type: 'String' },
     price: { type: 'String' },
     desc: { type: 'String' },
-});
+}, { collection: 'products' });
 
 module.exports = mongoose.model('Product', Product);

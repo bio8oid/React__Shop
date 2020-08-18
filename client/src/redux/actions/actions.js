@@ -236,12 +236,28 @@ export const loadProductsRequest = () => {
     return async dispatch => {
 
         try {
-            let res = await fetch('https://archery-react.herokuapp.com/api/');
+            let res = await fetch('https://loclhost:800/api');
+            console.log('res:', res)
             let data = await res.json();
+            // console.log('data:', data)
             dispatch(loadProducts(data));
         } catch (e) {
             console.log(e.message);
         };
 
-    };
+    };  
 };
+
+// export const loadProductsRequest = () => {
+//     return async dispatch => {
+
+//         try {
+//             let res = await fetch('https://archery-react.herokuapp.com/api/');
+//             let data = await res.json();
+//             dispatch(loadProducts(data));
+//         } catch (e) {
+//             console.log(e.message);
+//         };
+
+//     };
+// };
