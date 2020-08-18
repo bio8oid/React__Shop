@@ -10,9 +10,12 @@
 
 # production
 /build
+/client
+/server
 .firebase
 .firebaserc
 firebase.json
+firebase_config.js
 .env
 
 
