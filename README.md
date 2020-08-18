@@ -10,7 +10,7 @@
 
 #
 
-![](public/images/demo.webp)
+![](public/images/screen.webp)
 
 #
 
@@ -21,9 +21,6 @@ In order to setup, run and start hacking the app locally you just have to:
 2. Run `npm / yarn install`
 3. Run `npm / yarn start`
 4. Open a browser and navigate to `http://localhost:3000`
-
-
-
 
 
 
