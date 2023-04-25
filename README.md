@@ -6,9 +6,6 @@
 
 #
 
-[DEMO - heroku deploy (PWA)](https://archery-react.herokuapp.com/)
-
-#
 
 ![](client/public/images/screen.webp)
 
